@@ -4,8 +4,8 @@ import * as koaBody from 'koa-bodyparser'
 import * as Router from 'koa-router'
 
 import { graphqlKoa, graphiqlKoa } from 'apollo-server-koa'
-import setupDb from './db'
-import schema from './schema' // YOUR GraphQL schema!
+//import setupDb from './db'
+//import schema from './schema' // YOUR GraphQL schema!
 
 const port = process.env.PORT || 4000
 
