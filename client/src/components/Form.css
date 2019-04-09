@@ -1,0 +1,17 @@
+.form {
+  text-align: center;
+  margin-top: 220px;
+}
+
+.form__username {
+  width: 300px;
+  padding: 10px;
+  font-size: 13px;
+}
+
+.form__submit {
+  padding: 10px;
+  font-size: 13px;
+  background-color: #000000;
+  color: aliceblue;
+}

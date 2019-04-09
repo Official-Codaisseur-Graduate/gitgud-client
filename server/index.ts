@@ -29,7 +29,7 @@ router.get('/', async (ctx, next) => {
 
 const apiEntrypointPath = '/graphql';
 const graphQlOpts = graphqlKoa({
-    schema,
+   schema,
 });
 
 router.get(apiEntrypointPath, graphQlOpts);
