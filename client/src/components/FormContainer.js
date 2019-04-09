@@ -1,6 +1,9 @@
 import React from 'react';
 import Form from './Form';
 import './Form.css';
+import gql from 'graphql-tag';
+import { graphql } from 'react-apollo';
+
 
 
 
