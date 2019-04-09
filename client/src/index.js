@@ -3,10 +3,39 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import gql from "graphql-tag";
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import { ApolloProvider } from 'react-apollo';
+import { ApolloClient } from 'apollo-client';
+import { HttpLink } from 'apollo-link-http';
+import { InMemoryCache } from 'apollo-cache-inmemory';
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
+const url = `localhost:3030/graphql`
+
+const httpLink = {
+  uri: url
+};
+
+const client = new ApolloClient({
+  link: new HttpLink(httpLink),
+  cache: new InMemoryCache()
+});
+
+client
+  .query({
+    query: gql`
+      query GetLaunch {
+        launch(id: 56) {
+          id
+          mission {
+            name
+          }
+        }
+      }
+    `
+  })
+  .then(result => console.log(result));
+
+ReactDOM.render(<ApolloProvider client={client}><App/></ApolloProvider>, document.getElementById('root'));
+
 serviceWorker.unregister();
