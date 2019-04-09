@@ -5,13 +5,19 @@ import * as koaBody from "koa-bodyparser";
 import * as Router from "koa-router";
 import { graphqlKoa, graphiqlKoa } from "apollo-server-koa";
 import schema from "./schema";
-import {fetchData} from './getData'
+import {fetchData} from './getData';
+const cors = require('koa-cors');
+
 
 const port = process.env.PORT || 3030;
 const app = new Koa();
 const router = new Router();
 
+
+
 app.use(koaBody())
+app.use(cors())
+
 
 router.get("/", async (ctx, next: () => {}) => {
   const data = await fetchData('w3bgir1')

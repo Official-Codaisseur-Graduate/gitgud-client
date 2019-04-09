@@ -10,7 +10,7 @@ import { ApolloClient } from 'apollo-client';
 import { HttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 
-const url = `localhost:3030/graphql`
+const url = `http://localhost:3030/graphql`
 
 const httpLink = {
   uri: url
@@ -24,12 +24,10 @@ const client = new ApolloClient({
 client
   .query({
     query: gql`
-      query GetLaunch {
-        launch(id: 56) {
-          id
-          mission {
-            name
-          }
+      query GetUser {
+        user(username: "klackky") {
+          id,
+          name
         }
       }
     `
