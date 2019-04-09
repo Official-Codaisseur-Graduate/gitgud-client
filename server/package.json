@@ -4,14 +4,7 @@
   "private": true,
   "scripts": {
     "start-nodemon": "nodemon",
-    "dev": "nodemon --inspect .",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+    "dev": "nodemon --inspect ."
   },
   "dependencies": {
     "@koa/cors": "^2.2.3",
@@ -24,6 +17,7 @@
     "@types/react": "^16.8.8",
     "@types/react-dom": "^16.8.2",
     "apollo-client-preset": "^1.0.8",
+    "apollo-fetch": "^0.7.0",
     "apollo-server-koa": "^1.4.0",
     "graphql": "^14.2.1",
     "graphql-tag": "^2.10.1",
@@ -36,15 +30,6 @@
     "koa-router": "^7.4.0",
     "nodemon": "^1.18.10",
     "pg": "^7.9.0",
-    "react": "^16.8.4",
-    "react-apollo": "^2.5.4",
-    "react-dom": "^16.8.4",
-    "react-redux": "^6.0.1",
-    "react-router": "^5.0.0",
-    "react-router-dom": "^5.0.0",
-    "react-scripts": "2.1.8",
-    "redux": "^4.0.1",
-    "redux-thunk": "^2.3.0",
     "routing-controllers": "^0.7.7",
     "superagent": "^4.1.0",
     "ts-node": "^8.0.3",
