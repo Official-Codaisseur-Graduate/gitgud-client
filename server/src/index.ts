@@ -5,7 +5,7 @@ import * as koaBody from "koa-bodyparser";
 import * as Router from "koa-router";
 import { graphqlKoa, graphiqlKoa } from "apollo-server-koa";
 import schema from "./schema";
-import {fetchData} from './getData';
+import {fetchGeneralData} from './gitUse';
 const cors = require('koa-cors');
 
 
@@ -18,10 +18,11 @@ const router = new Router();
 app.use(koaBody())
 app.use(cors())
 
-
+// this is the clientside call to the server
 router.get("/", async (ctx, next: () => {}) => {
-  const data = await fetchData('w3bgir1')
-  ctx.body = `${data.user.id}`;
+  const data = await fetchGeneralData('vdegraaf')
+  
+  ctx.body = `${data}`;
   console.log(data)
   await next();
 });
