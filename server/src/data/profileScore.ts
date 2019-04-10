@@ -1,6 +1,5 @@
 import { createApolloFetch } from 'apollo-fetch'
-
-const token = '66'
+import { token } from '../index'
 
 
 export const fetchData = (username) => {
