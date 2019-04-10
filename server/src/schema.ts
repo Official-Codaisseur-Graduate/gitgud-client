@@ -1,6 +1,7 @@
 import { makeExecutableSchema } from "graphql-tools";
 //import { getRepository } from "typeorm";
-import {fetchData} from './getData'
+// import {fetchReproData} from './data/reproDetails'
+import { fetchData } from './data/getData'
 
 const typeDefs = `
   type Query {
@@ -18,7 +19,7 @@ const resolvers = {
   Query: {
     user: async(_, { username }, __, ___) => {
       const data = await fetchData(username)
-        return data.user
+        return data.username
   },
 }
 }

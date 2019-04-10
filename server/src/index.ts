@@ -5,9 +5,15 @@ import * as koaBody from "koa-bodyparser";
 import * as Router from "koa-router";
 import { graphqlKoa, graphiqlKoa } from "apollo-server-koa";
 import schema from "./schema";
-import {fetchData} from './getData';
+
+// import {fetchData} from './data/getData';
+// import { fetchReproData } from './data/reproDetails'
+import { fetchGeneralData } from './data/gitUse'
+
+
 const cors = require('koa-cors');
 
+export const token = 'de4f17275882a741779984364452b82c148e274c'
 
 const port = process.env.PORT || 3030;
 const app = new Koa();
@@ -19,12 +25,14 @@ app.use(koaBody())
 app.use(cors())
 
 
+// Test, is client side call
 router.get("/", async (ctx, next: () => {}) => {
-  const data = await fetchData('w3bgir1')
-  ctx.body = `${data.user.id}`;
-  console.log(data)
+  const data = await fetchGeneralData('vdegraaf')
+  ctx.body = `${data}`;
+  // console.log(data)
   await next();
 });
+
 
 router.post('/graphql', graphqlKoa({ schema }));
 router.get('/graphql', graphqlKoa({ schema }));
