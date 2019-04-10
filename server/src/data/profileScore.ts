@@ -1,40 +1,75 @@
-import { createApolloFetch } from 'apollo-fetch'
-import { token } from '../index'
+import { createApolloFetch } from "apollo-fetch";
+import * as face from "face-detector";
 
+const token = "b52";
 
-export const fetchData = (username) => {
+export const analizeProfile = (username: string): any => {
+  const fetch = createApolloFetch({
+    uri: "https://api.github.com/graphql"
+  });
 
-    const fetch = createApolloFetch({
-        uri: 'https://api.github.com/graphql',
-    });
+  fetch.use(({ options }, next) => {
+    if (!options.headers) {
+      options.headers = {};
+    }
+    options.headers["Authorization"] = `bearer ${token}`;
+    next();
+  });
 
-    fetch.use(({ options }, next) => {
-        if (!options.headers) {
-            options.headers = {};
-        }
-        options.headers['Authorization'] = `bearer ${token}`;
-        next();
-    });
+  fetch({
+    query: `{
+              user(login: "${username}") {
+                avatarUrl
+                bio
+                email
+                isHireable
+                location
+                name
+                websiteUrl
+                pinnedRepositories {
+                    totalCount
+                }
+              } 
+            }`
+  })
+    .then(res => {
+      const user = res.data.user;
+      const image = `${user.avatarUrl}`;
+      let score = 0;
+      let profileStats = {
+        bio: true,
+        email: true,
+        isHireable: true,
+        location: true,
+        name: true,
+        websiteUrl: true,
+        pinnedRepositories: true,
+        picture: true
+      };
 
-    return fetch({
-        query: `{
-          user(login: "${username}") {
-            avatarUrl
-            bio
-            email
-            isHireable
-            location
-            name
-            websiteUrl
-            pinnedRepositories {
-                totalCount
-            }
-          } 
-        }`,
-    }).then(res => {
-        console.log(res.data);
-        return res.data
-    });
-}
+      const data1 = new Promise(resolve => {
+        user.bio ? (score += 5) : (profileStats.bio = false);
+        user.email ? (score += 5) : (profileStats.email = false);
+        user.isHireable ? (score += 5) : (profileStats.isHireable = false);
+        user.location ? (score += 5) : (profileStats.location = false);
+        user.name ? (score += 5) : (profileStats.name = false);
+        user.websiteUrl ? (score += 5) : (profileStats.websiteUrl = false);
+        user.pinnedRepositories.totalCount > 0
+          ? (score += 5)
+          : (profileStats.pinnedRepositories = false);
+        resolve();
+      });
 
-fetchData('singhp1992')
+      const data2 = new Promise(resolve => {
+        face.detect(image, function(result) {
+          result > 0 ? (score += 5) : (profileStats.picture = false);
+          resolve();
+        });
+      });
+      Promise.all([data2, data1]).then(() => {
+        console.log({ username, score, profileStats });
+        return { username, score, profileStats };
+      });
+    })
+    .catch(e => console.log(e));
+};
