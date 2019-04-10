@@ -1,6 +1,6 @@
 import {createApolloFetch} from 'apollo-fetch'
 
-const token = 'd578de3cd3ffdc1624bd6d5436fcbdcc11e1f4e7'
+const token = '4c2e6e54bb72e399b693426c2b7a05ece75f79f4'
 
 
 export const fetchReproData = (username, reproName) => {
@@ -69,9 +69,11 @@ export const fetchReproData = (username, reproName) => {
 
           const commitMessages = res.data.repository.refs.edges.map(branch => {
             return branch.node.target.history.edges.map(commit => {
-              return commit.node.message
+              const messages = commit.node.message
+              return messages
             })
           })
+          
           // console.log(reproDescription, branchCount, reproReadMe, branchNamePlusCommitCount, commitMessages)
         return {reproDescription, branchCount, reproReadMe, branchNamePlusCommitCount, commitMessages}
       });
