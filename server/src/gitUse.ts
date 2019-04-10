@@ -1,6 +1,6 @@
 import {createApolloFetch} from 'apollo-fetch'
 
-const token = 'f42'
+const token = ''
 
 
 export const fetchGeneralData = (username) => {
