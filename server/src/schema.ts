@@ -19,7 +19,7 @@ const resolvers = {
   Query: {
     user: async(_, { username }, __, ___) => {
       const data = await fetchData(username)
-        return data
+        return data.username
   },
 }
 }
