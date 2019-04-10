@@ -1,6 +1,8 @@
 import {createApolloFetch} from 'apollo-fetch'
-import { token } from '../index'
+// import { token } from '../index'
+import { generalReproValidation } from '../validation/generalRepros'
 
+const token = 'de4f17275882a741779984364452b82c148e274c'
 
 export const fetchGeneralData = (username) => {
 
@@ -49,6 +51,7 @@ export const fetchGeneralData = (username) => {
         }
         `,
       }).then(res => {
+        
           const totalPinnedRepros = res.data.user.pinnedRepositories.totalCount
           const reproPlusBranchCount = res.data.user.pinnedRepositories.edges.map(repro => {
             const reproName = repro.node.name
@@ -66,9 +69,14 @@ export const fetchGeneralData = (username) => {
           // console.log(totalPinnedRepros, '- totalPinnenRepro')
           // console.log(reproPlusBranchCount, '- reproPlusBranchCount')
           // console.log(branchNamePlusCommitCount, '-branchNamePlusCommitCount')
+          const {averageBranchPerRepro, averageCommitPerBranch} = generalReproValidation(totalPinnedRepros, reproPlusBranchCount, branchNamePlusCommitCount)
 
-        return {totalPinnedRepros, reproPlusBranchCount, branchNamePlusCommitCount}
+
+          // console.log(totalPinnedRepros, averageBranchPerRepro, averageCommitPerBranch)
+        return {totalPinnedRepros, averageBranchPerRepro, averageCommitPerBranch}
       });
 }
+
+fetchGeneralData('vdegraaf')
 
 
