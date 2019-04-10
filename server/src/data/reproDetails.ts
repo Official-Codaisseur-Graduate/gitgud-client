@@ -1,6 +1,6 @@
 import {createApolloFetch} from 'apollo-fetch'
 
-const token = '4c2e6e54bb72e399b693426c2b7a05ece75f79f4'
+const token = ''
 
 
 export const fetchReproData = (username, reproName) => {
