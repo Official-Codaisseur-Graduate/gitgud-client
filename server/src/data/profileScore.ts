@@ -1,7 +1,7 @@
 import { createApolloFetch } from "apollo-fetch";
 import * as face from "face-detector";
 
-const token = "b52";
+const token = "b58cc3cb3dffa3e3363b8c349c57d6a03ef2840f";
 
 export const analizeProfile = (username: string): any => {
   const fetch = createApolloFetch({
@@ -16,7 +16,7 @@ export const analizeProfile = (username: string): any => {
     next();
   });
 
-  fetch({
+  return fetch({
     query: `{
               user(login: "${username}") {
                 avatarUrl
@@ -66,8 +66,8 @@ export const analizeProfile = (username: string): any => {
           resolve();
         });
       });
-      Promise.all([data2, data1]).then(() => {
-        console.log({ username, score, profileStats });
+
+      return Promise.all([data2, data1]).then(() => {
         return { username, score, profileStats };
       });
     })
