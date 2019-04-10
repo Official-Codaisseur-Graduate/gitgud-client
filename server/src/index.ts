@@ -8,7 +8,7 @@ import schema from "./schema";
 
 // import {fetchData} from './data/getData';
 // import { fetchReproData } from './data/reproDetails'
-import { fetchGeneralData } from './data/gitUse'
+// import { fetchGeneralData } from './data/gitUse'
 
 
 const cors = require('koa-cors');
@@ -26,12 +26,12 @@ app.use(cors())
 
 
 // Test, is client side call
-router.get("/", async (ctx, next: () => {}) => {
-  const data = await fetchGeneralData('vdegraaf')
-  ctx.body = `${data}`;
-  // console.log(data)
-  await next();
-});
+// router.get("/", async (ctx, next: () => {}) => {
+//   const data = await fetchGeneralData('vdegraaf')
+//   ctx.body = `${data}`;
+//   // console.log(data)
+//   await next();
+// });
 
 
 router.post('/graphql', graphqlKoa({ schema }));

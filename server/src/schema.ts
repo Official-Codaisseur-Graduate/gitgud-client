@@ -1,7 +1,8 @@
 import { makeExecutableSchema } from "graphql-tools";
 //import { getRepository } from "typeorm";
 // import {fetchReproData} from './data/reproDetails'
-import { fetchData } from './data/getData'
+// import { fetchData } from './data/getData'
+import {analizeProfile} from './data/profileScore'
 
 const typeDefs = `
   type Query {
@@ -9,17 +10,29 @@ const typeDefs = `
   }
 
   type User {
-    id: ID!
-    name: String!
-    avatarUrl: String!
+    username: String
+    score: Int
+    profileStats: Profile
+  }
+
+  type Profile {
+    bio: Boolean
+        email: Boolean
+        isHireable: Boolean
+        location: Boolean
+        name: Boolean
+        websiteUrl: Boolean
+        pinnedRepositories: Boolean
+        picture: Boolean
   }
 `;
 
 const resolvers = {
   Query: {
     user: async(_, { username }, __, ___) => {
-      const data = await fetchData(username)
-        return data.username
+      const data = await analizeProfile(username)
+      console.log(data)
+        return data
   },
 }
 }
