@@ -5,7 +5,6 @@ const token = 'd578de3cd3ffdc1624bd6d5436fcbdcc11e1f4e7'
 
 export const fetchReproData = (username, reproName) => {
 
-
     const fetch = createApolloFetch({
         uri: 'https://api.github.com/graphql',
       });
@@ -17,7 +16,7 @@ export const fetchReproData = (username, reproName) => {
           options.headers['Authorization'] = `bearer ${token}`;
           next();
 });
-  console.log(username, reproName, 'i the arguments')
+  
     return fetch({
         query: `{
           repository(owner: ${username}, name: ${reproName}) {
@@ -73,7 +72,7 @@ export const fetchReproData = (username, reproName) => {
               return commit.node.message
             })
           })
-    
+          // console.log(reproDescription, branchCount, reproReadMe, branchNamePlusCommitCount, commitMessages)
         return {reproDescription, branchCount, reproReadMe, branchNamePlusCommitCount, commitMessages}
       });
 }
