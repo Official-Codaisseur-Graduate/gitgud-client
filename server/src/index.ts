@@ -9,6 +9,7 @@ import schema from "./schema";
 import { fetchReproData } from './data/reproDetails'
 const cors = require('koa-cors');
 
+export const token = ''
 
 const port = process.env.PORT || 3030;
 const app = new Koa();
