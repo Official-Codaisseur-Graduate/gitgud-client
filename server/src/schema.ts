@@ -2,8 +2,8 @@ import { makeExecutableSchema } from "graphql-tools";
 //import { getRepository } from "typeorm";
 // import {fetchReproData} from './data/reproDetails'
 // import { fetchData } from './data/getData'
-import {analizeProfile} from './data/profileScore';
-import {fetchGeneralData} from './data/gitUse';
+import { analizeProfile } from "./data/profileScore";
+import { fetchGeneralData } from "./data/gitUse";
 
 const typeDefs = `
   type Query {
@@ -18,35 +18,36 @@ const typeDefs = `
   }
 
   type Profile {
-        bio: Boolean
-        email: Boolean
-        isHireable: Boolean
-        location: Boolean
-        name: Boolean
-        websiteUrl: Boolean
-        pinnedRepositories: Boolean
-        picture: Boolean
+    bio: Boolean
+    email: Boolean
+    isHireable: Boolean
+    location: Boolean
+    name: Boolean
+    websiteUrl: Boolean
+    pinnedRepositories: Boolean
+    picture: Boolean
   }
 
   type Stats {
-      totalPinnedRepros: Int
-      averageBranchPerRepro: Int
-      averageCommitPerBranch: Int
+    totalPinnedRepros: Int
+    averageBranchPerRepro: Int
+    averageCommitPerBranch: Int
+    repoNames: [String]
   }
 `;
 
 const resolvers = {
   Query: {
-    user: async(_, { username }, __, ___) => {
-      const data = await analizeProfile(username)
-      const gitUse = await fetchGeneralData(username)
-      console.log(`data`, data)
-      console.log(`gituse`, gitUse)
+    user: async (_, { username }, __, ___) => {
+      const data = await analizeProfile(username);
+      const gitUse = await fetchGeneralData(username);
+      console.log(`data`, data);
+      console.log(`gituse`, gitUse);
       data.stats = gitUse;
-        return data
-  },
-}
-}
+      return data;
+    }
+  }
+};
 
 const schema = makeExecutableSchema({
   typeDefs,
@@ -54,6 +55,3 @@ const schema = makeExecutableSchema({
 });
 
 export default schema;
-
-
-

@@ -8,5 +8,5 @@ export default () =>
       process.env.DATABASE_URL ||
       "postgres://postgres:secret@localhost:5432/postgres",
     entities: [],
-    synchronize: true,
+    synchronize: true
   }).then(_ => console.log("Connected to Postgres with TypeORM"));
