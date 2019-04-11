@@ -2,6 +2,8 @@ import {createApolloFetch} from 'apollo-fetch';
 import {commitValidation} from '../validation/repository/commits';
 const token = process.env.GITHUB_ACCESS_TOKEN;
 
+import { branchValidation } from '../validation/repository/branches'
+
 export const fetchReproData = (username, reproName) => {
 
     const fetch = createApolloFetch({
@@ -18,7 +20,7 @@ export const fetchReproData = (username, reproName) => {
   
     return fetch({
         query: `{
-          repository(owner: ${username}, name: ${reproName}) {
+          repository(owner: "${username}", name: "${reproName}") {
             createdAt
             name
             description
@@ -27,7 +29,7 @@ export const fetchReproData = (username, reproName) => {
                 text
               }
             }
-            refs(refPrefix: "refs/heads/", first: 10) {
+            refs(refPrefix: "refs/heads/", first: 50) {
               totalCount
               edges {
                 node {
@@ -75,9 +77,11 @@ export const fetchReproData = (username, reproName) => {
 
           const { commitStats, commitScore } = commitValidation(commitMessages)
           
+          branchValidation(branchCount, branchNamePlusCommitCount)
+          
           // console.log(reproDescription, branchCount, reproReadMe, branchNamePlusCommitCount, commitMessages)
         return {reproDescription, branchCount, reproReadMe, branchNamePlusCommitCount, commitStats, commitScore}
       });
 }
 
-// fetchReproData('vdegraaf', 'heroGame')
+fetchReproData('vdegraaf', 'Pick-a-Dawg')

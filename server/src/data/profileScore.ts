@@ -67,7 +67,7 @@ export const analizeProfile = (username: string): any => {
         });
       });
 
-      return Promise.all([data2, data1]).then(() => {
+      return Promise.all([data1, data2]).then(() => {
         return { username, score, profileStats };
       });
     })
