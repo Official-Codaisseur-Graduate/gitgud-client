@@ -18,23 +18,22 @@ const typeDefs = `
   }
 
   type Profile {
-        bio: Boolean
-        email: Boolean
-        isHireable: Boolean
-        location: Boolean
-        name: Boolean
-        websiteUrl: Boolean
-        pinnedRepositories: Boolean
-        picture: Boolean
+    bio: Boolean
+    email: Boolean
+    isHireable: Boolean
+    location: Boolean
+    name: Boolean
+    websiteUrl: Boolean
+    pinnedRepositories: Boolean
+    picture: Boolean
   }
 
   type Stats {
-      totalPinnedRepros: Int
-      averageBranchPerRepro: Int
-      averageCommitPerBranch: Int
-      repoNames: [String]
+    totalPinnedRepros: Int
+    averageBranchPerRepro: Int
+    averageCommitPerBranch: Int
+    repoNames: [String]
   }
-
 `;
 
 const resolvers = {
