@@ -1,3 +1,13 @@
 .stats {
   text-align: center;
 }
+
+.stats__profile-item {
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+}
+
+.stats__item-name {
+  margin: 7px;
+}
