@@ -13,8 +13,6 @@ import { fetchGeneralData } from './data/gitUse'
 
 const cors = require('koa-cors');
 
-export const token = 'ac4796c5659317b09d7fbe79f29c45ecf5ec42df'
-
 const port = process.env.PORT || 3030;
 const app = new Koa();
 const router = new Router();

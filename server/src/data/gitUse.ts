@@ -1,8 +1,8 @@
 import {createApolloFetch} from 'apollo-fetch'
-// import { token } from '../index'
 import { generalReproValidation } from '../validation/generalRepros'
 
-const token = 'ac4796c5659317b09d7fbe79f29c45ecf5ec42df'
+
+const token = process.env.GITHUB_ACCESS_TOKEN;
 
 export const fetchGeneralData = (username) => {
 
@@ -20,7 +20,7 @@ export const fetchGeneralData = (username) => {
 
     return fetch({
         query: `{
-          user(login: ${username}) {
+          user(login: "${username}") {
             id
             pinnedRepositories(first: 5) {
               totalCount
@@ -51,20 +51,26 @@ export const fetchGeneralData = (username) => {
         }
         `,
       }).then(res => {
-        
+        console.log(res)
+        console.log(res.data.user.pinnedRepositories.totalCount)
           const totalPinnedRepros = res.data.user.pinnedRepositories.totalCount
-          const reproPlusBranchCount = res.data.user.pinnedRepositories.edges.map(repro => {
-            const reproName = repro.node.name
-            const branchCount = repro.node.refs.totalCount
-            return {reproName, branchCount}
-          })
-          const branchNamePlusCommitCount = res.data.user.pinnedRepositories.edges.map(repro => {
-            return repro.node.refs.edges.map(branch => {
-              const branchName = branch.node.branchName
-              const commitCount = branch.node.target.history.totalCount
-              return {branchName, commitCount}
+          if(totalPinnedRepros === 0) {
+            return 0;
+          } else {
+            const reproPlusBranchCount = res.data.user.pinnedRepositories.edges.map(repro => {
+              const reproName = repro.node.name
+              const branchCount = repro.node.refs.totalCount
+              return {reproName, branchCount}
             })
-          })
+            const branchNamePlusCommitCount = res.data.user.pinnedRepositories.edges.map(repro => {
+              return repro.node.refs.edges.map(branch => {
+                const branchName = branch.node.branchName
+                const commitCount = branch.node.target.history.totalCount
+                return {branchName, commitCount}
+              })
+            })
+          
+       
 
           // console.log(totalPinnedRepros, '- totalPinnenRepro')
           // console.log(reproPlusBranchCount, '- reproPlusBranchCount')
@@ -74,9 +80,8 @@ export const fetchGeneralData = (username) => {
 
           // console.log(totalPinnedRepros, averageBranchPerRepro, averageCommitPerBranch)
         return {totalPinnedRepros, averageBranchPerRepro, averageCommitPerBranch}
-      });
+        }
+    });
 }
-
-fetchGeneralData('vdegraaf')
 
 

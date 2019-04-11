@@ -7,7 +7,7 @@ export const generalReproValidation = (totalPinnedRepros, reproPlusBranchCount, 
     return repro.branchCount
   })
   const branchCount = branchCountMap.reduce((partial_sum, a) => partial_sum + a)
-  const averageBranchPerRepro = (branchCount / totalPinnedRepros)
+  const averageBranchPerRepro = Math.round((branchCount / totalPinnedRepros))
 
   const commitCount = branchNamePlusCommitCount.map(branches => {
     return branches.map(branch => {
