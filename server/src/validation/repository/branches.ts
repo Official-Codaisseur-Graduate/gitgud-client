@@ -45,7 +45,7 @@ export const branchValidation = (branchCount, branchNamePlusCommitCount) => {
 
   })
   scoreCalculator()
-  console.log(branchStats, branchScore)
+  // console.log(branchStats, branchScore)
   return { branchStats, branchScore }
 
 }

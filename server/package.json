@@ -32,6 +32,7 @@
     "koa-request-logger": "^1.2.0",
     "koa-router": "^7.4.0",
     "nodemon": "^1.18.11",
+    "pg": "^7.9.0",
     "ts-node": "^8.0.3",
     "typeorm": "^0.2.15",
     "typescript": "^3.3.4000"

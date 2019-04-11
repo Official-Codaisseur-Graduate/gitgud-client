@@ -1,5 +1,6 @@
 import {createApolloFetch} from 'apollo-fetch'
-import { token } from '../index'
+
+const token = process.env.GITHUB_ACCESS_TOKEN
 
 
 export const fetchData = (username) => {

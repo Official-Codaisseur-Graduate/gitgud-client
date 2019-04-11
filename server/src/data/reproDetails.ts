@@ -2,7 +2,7 @@ import {createApolloFetch} from 'apollo-fetch'
 // import { token } from '../index'
 import { branchValidation } from '../validation/repository/branches'
 
-const token = 'ac4796c5659317b09d7fbe79f29c45ecf5ec42df'
+const token = process.env.GITHUB_ACCESS_TOKEN
 
 export const fetchReproData = (username, reproName) => {
 
