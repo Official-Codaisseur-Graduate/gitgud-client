@@ -13,7 +13,7 @@ import schema from "./schema";
 
 const cors = require('koa-cors');
 
-export const token = 'de4f17275882a741779984364452b82c148e274c'
+export const token = '17daf8a6cbcb53e01d9efb6c4cc3d2281e608049'
 
 const port = process.env.PORT || 3030;
 const app = new Koa();
