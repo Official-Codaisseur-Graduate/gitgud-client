@@ -2,8 +2,8 @@ import { makeExecutableSchema } from "graphql-tools";
 //import { getRepository } from "typeorm";
 // import {fetchReproData} from './data/reproDetails'
 // import { fetchData } from './data/getData'
-import {analizeProfile} from './data/profileScore';
-import {fetchGeneralData} from './data/gitUse';
+import { analizeProfile } from "./data/profileScore";
+import { fetchGeneralData } from "./data/gitUse";
 
 const typeDefs = `
   type Query {
@@ -38,16 +38,16 @@ const typeDefs = `
 
 const resolvers = {
   Query: {
-    user: async(_, { username }, __, ___) => {
-      const data = await analizeProfile(username)
-      const gitUse = await fetchGeneralData(username)
-      console.log(`data`, data)
-      console.log(`gituse`, gitUse)
+    user: async (_, { username }, __, ___) => {
+      const data = await analizeProfile(username);
+      const gitUse = await fetchGeneralData(username);
+      console.log(`data`, data);
+      console.log(`gituse`, gitUse);
       data.stats = gitUse;
-        return data
-  },
-}
-}
+      return data;
+    }
+  }
+};
 
 const schema = makeExecutableSchema({
   typeDefs,
@@ -55,6 +55,3 @@ const schema = makeExecutableSchema({
 });
 
 export default schema;
-
-
-

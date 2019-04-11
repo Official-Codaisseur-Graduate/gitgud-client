@@ -1,39 +1,36 @@
-import React from 'react';
-import Form from './Form';
-import './Form.css';
-
+import React from "react";
+import Form from "./Form";
+import "./Form.css";
 
 export default class FormContainer extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-        search: '',
-        username: ''
-    }
+      search: "",
+      username: ""
+    };
   }
 
-  onChange = (event) => {
+  onChange = event => {
     this.setState({
-        search: event.target.value
-    })
-  }
+      search: event.target.value
+    });
+  };
 
- onSubmit = (event) => {
-    event.preventDefault()
+  onSubmit = event => {
+    event.preventDefault();
     this.setState({
       username: this.state.search
-    })
+    });
   };
 
   render() {
-
-    return ( 
-      <Form 
+    return (
+      <Form
         username={this.state.username}
         onSubmit={this.onSubmit}
         onChange={this.onChange}
       />
-    )
+    );
   }
 }
-
