@@ -1,6 +1,7 @@
 import { createApolloFetch } from "apollo-fetch";
 import { commitValidation } from "../validation/repository/commits";
 import { branchValidation } from "../validation/repository/branches";
+import { scoreCalculator } from '../validation/repository/scoreCalculator'
 
 const token = process.env.GITHUB_ACCESS_TOKEN
 
@@ -79,6 +80,13 @@ export const fetchReproData = (username, reproName) => {
 
     const branchStats = branchValidation(branchCount, branchNamePlusCommitCount);
 
+    scoreCalculator(
+      commitStats.commitScore, 
+      branchStats.branchScore,
+      reproDescription,
+      reproReadMe
+      )
+
     // console.log(reproDescription, branchCount, reproReadMe, branchNamePlusCommitCount, commitMessages)
     return {
       reproDescription,
@@ -91,3 +99,4 @@ export const fetchReproData = (username, reproName) => {
   });
 };
 
+fetchReproData('vdegraaf', 'heroGame')

@@ -43,11 +43,8 @@ const scoreCalculator = () => {
 };
 
 export const branchValidation = (branchCount, branchNamePlusCommitCount) => {
-  console.log(
-    branchCount,
-    branchNamePlusCommitCount,
-    "im the branchnamePlusCommitCount"
-  );
+
+
 
   branchStats.branchCount = branchCount;
 
@@ -66,7 +63,6 @@ export const branchValidation = (branchCount, branchNamePlusCommitCount) => {
     featName.includes("feat" || "Feat" || "feature" || "Feature")
       ? (branchStats.featBranch = true)
       : null;
-    console.log(featName, "im featName");
     descriptiveNamingArray.includes(featName)
       ? null
       : (branchStats.descriptiveNamingErrors += 1);
