@@ -31,5 +31,11 @@ export default function ProfileStats(props) {
     <p> Average number of branches: {props.user.stats.averageBranchPerRepro}</p>
     <p> Average number of commits per branch: {props.user.stats.averageCommitPerBranch}</p>
   </section>
+  <section className="stats__pinnedRepos">
+  <h2> Click to see detailed feedback about each repository </h2>
+    {props.user.stats.repoNames.map(repo => {
+      return <button key={repo} className="stats__repo-button"> {repo}</button>
+    })}
+  </section>
   </section>
   )}
