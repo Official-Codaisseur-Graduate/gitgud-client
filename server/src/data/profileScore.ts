@@ -1,7 +1,7 @@
 import { createApolloFetch } from "apollo-fetch";
 import * as face from "face-detector";
 
-const token = "b58cc3cb3dffa3e3363b8c349c57d6a03ef2840f";
+const token = process.env.GITHUB_ACCESS_TOKEN;
 
 export const analizeProfile = (username: string): any => {
   const fetch = createApolloFetch({
