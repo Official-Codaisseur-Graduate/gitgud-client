@@ -2,7 +2,7 @@ import {createApolloFetch} from 'apollo-fetch'
 // import { token } from '../index'
 import { generalReproValidation } from '../validation/generalRepros'
 
-const token = 'de4f17275882a741779984364452b82c148e274c'
+const token = 'ac4796c5659317b09d7fbe79f29c45ecf5ec42df'
 
 export const fetchGeneralData = (username) => {
 

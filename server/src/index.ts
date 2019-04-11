@@ -7,13 +7,13 @@ import { graphqlKoa, graphiqlKoa } from "apollo-server-koa";
 import schema from "./schema";
 
 // import {fetchData} from './data/getData';
-import { fetchReproData } from './data/reproDetails'
-// import { fetchGeneralData } from './data/gitUse'
+// import { fetchReproData } from './data/reproDetails'
+import { fetchGeneralData } from './data/gitUse'
 
 
 const cors = require('koa-cors');
 
-export const token = '8b07b78454504d9dcf1275f70a6803ef70fa6192'
+export const token = 'ac4796c5659317b09d7fbe79f29c45ecf5ec42df'
 
 const port = process.env.PORT || 3030;
 const app = new Koa();
@@ -27,7 +27,7 @@ app.use(cors())
 
 // Test, is client side call
 router.get("/", async (ctx, next: () => {}) => {
-  const data = await fetchReproData('vdegraaf', 'heroGame')
+  const data = await fetchGeneralData('vdegraaf')
   ctx.body = `${data}`;
   // console.log(data)
   await next();

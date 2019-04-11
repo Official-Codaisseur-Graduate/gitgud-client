@@ -1,5 +1,5 @@
 import { createApolloFetch } from "apollo-fetch";
-import * as face from "face-detector";
+// import * as face from "face-detector";
 
 const token = process.env.GITHUB_ACCESS_TOKEN;
 
@@ -34,7 +34,7 @@ export const analizeProfile = (username: string): any => {
   })
     .then(res => {
       const user = res.data.user;
-      const image = `${user.avatarUrl}`;
+      // const image = `${user.avatarUrl}`;
       let score = 0;
       let profileStats = {
         bio: true,
@@ -60,14 +60,14 @@ export const analizeProfile = (username: string): any => {
         resolve();
       });
 
-      const data2 = new Promise(resolve => {
-        face.detect(image, function(result) {
-          result > 0 ? (score += 5) : (profileStats.picture = false);
-          resolve();
-        });
-      });
+      // const data2 = new Promise(resolve => {
+      //   face.detect(image, function(result) {
+      //     result > 0 ? (score += 5) : (profileStats.picture = false);
+      //     resolve();
+      //   });
+      // });
 
-      return Promise.all([data2, data1]).then(() => {
+      return Promise.all([data1]).then(() => {
         return { username, score, profileStats };
       });
     })
