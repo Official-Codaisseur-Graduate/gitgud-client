@@ -15,6 +15,11 @@ export const GET_USER_DATA = gql`
                         websiteUrl,
                         pinnedRepositories,
                         picture
+                      },
+                      stats {
+                        totalPinnedRepros,
+                        averageBranchPerRepro,
+                        averageCommitPerBranch
                       }
                     }
                   }

@@ -13,9 +13,8 @@ export default function Form(props) {
          {({loading, error, data}) => {
               if (loading) return null;
               if (error) throw new Error();
-              console.log(data)
               return  <div> {data && <ProfileStats
-              username={data && data.user.name}
+              user={data.user}
                />}
                </div>
           }}

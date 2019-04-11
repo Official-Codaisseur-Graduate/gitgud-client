@@ -13,8 +13,6 @@ import { fetchReproData } from './data/reproDetails'
 
 const cors = require('koa-cors');
 
-export const token = '8b07b78454504d9dcf1275f70a6803ef70fa6192'
-
 const port = process.env.PORT || 3030;
 const app = new Koa();
 const router = new Router();
