@@ -32,7 +32,9 @@ const typeDefs = `
       totalPinnedRepros: Int
       averageBranchPerRepro: Int
       averageCommitPerBranch: Int
+      repoNames: [String]
   }
+
 `;
 
 const resolvers = {

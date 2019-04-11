@@ -1,6 +1,3 @@
-
-
-
 export const generalReproValidation = (totalPinnedRepros, reproPlusBranchCount, branchNamePlusCommitCount) => {
 
   const branchCountMap = reproPlusBranchCount.map(repro => {

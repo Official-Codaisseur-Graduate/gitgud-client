@@ -1,8 +1,8 @@
-import {createApolloFetch} from 'apollo-fetch'
-// import { token } from '../index'
-import { branchValidation } from '../validation/repository/branches'
+import {createApolloFetch} from 'apollo-fetch';
+import {commitValidation} from '../validation/repository/commits';
+const token = process.env.GITHUB_ACCESS_TOKEN;
 
-const token = 'ac4796c5659317b09d7fbe79f29c45ecf5ec42df'
+import { branchValidation } from '../validation/repository/branches'
 
 export const fetchReproData = (username, reproName) => {
 
@@ -74,11 +74,13 @@ export const fetchReproData = (username, reproName) => {
               return messages
             })
           })
+
+          const { commitStats, commitScore } = commitValidation(commitMessages)
           
           branchValidation(branchCount, branchNamePlusCommitCount)
           
           // console.log(reproDescription, branchCount, reproReadMe, branchNamePlusCommitCount, commitMessages)
-        return {reproDescription, branchCount, reproReadMe, branchNamePlusCommitCount, commitMessages}
+        return {reproDescription, branchCount, reproReadMe, branchNamePlusCommitCount, commitStats, commitScore}
       });
 }
 

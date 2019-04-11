@@ -51,7 +51,7 @@ export const fetchGeneralData = (username) => {
         }
         `,
       }).then(res => {
-        console.log(res)
+        console.log(`REPOS RESULT`, res.data.user.pinnedRepositories.edges)
         console.log(res.data.user.pinnedRepositories.totalCount)
           const totalPinnedRepros = res.data.user.pinnedRepositories.totalCount
           if(totalPinnedRepros === 0) {
@@ -79,7 +79,8 @@ export const fetchGeneralData = (username) => {
 
 
           // console.log(totalPinnedRepros, averageBranchPerRepro, averageCommitPerBranch)
-        return {totalPinnedRepros, averageBranchPerRepro, averageCommitPerBranch}
+          const repoNames = reproPlusBranchCount.map(repro => repro.reproName)
+        return {totalPinnedRepros, averageBranchPerRepro, averageCommitPerBranch, repoNames}
         }
     });
 }
