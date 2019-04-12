@@ -5,21 +5,26 @@ let commitStats = {
   upperCase: 0
 };
 
-let commitScore = {
+// in whole percentages
+const commitScore = {
   lengthExceeds: 0,
   containsAND: 0,
   containsPeriod: 0,
-  upperCase: 0
+  upperCase: 0,
+  totalScore: 0
 };
 
 const scoreCalculator = (data, name, commitCount) => {
-  const dataPerc = (data / commitCount - 1) * -1;
+  const dataPerc = Math.round((data / commitCount)*100)
+  commitScore[name] = dataPerc
 
-  dataPerc > 0.33 ? (commitScore[name] = 4) : (commitScore[name] = 0);
-  dataPerc > 0.66
-    ? (commitScore[name] = 7)
-    : (commitScore[name] = commitScore[name]);
 };
+
+const totalScoreCalculator = (commitScore) => {
+  const average = arr => arr.reduce( ( p, c ) => p + c, 0 ) / arr.length
+  const totalScoreCalc = Object.values(commitScore).splice(0,4)
+  commitScore.totalScore = Math.floor(average(totalScoreCalc))
+}
 
 export const commitValidation = commitMessages => {
   // total commits
@@ -29,7 +34,7 @@ export const commitValidation = commitMessages => {
 
   // check length
   const lengthCount = commitMessages.map(branch =>
-    branch.map(commit => (commit.length > 50 ? 1 : 0))
+    branch.map(commit => (commit.length > 50 ? 0 : 1))
   );
   const lengthExceedsCount = lengthCount.map(branch =>
     branch.reduce((partial_sum, a) => partial_sum + a)
@@ -41,7 +46,7 @@ export const commitValidation = commitMessages => {
 
   // check AND
   const checkCountBranch = commitMessages.map(branch =>
-    branch.map(message => (message.includes("and") ? 1 : 0))
+    branch.map(message => (message.includes("and") ? 0 : 1))
   );
   const checkCountCommit = checkCountBranch.map(branch =>
     branch.reduce((partial_sum, a) => partial_sum + a)
@@ -53,7 +58,7 @@ export const commitValidation = commitMessages => {
 
   // check Period
   const periodCheck = commitMessages.map(branch =>
-    branch.map(message => (message.slice(-1) === "." ? 1 : 0))
+    branch.map(message => (message.slice(-1) === "." ? 0 : 1))
   );
   const periodCount = periodCheck.map(branch =>
     branch.reduce((partial_sum, a) => partial_sum + a)
@@ -71,7 +76,7 @@ export const commitValidation = commitMessages => {
     branch.map(message => message.split(" ", 2)[0])
   );
   const upperCaseCheck = firstWords.map(branch =>
-    branch.map(word => (isUpperCase(word) ? 0 : 1))
+    branch.map(word => (isUpperCase(word) ? 1 : 0))
   );
   const upperCaseCount = upperCaseCheck.map(branch =>
     branch.reduce((partial_sum, a) => partial_sum + a)
@@ -80,9 +85,7 @@ export const commitValidation = commitMessages => {
     (partial_sum, a) => partial_sum + a
   );
   scoreCalculator(commitStats.upperCase, "upperCase", commitCount);
-
-  // console.log(commitStats, 'im the commitlength')
-  // console.log(commitScore, 'im the score')
+  totalScoreCalculator(commitScore)
 
   return { commitStats, commitScore };
 };
