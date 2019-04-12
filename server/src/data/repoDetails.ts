@@ -91,9 +91,9 @@ export const fetchRepoData = (username, repoName) => {
       });
     });
 
-    const commitStats = commitValidation(commitMessages);
+    const {commitStats, commitScore} = commitValidation(commitMessages);
 
-    const branchStats = branchValidation(
+    const { branchStats, branchScore } = branchValidation(
       branchCount,
       branchNamePlusCommitCount
     );
@@ -101,8 +101,8 @@ export const fetchRepoData = (username, repoName) => {
     const gitIgnoreScore = gitIgnoreValidation(fileCheck)
 
     const totalRepoScore = scoreCalculator(
-      commitStats.commitScore,
-      branchStats.branchScore,
+      commitScore,
+      branchScore,
       repoDescription,
       repoReadMe,
       gitIgnoreScore
@@ -112,7 +112,9 @@ export const fetchRepoData = (username, repoName) => {
     
     return {
       commitStats,
+      commitScore,
       branchStats,
+      branchScore,
       totalRepoScore
     };
   });
