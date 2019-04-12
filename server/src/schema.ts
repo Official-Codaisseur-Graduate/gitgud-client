@@ -56,7 +56,6 @@ const resolvers = {
             if (!repoData) throw new Error();
             averageRepoScore += repoData.totalRepoScore;
             data.stats.repoNames[i] = { ...data.stats.repoNames[i], ...repoData };
-            console.log("inside map");
           })
           
         });
@@ -66,7 +65,6 @@ const resolvers = {
           averageRepoScore = averageRepoScore / data.stats.repoNames.length;
           data.score += averageRepoScore / 2;
           data.score = parseInt(data.score)
-          console.log(data.score, averageRepoScore + "!!!!!!!!!!!!!!!!!!!");
           return data;
         })
        

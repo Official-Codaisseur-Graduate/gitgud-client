@@ -72,9 +72,9 @@ export default function ProfileStats(props) {
           {props.user.stats.repoNames &&
             props.user.stats.repoNames.map(repo => {
               return (
-                <button key={repo} className="stats__repo-button">
+                <button key={repo.name} className="stats__repo-button">
                   {" "}
-                  {repo}
+                  {repo.name}
                 </button>
               );
             })}
