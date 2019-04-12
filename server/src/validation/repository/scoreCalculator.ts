@@ -3,8 +3,10 @@ export const scoreCalculator = (
   commitScore,
   branchScore,
   repoDescription,
-  repoReadme
+  repoReadme,
+  gitIgnore
 ) => {
+  
   const commit = commitScore.totalScore * (35 / 100);
   const branch = branchScore.totalScore * (24 / 100);
   const readmePlusDescription =
@@ -14,10 +16,10 @@ export const scoreCalculator = (
       ? 100
       : 0) *
     (25 / 100);
-  const gitIgnore = 0 * (16 / 100);
+  const gitIgnoreScore = gitIgnore * (16 / 100);
 
   const totalGitUseScore = () => {
-    return commit + branch + readmePlusDescription + gitIgnore;
+    return commit + branch + readmePlusDescription + gitIgnoreScore;
   };
   const totalScore = totalGitUseScore();
   return totalScore;
