@@ -1,4 +1,3 @@
-
 export const scoreCalculator = (
   commitScore,
   branchScore,

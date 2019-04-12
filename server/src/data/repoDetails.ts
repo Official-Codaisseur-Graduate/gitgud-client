@@ -76,16 +76,16 @@ export const fetchRepoData = (username, repoName) => {
       });
     });
 
-    const commitStats = commitValidation(commitMessages);
+    const {commitStats, commitScore} = commitValidation(commitMessages);
 
-    const branchStats = branchValidation(
+    const { branchStats, branchScore } = branchValidation(
       branchCount,
       branchNamePlusCommitCount
     );
 
     const totalRepoScore = scoreCalculator(
-      commitStats.commitScore,
-      branchStats.branchScore,
+      commitScore,
+      branchScore,
       repoDescription,
       repoReadMe
     );
@@ -93,7 +93,9 @@ export const fetchRepoData = (username, repoName) => {
     // console.log(repoDescription, branchCount, repoReadMe, branchNamePlusCommitCount, commitMessages)
     return {
       commitStats,
+      commitScore,
       branchStats,
+      branchScore,
       totalRepoScore
     };
   });
