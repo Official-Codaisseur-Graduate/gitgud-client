@@ -55,14 +55,14 @@ export const analizeProfile = (username: string): any => {
         user.name ? (score += 5) : (profileStats.name = false);
         user.websiteUrl ? (score += 5) : (profileStats.websiteUrl = false);
         user.pinnedRepositories.totalCount > 0
-          ? (score += 5)
+          ? (score += 10)
           : (profileStats.pinnedRepositories = false);
         resolve();
       });
 
       const data2 = new Promise(resolve => {
         face.detect(image, function(result) {
-          result > 0 ? (score += 5) : (profileStats.picture = false);
+          result > 0 ? (score += 10) : (profileStats.picture = false);
           resolve();
         });
       });

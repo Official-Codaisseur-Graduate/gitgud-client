@@ -46,16 +46,16 @@ export default function ProfileStats(props) {
             }
           })}
       </section>
-      {props.user && props.user.stats.totalPinnedRepros !== null && (
+      {props.user && props.user.stats.totalPinnedRepos !== null && (
         <section className="stats__average">
           <h2> Average github usage </h2>
           <p>
             {" "}
-            Total pinned repositories: {props.user.stats.totalPinnedRepros}{" "}
+            Total pinned repositories: {props.user.stats.totalPinnedRepos}{" "}
           </p>
           <p>
             {" "}
-            Average number of branches: {props.user.stats.averageBranchPerRepro}
+            Average number of branches: {props.user.stats.averageBranchPerRepo}
           </p>
           <p>
             {" "}
@@ -64,22 +64,22 @@ export default function ProfileStats(props) {
           </p>
         </section>
       )}
-      {props.user && props.user.stats.totalPinnedRepros !== null && (
+      {props.user && props.user.stats.totalPinnedRepos !== null && (
         <section className="stats__pinnedRepos">
           <h2> Click to see detailed feedback about each repository </h2>
           {props.user.stats.repoNames &&
             props.user.stats.repoNames.map(repo => {
               return (
-                <button key={repo} className="stats__repo-button">
+                <button key={repo.name} className="stats__repo-button">
                   {" "}
-                  {repo}
+                  {repo.name}
                 </button>
               );
             })}
         </section>
       )}
 
-      {props.user && !props.user.stats.totalPinnedRepros && (
+      {props.user && !props.user.stats.totalPinnedRepos && (
         <p> Please add some pinned repositories </p>
       )}
     </section>

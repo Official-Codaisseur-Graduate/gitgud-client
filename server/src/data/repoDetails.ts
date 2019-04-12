@@ -1,11 +1,11 @@
 import { createApolloFetch } from "apollo-fetch";
 import { commitValidation } from "../validation/repository/commits";
 import { branchValidation } from "../validation/repository/branches";
-import { scoreCalculator } from '../validation/repository/scoreCalculator'
+import { scoreCalculator } from "../validation/repository/scoreCalculator";
 
-const token = process.env.GITHUB_ACCESS_TOKEN
+const token = process.env.GITHUB_ACCESS_TOKEN;
 
-export const fetchReproData = (username, reproName) => {
+export const fetchRepoData = (username, repoName) => {
   const fetch = createApolloFetch({
     uri: "https://api.github.com/graphql"
   });
@@ -20,7 +20,7 @@ export const fetchReproData = (username, reproName) => {
 
   return fetch({
     query: `{
-          repository(owner: "${username}", name: "${reproName}") {
+          repository(owner: "${username}", name: "${repoName}") {
             createdAt
             name
             description
@@ -57,9 +57,9 @@ export const fetchReproData = (username, reproName) => {
         
         `
   }).then(res => {
-    const reproDescription = res.data.repository.description;
+    const repoDescription = res.data.repository.description ? res.data.repository.description : '';
     const branchCount = res.data.repository.refs.totalCount;
-    const reproReadMe = res.data.repository.object.text;
+    const repoReadMe = res.data.repository.object ? res.data.repository.object.text : ''
 
     const branchNamePlusCommitCount = res.data.repository.refs.edges.map(
       branch => {
@@ -78,27 +78,23 @@ export const fetchReproData = (username, reproName) => {
 
     const commitStats = commitValidation(commitMessages);
 
-    const branchStats = branchValidation(branchCount, branchNamePlusCommitCount);
-
-
-    const totalReproScore = scoreCalculator(
-      commitStats.commitScore, 
-      branchStats.branchScore,
-      reproDescription,
-      reproReadMe
-      )
-
-    // console.log(reproDescription, branchCount, reproReadMe, branchNamePlusCommitCount, commitMessages)
-    return {
-      reproDescription,
+    const branchStats = branchValidation(
       branchCount,
-      reproReadMe,
-      branchNamePlusCommitCount,
+      branchNamePlusCommitCount
+    );
+
+    const totalRepoScore = scoreCalculator(
+      commitStats.commitScore,
+      branchStats.branchScore,
+      repoDescription,
+      repoReadMe
+    );
+
+    // console.log(repoDescription, branchCount, repoReadMe, branchNamePlusCommitCount, commitMessages)
+    return {
       commitStats,
       branchStats,
-      totalReproScore
+      totalRepoScore
     };
   });
 };
-
-fetchReproData('vdegraaf', 'heroGame')
