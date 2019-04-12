@@ -1,8 +1,9 @@
 import { createApolloFetch } from "apollo-fetch";
 import { commitValidation } from "../validation/repository/commits";
 import { branchValidation } from "../validation/repository/branches";
+import { scoreCalculator } from '../validation/repository/scoreCalculator'
 
-const token = process.env.GITHUB_ACCESS_TOKEN;
+const token = process.env.GITHUB_ACCESS_TOKEN
 
 export const fetchReproData = (username, reproName) => {
   const fetch = createApolloFetch({
@@ -79,6 +80,14 @@ export const fetchReproData = (username, reproName) => {
 
     const branchStats = branchValidation(branchCount, branchNamePlusCommitCount);
 
+
+    const totalReproScore = scoreCalculator(
+      commitStats.commitScore, 
+      branchStats.branchScore,
+      reproDescription,
+      reproReadMe
+      )
+
     // console.log(reproDescription, branchCount, reproReadMe, branchNamePlusCommitCount, commitMessages)
     return {
       reproDescription,
@@ -86,8 +95,10 @@ export const fetchReproData = (username, reproName) => {
       reproReadMe,
       branchNamePlusCommitCount,
       commitStats,
-      branchStats
+      branchStats,
+      totalReproScore
     };
   });
 };
 
+fetchReproData('vdegraaf', 'heroGame')

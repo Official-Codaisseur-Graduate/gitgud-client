@@ -5,7 +5,7 @@ import * as koaBody from "koa-bodyparser";
 import * as Router from "koa-router";
 import { graphqlKoa, graphiqlKoa } from "apollo-server-koa";
 import schema from "./schema";
-
+import {fetchReproData } from './data/reproDetails'
 
 const cors = require("koa-cors");
 
@@ -17,12 +17,12 @@ app.use(koaBody());
 app.use(cors());
 
 // Test, is client side call
-// router.get("/", async (ctx, next: () => {}) => {
-//   const data = await fetchGeneralData("vdegraaf");
-//   ctx.body = `${data}`;
-//   // console.log(data)
-//   await next();
-// });
+router.get("/", async (ctx, next: () => {}) => {
+  const data = await fetchReproData("vdegraaf", 'heroGame');
+  ctx.body = `${data}`;
+  // console.log(data)
+  await next();
+});
 
 router.post("/graphql", graphqlKoa({ schema }));
 router.get("/graphql", graphqlKoa({ schema }));

@@ -49,8 +49,8 @@ export const fetchGeneralData = username => {
         }
         `
   }).then(res => {
-    console.log(`REPOS RESULT`, res.data.user.pinnedRepositories.edges);
-    console.log(res.data.user.pinnedRepositories.totalCount);
+    // console.log(`REPOS RESULT`, res.data.user.pinnedRepositories.edges);
+    // console.log(res.data.user.pinnedRepositories.totalCount);
     const totalPinnedRepros = res.data.user.pinnedRepositories.totalCount;
     if (totalPinnedRepros === 0) {
       return 0;

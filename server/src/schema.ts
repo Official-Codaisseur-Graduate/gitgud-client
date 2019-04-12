@@ -41,8 +41,8 @@ const resolvers = {
     user: async (_, { username }, __, ___) => {
       const data = await analizeProfile(username);
       const gitUse = await fetchGeneralData(username);
-      console.log(`data`, data);
-      console.log(`gituse`, gitUse);
+      // console.log(`data`, data);
+      // console.log(`gituse`, gitUse);
       data.stats = gitUse;
       return data;
     }
