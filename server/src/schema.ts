@@ -1,6 +1,5 @@
 import { makeExecutableSchema } from "graphql-tools";
-import {fetchRepoData} from './data/repoDetails'
-
+import { fetchRepoData } from "./data/repoDetails";
 import { analizeProfile } from "./data/profileScore";
 import { fetchGeneralData } from "./data/gitUse";
 
@@ -38,23 +37,41 @@ const typeDefs = `
     name: String
     owner: String
   }
+
 `;
 
 const resolvers = {
   Query: {
     user: async (_, { username }, __, ___) => {
+    
       const data = await analizeProfile(username);
       const gitUse = await fetchGeneralData(username);
       data.stats = gitUse;
+      let averageRepoScore = 0;
+
       if (data.stats.totalPinnedRepos > 0) {
-        data.stats.repoNames.map(async(repo) => {
-          const repoData = await fetchRepoData(repo.owner, repo.name)
-          if (!repoData) throw new Error
-          data.repoNames[repo.name] = repoData
-        }) 
+        const promises = data.stats.repoNames.map(async (repo, i) => {
+          return fetchRepoData(repo.owner, repo.name)
+          .then(repoData => {
+            if (!repoData) throw new Error();
+            averageRepoScore += repoData.totalRepoScore;
+            data.stats.repoNames[i] = { ...data.stats.repoNames[i], ...repoData };
+            console.log("inside map");
+          })
+          
+        });
+
+        return Promise.all(promises)
+        .then(() => {
+          averageRepoScore = averageRepoScore / data.stats.repoNames.length;
+          data.score += averageRepoScore / 2;
+          data.score = parseInt(data.score)
+          console.log(data.score, averageRepoScore + "!!!!!!!!!!!!!!!!!!!");
+          return data;
+        })
+       
       }
-      // console.log(repoDetails)
-      return data;
+      return data
     }
   }
 };
