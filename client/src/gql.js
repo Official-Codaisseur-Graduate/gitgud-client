@@ -17,10 +17,13 @@ export const GET_USER_DATA = gql`
                         picture
                       },
                       stats {
-                        totalPinnedRepros,
-                        averageBranchPerRepro,
+                        totalPinnedRepos,
+                        averageBranchPerRepo,
                         averageCommitPerBranch
-                        repoNames
+                        repoNames {
+                          name
+                          owner
+                        }
                       }
                     }
                   }

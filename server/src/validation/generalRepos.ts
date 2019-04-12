@@ -1,15 +1,15 @@
-export const generalReproValidation = (
-  totalPinnedRepros,
-  reproPlusBranchCount,
+export const generalRepoValidation = (
+  totalPinnedRepos,
+  repoPlusBranchCount,
   branchNamePlusCommitCount
 ) => {
-  const branchCountMap = reproPlusBranchCount.map(repro => {
-    return repro.branchCount;
+  const branchCountMap = repoPlusBranchCount.map(repo => {
+    return repo.branchCount;
   });
   const branchCount = branchCountMap.reduce(
     (partial_sum, a) => partial_sum + a
   );
-  const averageBranchPerRepro = Math.round(branchCount / totalPinnedRepros);
+  const averageBranchPerRepo = Math.round(branchCount / totalPinnedRepos);
 
   const commitCount = branchNamePlusCommitCount.map(branches => {
     return branches.map(branch => {
@@ -24,5 +24,5 @@ export const generalReproValidation = (
     .reduce((partial_sum, a) => partial_sum + a);
   const averageCommitPerBranch = Math.round(commitCountMap / branchCount);
 
-  return { averageBranchPerRepro, averageCommitPerBranch };
+  return { averageBranchPerRepo, averageCommitPerBranch };
 };
