@@ -52,7 +52,7 @@ export const branchValidation = (branchCount, branchNamePlusCommitCount) => {
   const arrayOfBranchNames = branchNamePlusCommitCount.map(
     branch => branch.branchName
   );
-
+    
   arrayOfBranchNames.map(name => {
     const featName = name.split("/")[0];
     featName.includes("master" || "Master")
@@ -69,6 +69,6 @@ export const branchValidation = (branchCount, branchNamePlusCommitCount) => {
       : (branchStats.descriptiveNamingErrors += 1);
   });
   scoreCalculator();
-
+  
   return { branchStats, branchScore };
 };
