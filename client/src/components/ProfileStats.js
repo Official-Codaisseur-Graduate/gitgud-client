@@ -8,12 +8,13 @@ const spacecamel =(string) => {
 
 
 export default function ProfileStats(props) { 
-  console.log(props)
   return (  <section className="stats">
   <p className="stats__username"> username: {props.user.username} </p>
   <p className="stats__score"> Your Github accout strength: {props.user.score}% </p>
     
   <section className="stats__profile">
+  <h2 className="stats__profile-header"> Profile statistics </h2>
+  <div className="stats__profile-container">
   {props.user && props.user.profileStats !==0 && Object.entries(props.user.profileStats).map(([key, value]) => {
     if (key !== "__typename") { 
     return (
@@ -24,6 +25,7 @@ export default function ProfileStats(props) {
     )
   }
   })}
+  </div>
   </section>
   {props.user && props.user.stats.totalPinnedRepros !== null &&
   <section className="stats__average">
@@ -46,5 +48,5 @@ export default function ProfileStats(props) {
     <p> Please add some pinned repositories </p>
   }
   </section>
-  
-  )}
+  )
+}

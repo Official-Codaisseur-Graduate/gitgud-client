@@ -1,0 +1,17 @@
+body {
+  font: 100%/1 "Open Sans", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  background-size: 400px 400px, 10px 10px;
+  padding: 0 3% 1.875em;
+  min-width: 20em;
+  max-width: 81.25em;
+  margin: 0 auto;
+  color: black;
+}
+
+.error {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 25px;
+}

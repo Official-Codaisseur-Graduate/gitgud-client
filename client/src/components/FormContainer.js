@@ -8,7 +8,7 @@ export default class FormContainer extends React.Component {
     super(props)
     this.state = {
         search: '',
-        username: ''
+        username: '',
     }
   }
 
