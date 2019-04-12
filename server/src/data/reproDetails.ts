@@ -80,7 +80,8 @@ export const fetchReproData = (username, reproName) => {
 
     const branchStats = branchValidation(branchCount, branchNamePlusCommitCount);
 
-    scoreCalculator(
+
+    const totalReproScore = scoreCalculator(
       commitStats.commitScore, 
       branchStats.branchScore,
       reproDescription,
@@ -94,7 +95,8 @@ export const fetchReproData = (username, reproName) => {
       reproReadMe,
       branchNamePlusCommitCount,
       commitStats,
-      branchStats
+      branchStats,
+      totalReproScore
     };
   });
 };
