@@ -9,7 +9,6 @@ const spacecamel = string => {
 };
 
 export default function ProfileStats(props) {
-  console.log(props);
   return (
     <section className="stats">
       <p className="stats__username"> username: {props.user.username} </p>
@@ -19,32 +18,35 @@ export default function ProfileStats(props) {
       </p>
 
       <section className="stats__profile">
-        {props.user &&
-          props.user.profileStats !== 0 &&
-          Object.entries(props.user.profileStats).map(([key, value]) => {
-            if (key !== "__typename") {
-              return (
-                <div className="stats__profile-item" key={key}>
-                  {value ? (
-                    <img
-                      src={require("../img/checked.svg")}
-                      alt="checked"
-                      width="30"
-                      height="30"
-                    />
-                  ) : (
-                    <img
-                      src={require("../img/cancel.svg")}
-                      alt="not-checked"
-                      width="30"
-                      height="30"
-                    />
-                  )}
-                  <p className="stats__item-name">{spacecamel(key)}</p>
-                </div>
-              );
-            }
-          })}
+        <h2 className="stats__profile-header"> Profile statistics </h2>
+        <div className="stats__profile-container">
+          {props.user &&
+            props.user.profileStats !== 0 &&
+            Object.entries(props.user.profileStats).map(([key, value]) => {
+              if (key !== "__typename") {
+                return (
+                  <div className="stats__profile-item" key={key}>
+                    {value ? (
+                      <img
+                        src={require("../img/checked.svg")}
+                        alt="checked"
+                        width="30"
+                        height="30"
+                      />
+                    ) : (
+                      <img
+                        src={require("../img/cancel.svg")}
+                        alt="not-checked"
+                        width="30"
+                        height="30"
+                      />
+                    )}
+                    <p className="stats__item-name">{spacecamel(key)}</p>
+                  </div>
+                );
+              }
+            })}
+        </div>
       </section>
       {props.user && props.user.stats.totalPinnedRepos !== null && (
         <section className="stats__average">
@@ -70,9 +72,9 @@ export default function ProfileStats(props) {
           {props.user.stats.repoNames &&
             props.user.stats.repoNames.map(repo => {
               return (
-                <button key={repo.name} className="stats__repo-button">
+                <button key={repo} className="stats__repo-button">
                   {" "}
-                  {repo.name}
+                  {repo}
                 </button>
               );
             })}

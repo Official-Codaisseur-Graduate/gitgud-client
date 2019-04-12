@@ -2,6 +2,7 @@ import * as React from "react";
 import { Query } from "react-apollo";
 import { GET_USER_DATA } from "../gql";
 import ProfileStats from "./ProfileStats";
+import Loader from "./Loader";
 
 export default function Form(props) {
   return (
@@ -26,8 +27,9 @@ export default function Form(props) {
         variables={{ username: props.username }}
       >
         {({ loading, error, data }) => {
-          if (loading) return null;
-          if (error) throw new Error();
+          if (loading) return <Loader />;
+          if (error)
+            return <p className="error"> Please submit valid username </p>;
           return <div> {data && <ProfileStats user={data.user} />}</div>;
         }}
       </Query>

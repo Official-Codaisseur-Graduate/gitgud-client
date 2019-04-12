@@ -1,11 +1,23 @@
 .stats {
   text-align: center;
 }
+.stats__profile {
+  padding: 20px 20px 50px;
+}
+
+.stats__profile-container {
+  display: flex;
+  justify-content: center;
+}
 
 .stats__profile-item {
   display: flex;
   justify-content: center;
   margin: 1rem;
+}
+
+.stats__profile-header {
+  margin: 10px 0 20px;
 }
 
 .stats__item-name {
