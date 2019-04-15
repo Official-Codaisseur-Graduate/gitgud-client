@@ -9,6 +9,7 @@ const spacecamel = string => {
 };
 
 export default function ProfileStats(props) {
+  console.log(props)
   return (
     <section className="stats">
       <p className="stats__username"> username: {props.user.username} </p>

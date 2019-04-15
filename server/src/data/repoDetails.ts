@@ -2,8 +2,8 @@ import { createApolloFetch } from "apollo-fetch";
 import { commitValidation } from "../validation/repository/commits";
 import { branchValidation } from "../validation/repository/branches";
 import { scoreCalculator } from "../validation/repository/scoreCalculator";
-import { fileValidation } from '../validation/repository/gitignore'
-// import { read } from "fs";
+import { fileValidation } from "../validation/repository/gitignore";
+
 
 const token = process.env.GITHUB_ACCESS_TOKEN;
 
@@ -58,12 +58,11 @@ export const fetchRepoData = (username, repoName) => {
         }
       }
     }
-    
-        
-        `
+  `
   }).then(res => {
-
-    const repoDescription = res.data.repository.description ? res.data.repository.description : '';
+    const repoDescription = res.data.repository.description
+      ? res.data.repository.description
+      : "";
     const branchCount = res.data.repository.refs.totalCount;
     const branchNamePlusCommitCount = res.data.repository.refs.edges.map(
       branch => {
@@ -71,9 +70,9 @@ export const fetchRepoData = (username, repoName) => {
         const commitCount = branch.node.target.history.totalCount;
         return { branchName, commitCount };
       }
-    )
-    
-    const fileCheck = res.data.repository.object.entries
+    );
+
+    const fileCheck = res.data.repository.object.entries;
 
     const commitMessages = res.data.repository.refs.edges.map(branch => {
       return branch.node.target.history.edges.map(commit => {
@@ -82,7 +81,6 @@ export const fetchRepoData = (username, repoName) => {
       });
     });
 
-
     const commitScore = commitValidation(commitMessages);
 
     const branchScore = branchValidation(
@@ -90,33 +88,26 @@ export const fetchRepoData = (username, repoName) => {
       branchNamePlusCommitCount
     );
 
+    const { gitIgnoreScore, repoReadMe } = fileValidation(fileCheck);
 
-    const {gitIgnoreScore, repoReadMe} = fileValidation(fileCheck)
-      
-      
-
-    const gitIgnoreScore = gitIgnoreValidation(fileCheck)
-    
-
-    const totalRepoScore = scoreCalculator(
+    const totalRepoScore = Math.round(scoreCalculator(
       commitScore,
       branchScore,
       repoDescription,
       repoReadMe,
       gitIgnoreScore
-    );
-    
-      
-    
+    ));
+
+    const description = repoDescription ? true : false
+
     return {
       commitScore,
       branchScore,
       totalRepoScore,
       repoReadMe,
       gitIgnoreScore,
-      repoDescription
+      description
     };
   });
 };
 
-// fetchRepoData('vdegraaf', 'dogsList')
