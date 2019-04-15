@@ -5,8 +5,6 @@ If not, it checks if the home directory has a 'client' AND 'server' file
 and assumes it has a .gitignore file in them. Returns 50 points
 */
 
-
-
 export const fileValidation = (fileCheck) => {
   
 
@@ -15,7 +13,7 @@ export const fileValidation = (fileCheck) => {
   })
   
   let gitIgnoreScore = fileNames.includes('.gitignore') ? 100 : 0
-  console.log(fileNames, 'im all the filenames')
+  
   if(gitIgnoreScore === 0) {
     fileNames.includes('client' && 'server') ? gitIgnoreScore = 50 : null
   }
@@ -23,6 +21,6 @@ export const fileValidation = (fileCheck) => {
   const repoReadMe = fileNames.map(filename => {
     return filename.includes('readme' || 'Readme' || 'README' || 'ReadMe')
   }) ? 100: 0
-  console.log(repoReadMe, 'im the score after validating names')
+  
   return {gitIgnoreScore, repoReadMe}
 }

@@ -62,11 +62,9 @@ export const fetchRepoData = (username, repoName) => {
         
         `
   }).then(res => {
-    // console.log(res.data.repository)
+    
     const repoDescription = res.data.repository.description ? res.data.repository.description : '';
     const branchCount = res.data.repository.refs.totalCount;
-    // const repoReadMe = res.data.repository.defaultBranchRef.repository.object ? 
-    // res.data.repository.defaultBranchRef.repository.object.text : ''
     const branchNamePlusCommitCount = res.data.repository.refs.edges.map(
       branch => {
         const branchName = branch.node.branchName;
@@ -84,16 +82,16 @@ export const fetchRepoData = (username, repoName) => {
       });
     });
 
-    const {commitStats, commitScore} = commitValidation(commitMessages);
+    const {commitScore} = commitValidation(commitMessages);
 
-    const { branchStats, branchScore } = branchValidation(
+    const {branchScore } = branchValidation(
       branchCount,
       branchNamePlusCommitCount
     );
 
     const {gitIgnoreScore, repoReadMe} = fileValidation(fileCheck)
-      console.log(commitStats, branchStats)
-      console.log(repoReadMe, 'im the readmeScore')
+      
+      
 
 
 
