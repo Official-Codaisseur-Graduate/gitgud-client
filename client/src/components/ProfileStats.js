@@ -9,28 +9,6 @@ const spacecamel = string => {
   return stringToLowerCase.charAt(0).toUpperCase() + stringToLowerCase.slice(1);
 };
 
-const readings = [
-	{
-		name: 'Apples',
-		value: 60,
-		color: '#eb4d4b'
-	},
-	{
-		name: 'Blueberries',
-		value: 7,
-		color: '#22a6b3'
-	},
-	{
-		name: 'Guavas',
-		value: 23,
-		color: '#6ab04c'
-	},
-	{
-		name: 'Grapes',
-		value: 10,
-		color: '#e056fd'
-	}
-];
 
 export default function ProfileStats(props) {
   console.log(props)
@@ -39,7 +17,6 @@ export default function ProfileStats(props) {
     <ProgressBar
     profileScore={props.user.profileScore}
     repoScore={props.user.repoScore}
-    readings={readings}
      />
       <p className="stats__username"> username: {props.user.username} </p>
       <p className="stats__score">
