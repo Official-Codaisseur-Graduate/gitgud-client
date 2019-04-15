@@ -62,12 +62,15 @@ const resolvers = {
 
         return Promise.all(promises)
         .then(() => {
+
+
           data.profileScore = data.score
           data.averageRepoScore = Math.round(averageRepoScore / data.stats.repoNames.length);
           data.repoScore = Math.round(data.averageRepoScore / 2);
           data.score += data.repoScore
           data.score = Math.round(data.score)
           console.log(data)
+
           return data;
         })
        

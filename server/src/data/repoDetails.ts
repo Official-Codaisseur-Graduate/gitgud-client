@@ -2,7 +2,8 @@ import { createApolloFetch } from "apollo-fetch";
 import { commitValidation } from "../validation/repository/commits";
 import { branchValidation } from "../validation/repository/branches";
 import { scoreCalculator } from "../validation/repository/scoreCalculator";
-import { gitIgnoreValidation } from '../validation/repository/gitignore'
+import { fileValidation } from '../validation/repository/gitignore'
+// import { read } from "fs";
 
 const token = process.env.GITHUB_ACCESS_TOKEN;
 
@@ -30,15 +31,6 @@ export const fetchRepoData = (username, repoName) => {
             entries {
               name
               oid
-            }
-          }
-        }
-        defaultBranchRef {
-          repository {
-            object(expression: "master:README.md") {
-              ... on Blob {
-                text
-              }
             }
           }
         }
@@ -70,10 +62,9 @@ export const fetchRepoData = (username, repoName) => {
         
         `
   }).then(res => {
+
     const repoDescription = res.data.repository.description ? res.data.repository.description : '';
     const branchCount = res.data.repository.refs.totalCount;
-    const repoReadMe = res.data.repository.defaultBranchRef.repository.object ? 
-    res.data.repository.defaultBranchRef.repository.object.text : ''
     const branchNamePlusCommitCount = res.data.repository.refs.edges.map(
       branch => {
         const branchName = branch.node.branchName;
@@ -91,6 +82,7 @@ export const fetchRepoData = (username, repoName) => {
       });
     });
 
+
     const commitScore = commitValidation(commitMessages);
 
     const branchScore = branchValidation(
@@ -98,8 +90,14 @@ export const fetchRepoData = (username, repoName) => {
       branchNamePlusCommitCount
     );
 
+
+    const {gitIgnoreScore, repoReadMe} = fileValidation(fileCheck)
+      
+      
+
     const gitIgnoreScore = gitIgnoreValidation(fileCheck)
     
+
     const totalRepoScore = scoreCalculator(
       commitScore,
       branchScore,
