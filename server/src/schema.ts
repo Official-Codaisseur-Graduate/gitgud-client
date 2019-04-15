@@ -95,8 +95,6 @@ const resolvers = {
           data.score += data.repoScore;
           data.score = Math.round(data.score);
 
-          console.log(data.stats.repoNames);
-
           return data;
         });
       }
