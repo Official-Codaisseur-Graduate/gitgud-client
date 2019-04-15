@@ -6,6 +6,9 @@ export const GET_USER_DATA = gql`
                     user(username: $username ) {
                       username,
                       score,
+                      averageRepoScore,
+                      profileScore,
+                      repoScore
                       profileStats {
                         bio,
                         email,
@@ -23,6 +26,25 @@ export const GET_USER_DATA = gql`
                         repoNames {
                           name
                           owner
+                          totalRepoScore
+                          repoReadMe
+                          gitIgnoreScore
+                          description
+                          commitScore{
+                            lengthExceeds
+                            containsAND
+                            containsPeriod
+                            upperCase
+                            totalScore
+                          }
+                          branchScore {
+                            hasThreeBranches
+                            hasMasterBranch
+                            hasDevelopmentBranch
+                            hasFeatBranch
+                            useDescriptiveNames
+                            totalScore
+                          }
                         }
                       }
                     }
