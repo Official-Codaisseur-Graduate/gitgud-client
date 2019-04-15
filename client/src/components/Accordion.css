@@ -1,94 +1,12 @@
-.section {
-  position: relative;
-  width: 100%;
-  border-bottom: 5px solid black;
-}
-.section button {
-  position: absolute;
-  right: 0;
-  margin: 0;
-  padding: 0;
-  height: 3em;
-  width: 3em;
-  outline: 0;
-  border: 0;
-  background: none;
-  text-indent: -9999%;
-  pointer-events: none;
-}
-.section button:before {
-  content: "";
-  display: block;
-  position: absolute;
-  height: 12px;
-  width: 4px;
-  border-radius: 0.3em;
-  background: black;
-  transform-origin: 50%;
-  top: 50%;
-  left: 50%;
-  transition: all 0.25s ease-in-out;
-  transform: translate(75%, -50%) rotate(45deg);
-}
-.section button:after {
-  content: "";
-  display: block;
-  position: absolute;
-  height: 12px;
-  width: 4px;
-  border-radius: 0.3em;
-  background: black;
-  transform-origin: 50%;
-  top: 50%;
-  left: 50%;
-  transition: all 0.25s ease-in-out;
-  transform: translate(-75%, -50%) rotate(-45deg);
-}
 
-.section.open button:before, .section.open button:after {
-  height: 14px;
-}
-.section.open button:before {
-  transform: translate(0%, -50%) rotate(-45deg);
-}
-.section.open button:after {
-  transform: translate(0%, -50%) rotate(45deg);
-}
-.section.open .articlewrap {
-  height: 120px;
-}
-
-.articlewrap {
-  height: 0;
-  overflow: hidden;
-  transition: all 0.2s ease-in;
-}
-
-.sectionhead {
-  width: 100%;
-  overflow: hidden;
-  background: white;
-  cursor: pointer;
-  font-weight: 700;
-  color: #888;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  padding: 1em;
-  padding-right: 2.1em;
-}
-
-.article {
-  padding: 1em;
-  color: #333;
-  line-height: 1.3;
-}
 
 
 .title {
   cursor: pointer;
-  background-image: linear-gradient(-180deg, #ff1c68 0%, #9f0092 300px);
+  background-color: #406eb7;
   padding: 5px 8px;
   border-bottom: 1px solid #9f0092;
+  margin: 0;
 }
 
 .content {

@@ -21,7 +21,6 @@ export default class ReposAccordion extends React.Component {
               className="title"
               onClick={() => this.setState({ open: open === i ? false : i })}
             >
-              {open === i ? '🤯 ' : '🙂 '}
               {repo.name}
             </h2>
             <Content className="content" pose={open === i ? 'open' : 'closed'}>
