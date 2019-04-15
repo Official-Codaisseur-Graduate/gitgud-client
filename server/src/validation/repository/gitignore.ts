@@ -16,6 +16,5 @@ export const gitIgnoreValidation = (fileCheck) => {
   if(gitIgnoreScore === 0) {
     fileNames.includes('client' && 'server') ? gitIgnoreScore = 50 : null
   }
-  console.log(gitIgnoreScore, 'im gitignorescore in GitIgnoreValidator')
   return gitIgnoreScore
 }

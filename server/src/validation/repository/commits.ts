@@ -88,5 +88,5 @@ export const commitValidation = commitMessages => {
   scoreCalculator(commitStats.upperCase, "upperCase", commitCount);
   totalScoreCalculator(commitScore)
 
-  return { commitStats, commitScore };
+  return commitScore;
 };
