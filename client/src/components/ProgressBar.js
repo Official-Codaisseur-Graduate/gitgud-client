@@ -4,9 +4,6 @@ import './ProgressBar.css';
 class MultiColorProgressBar extends React.Component {
   
   render() {
-    console.log(this.props)
-  	const parent = this.props;
-
 
     return (
       <div className="multicolor-bar">
