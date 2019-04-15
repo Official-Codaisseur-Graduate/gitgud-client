@@ -65,6 +65,7 @@ const resolvers = {
           averageRepoScore = averageRepoScore / data.stats.repoNames.length;
           data.score += averageRepoScore / 2;
           data.score = parseInt(data.score)
+          console.log(data, data.stats.repoNames)
           return data;
         })
        

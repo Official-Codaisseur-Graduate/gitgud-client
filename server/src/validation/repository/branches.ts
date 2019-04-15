@@ -58,7 +58,7 @@ export const branchValidation = (branchCount, branchNamePlusCommitCount) => {
     featName.includes("master" || "Master")
       ? (branchStats.masterBranch = true)
       : null;
-    featName.includes("development" || "Development")
+    featName.includes("dev" || "Dev")
       ? (branchStats.developmentBranch = true)
       : null;
     featName.includes("feat" || "Feat" || "feature" || "Feature")
