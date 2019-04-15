@@ -1,5 +1,6 @@
 import * as React from "react";
 import "./ProfileStats.css";
+import ProgressBar from './ProgressBar';
 
 const icon = value => {
   if (value)
@@ -21,11 +22,16 @@ const icon = value => {
   );
 };
 
+
 export default function ProfileStats(props) {
   console.log(props);
   const profileStats = props.user.profileStats;
   return (
     <section className="stats">
+    <ProgressBar
+    profileScore={props.user.profileScore}
+    repoScore={props.user.repoScore}
+     />
       <p className="stats__username"> username: {props.user.username} </p>
       <p className="stats__score">
         {" "}
@@ -111,6 +117,7 @@ export default function ProfileStats(props) {
       {props.user && !props.user.stats.totalPinnedRepos && (
         <p> Please add some pinned repositories </p>
       )}
+      
     </section>
   );
 }
