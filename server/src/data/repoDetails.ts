@@ -70,6 +70,7 @@ export const fetchRepoData = (username, repoName) => {
         
         `
   }).then(res => {
+    console.log(res.data.repository.defaultBranchRef)
     const repoDescription = res.data.repository.description ? res.data.repository.description : '';
     const branchCount = res.data.repository.refs.totalCount;
     const repoReadMe = res.data.repository.defaultBranchRef.repository.object ? 
@@ -99,7 +100,7 @@ export const fetchRepoData = (username, repoName) => {
     );
 
     const gitIgnoreScore = gitIgnoreValidation(fileCheck)
-
+      console.log(commitStats, branchStats)
     const totalRepoScore = scoreCalculator(
       commitScore,
       branchScore,
@@ -111,11 +112,12 @@ export const fetchRepoData = (username, repoName) => {
       
     
     return {
-      commitStats,
       commitScore,
-      branchStats,
       branchScore,
-      totalRepoScore
+      totalRepoScore,
+      repoReadMe,
+      gitIgnoreScore,
+      repoDescription
     };
   });
 };

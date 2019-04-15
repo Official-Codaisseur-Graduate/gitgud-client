@@ -39,6 +39,7 @@ export const commitValidation = commitMessages => {
   const lengthExceedsCount = lengthCount.map(branch =>
     branch.reduce((partial_sum, a) => partial_sum + a)
   );
+ 
   commitStats.lengthExceeds = lengthExceedsCount.reduce(
     (partial_sum, a) => partial_sum + a
   );
