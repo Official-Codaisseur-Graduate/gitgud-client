@@ -69,7 +69,11 @@ export default function ProfileStats(props) {
               <p className="stats__item-name">Pinned repositories</p>
             </div>
           </div>
+          
         )}
+        {props.user.profileScore < 49 &&
+            <p>To improve ypur GitHub appearence go <a href='https://github.com/settings/profile' target="_blank"  rel='noopener noreferrer' >HERE</a></p>
+            }
       </section>
       {props.user && props.user.stats.totalPinnedRepos !== null && (
         <section className="stats__average">
