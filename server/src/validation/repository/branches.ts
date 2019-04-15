@@ -78,5 +78,5 @@ export const branchValidation = (hasThreeBranches, branchNamePlusCommitCount) =>
  
   totalScoreCalculator(branchScore)
   
-  return { branchStats, branchScore };
+  return branchScore;
 };

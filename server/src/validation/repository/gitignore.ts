@@ -18,9 +18,11 @@ export const fileValidation = (fileCheck) => {
     fileNames.includes('client' && 'server') ? gitIgnoreScore = 50 : null
   }
 
+
   const repoReadMe = fileNames.map(filename => {
     return filename.includes('readme' || 'Readme' || 'README' || 'ReadMe')
   }) ? 100: 0
   
   return {gitIgnoreScore, repoReadMe}
+
 }

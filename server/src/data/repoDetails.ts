@@ -62,7 +62,7 @@ export const fetchRepoData = (username, repoName) => {
         
         `
   }).then(res => {
-    
+
     const repoDescription = res.data.repository.description ? res.data.repository.description : '';
     const branchCount = res.data.repository.refs.totalCount;
     const branchNamePlusCommitCount = res.data.repository.refs.edges.map(
@@ -82,19 +82,21 @@ export const fetchRepoData = (username, repoName) => {
       });
     });
 
-    const {commitScore} = commitValidation(commitMessages);
 
-    const {branchScore } = branchValidation(
+    const commitScore = commitValidation(commitMessages);
+
+    const branchScore = branchValidation(
       branchCount,
       branchNamePlusCommitCount
     );
+
 
     const {gitIgnoreScore, repoReadMe} = fileValidation(fileCheck)
       
       
 
-
-
+    const gitIgnoreScore = gitIgnoreValidation(fileCheck)
+    
 
     const totalRepoScore = scoreCalculator(
       commitScore,
