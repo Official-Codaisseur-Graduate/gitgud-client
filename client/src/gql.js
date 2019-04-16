@@ -9,6 +9,11 @@ export const GET_USER_DATA = gql`
                       averageRepoScore,
                       profileScore,
                       repoScore
+                      previousScores {
+                        profileScore,
+                        gitScore,
+                        createdAt
+                      }
                       profileStats {
                         bio,
                         email,
