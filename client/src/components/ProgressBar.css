@@ -1,49 +1,74 @@
-.multicolor-bar {
-	margin: 20px 20%;
-}
-
-.multicolor-bar .values .value {
-	float: left;
-	text-align: center;
-}
-
-.multicolor-bar .scale .graduation {
-	float: left;
-	text-align: center;
-}
-
-.multicolor-bar .bars .bar {
-	float: left;
-	height: 10px;
-}
-
-.multicolor-bar .bars div.bar:first-of-type {
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-}
-
-.multicolor-bar .bars div.bar:last-of-type {
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-}
-
-.multicolor-bar .legends {
-	text-align: center;
+:root {
+  --color-orange: #ff4500;
+  --color-blue: #09267a;
 }
 
 
-.multicolor-bar .legends .legend {
-    display: inline-block;
-    margin: 0 5px;
-    text-align: center;
+.progressbar {
+  width: 500px;
+  padding: 50px;
+  overflow: hidden;
+  margin: 0 auto;
 }
 
-.multicolor-bar .legends .legend .dot {
-	font-size: 25px;
-	vertical-align: middle;
+.progressbar__bar {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: flex-start;
 }
 
-.multicolor-bar .legends .legend .label {
-	margin-left: 2px;
-	vertical-align: middle;
+.progressbar__profile,
+.progressbar__repos,
+.progressbar__rest {
+  height: 10px;
+  flex-grow: 1;
+}
+
+.progressbar__profile {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  background-color: var(--color-orange);
+}
+
+.progressbar__repos {
+  background-color: var(--color-blue);
+}
+
+.progressbar__rest {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: grey;
+}
+
+.progressbar__labels {
+  padding-right: 20px;
+  padding-left: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.progressbar__label {
+  padding-left: 25px;
+  margin: 0 20px 20px 20px;
+  position: relative;
+}
+
+.progressbar__label::before {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  left: 0;
+  top: 2px;
+  border-radius: 50%;
+}
+
+.progressbar__label--profile::before {
+  background-color: var(--color-orange);
+}
+
+.progressbar__label--repos::before {
+  background-color: var(--color-blue);
 }

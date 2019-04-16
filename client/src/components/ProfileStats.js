@@ -1,6 +1,7 @@
 import * as React from "react";
 import "./ProfileStats.css";
 import ProgressBar from './ProgressBar';
+import RepoStats from './RepoStats';
 
 const icon = value => {
   if (value)
@@ -103,14 +104,10 @@ export default function ProfileStats(props) {
         <section className="stats__pinnedRepos">
           <h2> Click to see detailed feedback about each repository </h2>
           {props.user.stats.repoNames &&
-            props.user.stats.repoNames.map(repo => {
-              return (
-                <button key={repo.name} className="stats__repo-button">
-                  {" "}
-                  {repo.name}
-                </button>
-              );
-            })}
+          <RepoStats 
+            repos={props.user.stats.repoNames}
+          />
+          }
         </section>
       )}
 
