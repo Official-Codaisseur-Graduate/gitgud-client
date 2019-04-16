@@ -1,9 +1,12 @@
 import { makeExecutableSchema } from "graphql-tools";
+import { getRepository } from "typeorm";
 import { fetchRepoData } from "./data/repoDetails";
 import { analizeProfile } from "./data/profileScore";
 import { fetchGeneralData } from "./data/gitUse";
+import { Score } from "./score/entity";
 
 const typeDefs = `
+
   type Query {
     user(username: String): User
   }
@@ -16,6 +19,15 @@ const typeDefs = `
     repoScore: Int
     profileStats: Profile
     stats: Stats
+    previousScores: [History]
+  }
+
+  type History {
+    id: Int
+    userName: String
+    profileScore: Int
+    gitScore: Int
+    createdAt: String
   }
 
   type Profile {
@@ -73,6 +85,13 @@ const resolvers = {
       const gitUse = await fetchGeneralData(username);
       data.stats = gitUse;
       let averageRepoScore = 0;
+      const userScores = await Score.find({ userName: username });
+
+      if (userScores.length > 0) data.previousScores = userScores;
+
+      const score = new Score();
+      score.profileScore = data.score;
+      score.userName = username;
 
       if (data.stats.totalPinnedRepos > 0) {
         const promises = data.stats.repoNames.map(async (repo, i) => {
@@ -94,10 +113,14 @@ const resolvers = {
           data.repoScore = Math.round(data.averageRepoScore / 2);
           data.score += data.repoScore;
           data.score = Math.round(data.score);
-
+          score.gitScore = data.repoScore;
+          getRepository(Score).save(score);
           return data;
         });
       }
+      await getRepository(Score).save(score);
+      data.profileScore = data.score;
+      data.repoScore = 0;
       return data;
     }
   }

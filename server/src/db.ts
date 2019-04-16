@@ -1,5 +1,6 @@
 import { createConnection } from "typeorm";
-//import Adv from './advert/entity'
+import { Score } from "./score/entity";
+
 
 export default () =>
   createConnection({
@@ -7,6 +8,6 @@ export default () =>
     url:
       process.env.DATABASE_URL ||
       "postgres://postgres:secret@localhost:5432/postgres",
-    entities: [],
+    entities: [Score],
     synchronize: true
   }).then(_ => console.log("Connected to Postgres with TypeORM"));
