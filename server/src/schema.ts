@@ -77,6 +77,7 @@ const resolvers = {
       if (data.stats.totalPinnedRepos > 0) {
         const promises = data.stats.repoNames.map(async (repo, i) => {
           return fetchRepoData(repo.owner, repo.name).then(repoData => {
+
             if (!repoData) throw new Error();
             averageRepoScore += repoData.totalRepoScore;
             data.stats.repoNames[i] = {
