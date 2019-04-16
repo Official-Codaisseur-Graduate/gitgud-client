@@ -2,6 +2,7 @@ import * as React from "react";
 import "./ProfileStats.css";
 import ProgressBar from './ProgressBar';
 import RepoStats from './RepoStats';
+import Chart from "./Chart";
 
 const icon = value => {
   if (value)
@@ -114,7 +115,7 @@ export default function ProfileStats(props) {
       {props.user && !props.user.stats.totalPinnedRepos && (
         <p> Please add some pinned repositories </p>
       )}
-      
+      {props.user.previousScores.length > 0 && <Chart previousScores={props.user.previousScores} currentProfileScore={props.user.profileScore} currentGitScore={props.user.repoScore}/>}
     </section>
   );
 }
