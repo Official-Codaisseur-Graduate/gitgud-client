@@ -72,7 +72,7 @@ class TabContent extends React.Component {
             <li> Development branch: {item.branchScore.hasDevelopmentBranch < 100 ? 'You don`t have a development branch in your repository': '100%'}</li>
             <li> Feature branches: {item.branchScore.hasFeatBranch < 100 ? 'You don`t have a feature branch in your repository': '100%'}</li>
             <li> Number of branches: {item.branchScore.hasThreeBranches < 100 ? 'You have less then three branches in your repository': '100%'}</li>
-            <li> Naming: {item.branchScore.useDescriptiveNames < 100 ? 'Please consider renaming your branches. They are not descriptive enough': '100%'}</li>
+            <li> Naming: {item.branchScore.useDescriptiveNames}%</li>
           </ul>
           <ul> Commits 
             <li> Total score: {item.commitScore.totalScore}% </li>
