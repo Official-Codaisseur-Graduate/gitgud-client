@@ -14,46 +14,48 @@
 }
 
 .tabs-header {
-  display: table;
+  display: flex;
+  justify-content: center;
   width: 100%;
   list-style-type: none;
+  color: white;
 }
 
 .tabs-header li {
-  display: table-cell;
   text-align: center;
   color: #ECF0F1;
   cursor: pointer;
 }
 
-.tabs-header li>a {
+.tabs-header li>button {
   display: block;
-  padding: 15px;
+  padding: 15px 35px;
   background: #212F3D;
   transition: all .2s ease-in;
   transform: skew(-40deg);
+  color: white;
 }
 
-.tabs-header li>a span {
+.tabs-header li>button span {
   display: block;
   transform: skew(40deg);
 }
 
-.tabs-header li>a:hover {
+.tabs-header li>button:hover {
   background: #2471A3;
   color: #F7F9F9;
 }
 
-.tabs-header li.active>a {
+.tabs-header li.active>button {
   background: #2471A3;
 }
 
 .tabs-content {
-  margin-top: 15px;
+  margin-top: 0;
   position: relative;
   padding: 20px 25px;
   overflow: hidden;
-  background: grey;
+  background: #efefef;
 }
 
 .tabs-content .tabs-textItem {
@@ -70,6 +72,10 @@
 .tabs-content .tabs-textItem p {
   font: normal 15px/1.5 'Open Sans';
   color: #F2F3F4;
+}
+
+ul {
+  margin: 0;
 }
 
 @keyframes change {
