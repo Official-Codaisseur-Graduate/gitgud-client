@@ -24,6 +24,14 @@ const icon = value => {
   );
 };
 
+const badge = score => {
+  if (score > 90) return (<img src={require("../img/git--gud-A-green.svg")} alt='A'/>) 
+  if (score > 75) return (<img src={require("../img/git--gud-B-yellowgreen.svg")} alt='B'/>)
+  if (score > 50) return (<img src={require("../img/git--gud-C-yellow.svg")} alt='C'/>) 
+  if (score > 30) return (<img src={require("../img/git--gud-D-orange.svg")} alt='D'/>)
+  return (<img src={require("../img/git--gud-E-red.svg")} alt='E'/>) 
+}
+
 
 export default function ProfileStats(props) {
   console.log(props);
@@ -39,6 +47,7 @@ export default function ProfileStats(props) {
         {" "}
         Your Github accout strength: {props.user.score}%{" "}
       </p>
+      {badge(props.user.score)}
 
       <section className="stats__profile">
         <h2 className="stats__profile-header"> Profile statistics </h2>
@@ -115,7 +124,7 @@ export default function ProfileStats(props) {
       {props.user && !props.user.stats.totalPinnedRepos && (
         <p> Please add some pinned repositories </p>
       )}
-      {props.user.previousScores.length > 0 && <Chart previousScores={props.user.previousScores} currentProfileScore={props.user.profileScore} currentGitScore={props.user.repoScore}/>}
+      {props.user.previousScores && props.user.previousScores.length > 0 && <Chart previousScores={props.user.previousScores} currentProfileScore={props.user.profileScore} currentGitScore={props.user.repoScore}/>}
     </section>
   );
 }
