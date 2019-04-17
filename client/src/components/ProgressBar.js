@@ -1,5 +1,6 @@
 import * as React from "react";
 import './ProgressBar.css';
+import {badge} from '../logic';
 
 class MultiColorProgressBar extends React.Component {
   
@@ -7,7 +8,10 @@ class MultiColorProgressBar extends React.Component {
 
     return (
       <div className="progressbar">
-      <h1> You total profile strength: {this.props.profileScore + this.props.repoScore}% </h1>
+      <div className="progressbar__header-container">
+        <h1> You total profile strength: {this.props.profileScore + this.props.repoScore}% </h1>
+        {badge(this.props.score)}
+      </div>
       <div className="progressbar__bar">
         <div className="progressbar__profile" style={{'width': this.props.profileScore + '%'}}></div>
         <div className="progressbar__repos" style={{ 'width': this.props.repoScore + '%'}}></div>

@@ -1,5 +1,5 @@
 .progressbar {
-  padding: 40px 200px 50px;
+  padding: 40px 20% 50px;
   overflow: hidden;
   margin: 0 auto;
   background-color: rgba(230,244,241, 0.4);
@@ -69,4 +69,16 @@
 
 h1 {
   margin: 20px 0;
+}
+
+.progressbar__header-container {
+  display: flex;
+  justify-content: space-evenly;
+  width: 80%;
+  margin: auto;
+}
+.progressbar__badge {
+  width: 88px;
+  height: 31px;
+  margin: 20px;
 }

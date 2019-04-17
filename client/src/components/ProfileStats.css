@@ -44,3 +44,19 @@
 .stats__link {
   color:#0082C8;
 }
+
+.stats__average {
+  padding: 40px 20% 50px;
+  margin-top: 20px;
+  background-color: rgba(230,244,241, 0.4);
+  border-radius: 5px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1)
+}
+
+.stats__pinnedRepos {
+  padding: 40px 50px;
+  background-color: rgba(111,148,188, 0.1);
+  border-radius: 5px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
