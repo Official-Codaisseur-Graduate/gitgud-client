@@ -24,13 +24,6 @@ const icon = value => {
   );
 };
 
-const badge = score => {
-  if (score > 90) return (<img src={require("../img/git--gud-A-green.svg")} alt='A'/>) 
-  if (score > 75) return (<img src={require("../img/git--gud-B-yellowgreen.svg")} alt='B'/>)
-  if (score > 50) return (<img src={require("../img/git--gud-C-yellow.svg")} alt='C'/>) 
-  if (score > 30) return (<img src={require("../img/git--gud-D-orange.svg")} alt='D'/>)
-  return (<img src={require("../img/git--gud-E-red.svg")} alt='E'/>) 
-}
 
 
 export default function ProfileStats(props) {
@@ -41,8 +34,8 @@ export default function ProfileStats(props) {
     <ProgressBar
     profileScore={props.user.profileScore}
     repoScore={props.user.repoScore}
+    score={props.user.score}
      />
-      {badge(props.user.score)}
 
       <section className="stats__profile">
         <h2 className="stats__profile-header"> Profile statistics </h2>

@@ -21,7 +21,7 @@ export default class Tabs extends React.Component {
     this.state = {
       tabs: this._tabsData.map((undefined, i) => ({isActive: (i === 0)})),
       open: false, 
-      ulOpen: false
+      ulOpen: "ul-1"
     };
   }
 
@@ -49,7 +49,7 @@ export default class Tabs extends React.Component {
           <h2>Your total repository score: {item.totalRepoScore}%</h2>
           <p> This is accumulated based on following factors: </p>
             <div className="stats__repos">
-              <ul data-name="ul-1" className="stats__header"> General
+              <ul data-name="ul-1" className={"stats__header " + (this.state.ulOpen === "ul-1" ? "stats__header--active" : "")}> General
                 <li> 
                   <ul className={"stats-breakdown " + (this.state.ulOpen === "ul-1" ? "stats-breakdown--active" : "")}>
                     <li data-id={i+1}> Description: {!item.description ? '0%': '100%'}
@@ -72,10 +72,10 @@ export default class Tabs extends React.Component {
                   </ul>
                 </li>
               </ul>
-              <ul data-name="ul-2" className="stats__header"> Branches
+              <ul data-name="ul-2" className={"stats__header " + (this.state.ulOpen === "ul-2" ? "stats__header--active" : "")}> Branches
               <li>
                 <ul className={"stats-breakdown " + (this.state.ulOpen === "ul-2" ? "stats-breakdown--active" : "")}>
-                  <li data-id={i+4}> Total score: {item.branchScore.totalScore}%
+                  <li data-id={i+4} className="stats-breakdown__points"> Total score: {item.branchScore.totalScore}%
                   </li>
                     <li data-id={i+5}> Master branch: {item.branchScore.hasMasterBranch}
                       <Content className="content" pose={this.state.open == i+5 ? 'open' : 'closed'}>
@@ -97,9 +97,13 @@ export default class Tabs extends React.Component {
                       </Content>
                     </li>
                     <li data-id={i+8}> Number of branches: {item.branchScore.hasThreeBranches}%
+                      <Content className="content" pose={this.state.open == i+8 ? 'open' : 'closed'}>
+                        <div className="content-wrapper"> You should have at least three branches on your repository.
+                        </div>
+                      </Content>
                     </li>
                     <li data-id={i+9}> Naming: {item.branchScore.useDescriptiveNames}%
-                    <Content className="content" pose={this.state.open == i+9 ? 'open' : 'closed'}>
+                      <Content className="content" pose={this.state.open == i+9 ? 'open' : 'closed'}>
                         <div className="content-wrapper"> All branches, including supporting branches have naming conventions. They should start with master, development, feature, bug, hotfix or junk. 
                         </div>
                       </Content>
@@ -107,10 +111,10 @@ export default class Tabs extends React.Component {
                   </ul>  
                 </li>
               </ul>
-              <ul data-name="ul-3" className="stats__header"> Commits 
+              <ul data-name="ul-3" className={"stats__header " + (this.state.ulOpen === "ul-3" ? "stats__header--active" : "")}> Commits 
                 <li>
                   <ul className={"stats-breakdown " + (this.state.ulOpen === "ul-3" ? "stats-breakdown--active" : "")}>
-                    <li data-id={i+10}> Total score: {item.commitScore.totalScore}% </li>
+                    <li data-id={i+10} className="stats-breakdown__points"> Total score: {item.commitScore.totalScore}% </li>
                     <li data-id={i+11}> Commits with "and":{item.commitScore.containsAND}%
                       <Content className="content" pose={this.state.open == i+11 ? 'open' : 'closed'}>
                         <div className="content-wrapper"> If you have to add an “and” in your commit message, you’ve already committed too much.
