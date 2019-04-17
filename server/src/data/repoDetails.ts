@@ -99,7 +99,6 @@ export const fetchRepoData = (username, repoName) => {
     ));
 
     const description = repoDescription ? true : false
-
     return {
       commitScore,
       branchScore,

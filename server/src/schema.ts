@@ -94,19 +94,37 @@ const resolvers = {
       score.userName = username;
 
       if (data.stats.totalPinnedRepos > 0) {
-        const promises = data.stats.repoNames.map(async (repo, i) => {
-          return fetchRepoData(repo.owner, repo.name).then(repoData => {
 
-            if (!repoData) throw new Error();
-            averageRepoScore += repoData.totalRepoScore;
-            data.stats.repoNames[i] = {
-              ...data.stats.repoNames[i],
-              ...repoData
-            };
-          });
+
+        const promises = data.stats.repoNames.map(async (repo, i) => {
+
+          const TEST = await fetchRepoData(repo.owner, repo.name)
+            .then(repoData => {
+              if (!repoData) throw new Error();
+
+              averageRepoScore += repoData.totalRepoScore;
+
+              data.stats.repoNames[i] = {
+                ...data.stats.repoNames[i],
+                commitScore: { ...repoData.commitScore },
+                branchScore: { ...repoData.branchScore },
+                description: repoData.description,
+                gitIgnoreScore: repoData.gitIgnoreScore,
+                repoReadMe: repoData.repoReadMe,
+                totalRepoScore: repoData.totalRepoScore
+
+              };
+
+            });
+
+          return TEST
         });
 
+
+
+
         return Promise.all(promises).then(() => {
+
           data.profileScore = data.score;
           data.averageRepoScore = Math.round(
             averageRepoScore / data.stats.repoNames.length
@@ -116,12 +134,14 @@ const resolvers = {
           data.score = Math.round(data.score);
           score.gitScore = data.repoScore;
           getRepository(Score).save(score);
+
           return data;
         });
       }
       await getRepository(Score).save(score);
       data.profileScore = data.score;
       data.repoScore = 0;
+
       return data;
     }
   }
