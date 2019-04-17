@@ -1,0 +1,7 @@
+libopencv-dev
+libcairo-gobject2
+libusb-1.0-0
+libusbx
+libpq-dev
+http://downloads.sourceforge.net/project/wkhtmltopdf/0.12.1/wkhtmltox-0.12.1_linux-precise-amd64.deb
+:repo:deb http://cz.archive.ubuntu.com/ubuntu artful main universe
