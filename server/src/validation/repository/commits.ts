@@ -26,14 +26,14 @@ const totalScoreCalculator = (commitScore) => {
   commitScore.totalScore = Math.floor(average(totalScoreCalc))
 }
 
-// const returnToDefault = () => {
-//   commitStats.lengthExceeds = 0
-//   commitStats.containsAND = 0
-//   commitStats.constainsPeriod = 0
-//   commitStats.upperCase = 0
+const returnToDefault = () => {
+  commitStats.lengthExceeds = 0
+  commitStats.containsAND = 0
+  commitStats.constainsPeriod = 0
+  commitStats.upperCase = 0
 
   
-// }
+}
 
 export const commitValidation = commitMessages => {
   // total commits
@@ -96,7 +96,7 @@ export const commitValidation = commitMessages => {
   );
   scoreCalculator(commitStats.upperCase, "upperCase", commitCount);
   totalScoreCalculator(commitScore)
-  // console.log(commitStats, 'COMMITSTATS', commitScore, 'COMMITSCORE')
-  // returnToDefault()
+  
+  returnToDefault()
   return commitScore;
 };

@@ -36,10 +36,10 @@ const descriptiveNamingArray = [
 ];
 
 const scoreCalculator = (branchCount) => {
-  branchStats.hasThreeBranches >= 3 ? (branchScore.hasThreeBranches = Math.round((7 / 7) * 100)) : null;
-  branchStats.hasMasterBranch === true ? (branchScore.hasMasterBranch = Math.round((3 / 3) * 100)) : null;
-  branchStats.hasDevelopmentBranch === true ? (branchScore.hasDevelopmentBranch = Math.round((3 / 3) * 100)) : null;
-  branchStats.hasFeatBranch === true ? (branchScore.hasFeatBranch = Math.round((3 / 3) * 100)) : null;
+  branchStats.hasThreeBranches >= 3 ? branchScore.hasThreeBranches = 100 : null;
+  branchStats.hasMasterBranch === true ? branchScore.hasMasterBranch = 100 : null;
+  branchStats.hasDevelopmentBranch === true ? branchScore.hasDevelopmentBranch = 100 : null;
+  branchStats.hasFeatBranch === true ? branchScore.hasFeatBranch = 100 : null;
 
   branchScore.useDescriptiveNames = Math.round(((branchCount - branchStats.useDescriptiveNames) / branchCount) * 100);
   branchScore.useDescriptiveNames < 0 ? (branchScore.useDescriptiveNames = 0) : null;
