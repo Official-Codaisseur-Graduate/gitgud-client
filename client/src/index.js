@@ -10,7 +10,7 @@ import { ApolloClient } from 'apollo-client';
 import { HttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 
-const url = `http://localhost:3030/graphql`
+const url = `https://gitgudserver.herokuapp.com/graphql`
 
 const httpLink = {
   uri: url
