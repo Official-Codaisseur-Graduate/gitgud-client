@@ -33,11 +33,6 @@ export default function ProfileStats(props) {
     profileScore={props.user.profileScore}
     repoScore={props.user.repoScore}
      />
-      <p className="stats__username"> username: {props.user.username} </p>
-      <p className="stats__score">
-        {" "}
-        Your Github accout strength: {props.user.score}%{" "}
-      </p>
 
       <section className="stats__profile">
         <h2 className="stats__profile-header"> Profile statistics </h2>
@@ -79,7 +74,7 @@ export default function ProfileStats(props) {
           
         )}
         {props.user.profileScore < 49 &&
-            <p>To improve ypur GitHub appearence go <a href='https://github.com/settings/profile' target="_blank"  rel='noopener noreferrer' >HERE</a></p>
+            <p className="stats__improve">To improve your GitHub appearence go <a className="stats__link" href='https://github.com/settings/profile' target="_blank"  rel='noopener noreferrer' >HERE</a></p>
             }
       </section>
       {props.user && props.user.stats.totalPinnedRepos !== null && (

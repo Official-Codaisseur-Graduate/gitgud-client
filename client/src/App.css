@@ -1,5 +1,5 @@
 body {
-  font: 100%/1 "Open Sans", Helvetica, Arial, sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: 300;
   background-size: 400px 400px, 10px 10px;
   padding: 0 3% 1.875em;
@@ -14,4 +14,11 @@ body {
   font-size: 18px;
   font-weight: bold;
   margin-top: 25px;
+}
+
+.heading {
+  font-weight: 700;
+}
+.subheading {
+  font-weight: 300;
 }
