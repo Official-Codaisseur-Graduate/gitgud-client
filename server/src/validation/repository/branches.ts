@@ -53,6 +53,15 @@ const totalScoreCalculator = (branchScore) => {
 
 }
 
+const returnToDefault = () => {
+  branchStats.hasThreeBranches = 0
+  branchStats.hasMasterBranch = false
+  branchStats.hasDevelopmentBranch = false
+  branchStats.hasFeatBranch = false
+  branchStats.useDescriptiveNames = 0
+
+}
+
 export const branchValidation = (hasThreeBranches, branchNamePlusCommitCount) => {
 
   branchStats.hasThreeBranches = hasThreeBranches;
@@ -81,6 +90,8 @@ export const branchValidation = (hasThreeBranches, branchNamePlusCommitCount) =>
   scoreCalculator(hasThreeBranches);
 
   totalScoreCalculator(branchScore)
-  branchStats.useDescriptiveNames = 0
+
+  returnToDefault()
+
   return branchScore;
 };
