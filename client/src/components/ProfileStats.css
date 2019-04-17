@@ -2,17 +2,23 @@
   text-align: center;
 }
 .stats__profile {
-  padding: 20px 20px 50px;
+  padding: 40px 50px 50px;
+  background-color: rgba(111,148,188, 0.1);
+  border-radius: 5px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
 }
 
 .stats__profile-container {
-  display: flex;
-  justify-content: center;
+    justify-content: center;
+    display: grid;
+    grid-column-gap: 30px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .stats__profile-item {
   display: flex;
-  justify-content: center;
+  text-align: left;
   margin: 1rem;
 }
 
@@ -29,4 +35,12 @@
   padding: 10px;
   font-size: 1rem;
   background-color: transparent;
+}
+
+.stats__improve {
+  font-weight: bold;
+}
+
+.stats__link {
+  color:#0082C8;
 }
