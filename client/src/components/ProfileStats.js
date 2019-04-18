@@ -65,7 +65,6 @@ export default function ProfileStats(props) {
         )}
       </div>
       <div class="col-2-of-3">
-        <section className="stats">
           <section className="stats__profile">
             <h2 className="stats__profile-header"> Profile statistics </h2>
             {props.user && props.user.profileStats !== 0 && (
@@ -133,7 +132,6 @@ export default function ProfileStats(props) {
           {props.user && !props.user.stats.totalPinnedRepos && (
             <p> Please add some pinned repositories </p>
           )}
-        </section>
       </div>
     </div>
   );
