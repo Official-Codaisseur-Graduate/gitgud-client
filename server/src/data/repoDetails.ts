@@ -60,6 +60,7 @@ export const fetchRepoData = (username, repoName) => {
     }
   `
   }).then(res => {
+    
     const repoDescription = res.data.repository.description
       ? res.data.repository.description
       : "";
@@ -82,7 +83,7 @@ export const fetchRepoData = (username, repoName) => {
     });
 
     const commitScore = commitValidation(commitMessages);
-
+    
     const branchScore = branchValidation(
       branchCount,
       branchNamePlusCommitCount
@@ -99,7 +100,6 @@ export const fetchRepoData = (username, repoName) => {
     ));
 
     const description = repoDescription ? true : false
-
     return {
       commitScore,
       branchScore,
