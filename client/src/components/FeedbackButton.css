@@ -1,9 +1,9 @@
 .feedback-button {
-  height: 40px;
-  border: solid 3px #3c4856;
+  height: 45px;
+  border: solid 3px #0082c8;
   background: #333;
-  width: 100px;
-  line-height: 32px;
+  width: 110px;
+  line-height: 35px;
   -webkit-transform: rotate(-90deg);
   font-weight: 600;
   color: #FFFFFF;
@@ -15,10 +15,16 @@
   position: fixed;
   right: -40px;
   top: 45%;
-  font-family: "Roboto", helvetica, arial, sans-serif;
+  font-family: "Raleway", helvetica, arial, sans-serif;
   z-index: 999;
-  background-color: #3c4856;
+  background-color: #0082c8;
   border-top-left-radius: 1em;
   border-top-right-radius: 1em;
-  cursor: pointer
+  cursor: pointer;
+  transition: all .2s;
+}
+
+.feedback-button:hover {
+  color: #0082c8;
+  background-color: #fff;
 }
