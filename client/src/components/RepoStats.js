@@ -15,7 +15,6 @@ const TAB_ACTIVITY_MODIFIER = `tabs-list__tab--active`;
 export default class Tabs extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props)
     this._tabsData = props.repos;
     
     this.state = {

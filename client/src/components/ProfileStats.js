@@ -25,12 +25,12 @@ const icon = value => {
 };
 
 export default function ProfileStats(props) {
-
   const profileStats = props.user.profileStats;
   return (
-    <div class="row">
-      <div class="col-1-of-3">
+    <div className="row">
+      <div className="col-1-of-3">
         <ProgressBar
+          username={props.user.username}
           profileScore={props.user.profileScore}
           repoScore={props.user.repoScore}
           score={props.user.score}
@@ -64,75 +64,73 @@ export default function ProfileStats(props) {
           />
         )}
       </div>
-      <div class="col-2-of-3">
-          <section className="stats__profile">
-            <h2 className="stats__profile-header"> Profile Statistics </h2>
-            {props.user && props.user.profileStats !== 0 && (
-              <div className="stats__profile-container">
-                <div className="stats__profile-item" key="bio">
-                  {icon(profileStats.bio)}
-                  <p className="stats__item-name">Bio</p>
-                </div>
-                <div className="stats__profile-item" key="email">
-                  {icon(profileStats.email)}
-                  <p className="stats__item-name">Email</p>
-                </div>
-                <div className="stats__profile-item" key="isHireable">
-                  {icon(profileStats.isHireable)}
-                  <p className="stats__item-name">Available for hire</p>
-                </div>
-                <div className="stats__profile-item" key="location">
-                  {icon(profileStats.location)}
-                  <p className="stats__item-name">Location</p>
-                </div>
-                <div className="stats__profile-item" key="name">
-                  {icon(profileStats.name)}
-                  <p className="stats__item-name">Name</p>
-                </div>
-                <div className="stats__profile-item" key="picture">
-                  {icon(profileStats.picture)}
-                  <p className="stats__item-name">Profile photo</p>
-                </div>
-                <div className="stats__profile-item" key="website">
-                  {icon(profileStats.websiteUrl)}
-                  <p className="stats__item-name">
-                    Personal website
-                  </p>
-                </div>
-                <div className="stats__profile-item" key="pinnedRepositories">
-                  {icon(profileStats.pinnedRepositories)}
-                  <p className="stats__item-name">Pinned repositories</p>
-                </div>
+      <div className="col-2-of-3">
+        <section className="stats__profile">
+          <h2 className="stats__profile-header"> Profile Statistics </h2>
+          {props.user && props.user.profileStats !== 0 && (
+            <div className="stats__profile-container">
+              <div className="stats__profile-item" key="bio">
+                {icon(profileStats.bio)}
+                <p className="stats__item-name">Bio</p>
               </div>
-            )}
-            {props.user.profileScore < 49 && (
-              <p className="stats__improve">
-                To improve your GitHub appearence manage your{" "}
-                <a
-                  className="stats__link"
-                  href="https://github.com/settings/profile"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  settings
-                </a>
-              </p>
+              <div className="stats__profile-item" key="email">
+                {icon(profileStats.email)}
+                <p className="stats__item-name">Email</p>
+              </div>
+              <div className="stats__profile-item" key="isHireable">
+                {icon(profileStats.isHireable)}
+                <p className="stats__item-name">Available for hire</p>
+              </div>
+              <div className="stats__profile-item" key="location">
+                {icon(profileStats.location)}
+                <p className="stats__item-name">Location</p>
+              </div>
+              <div className="stats__profile-item" key="name">
+                {icon(profileStats.name)}
+                <p className="stats__item-name">Name</p>
+              </div>
+              <div className="stats__profile-item" key="picture">
+                {icon(profileStats.picture)}
+                <p className="stats__item-name">Profile photo</p>
+              </div>
+              <div className="stats__profile-item" key="website">
+                {icon(profileStats.websiteUrl)}
+                <p className="stats__item-name">Personal website</p>
+              </div>
+              <div className="stats__profile-item" key="pinnedRepositories">
+                {icon(profileStats.pinnedRepositories)}
+                <p className="stats__item-name">Pinned repositories</p>
+              </div>
+            </div>
+          )}
+          {props.user.profileScore < 49 && (
+            <p className="stats__improve">
+              To improve your GitHub appearence manage your{" "}
+              <a
+                className="stats__link"
+                href="https://github.com/settings/profile"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                settings
+              </a>
+            </p>
+          )}
+        </section>
+
+        {props.user && props.user.stats.totalPinnedRepos !== null && (
+          <section className="stats__pinnedRepos">
+            <h2> Git Use </h2>
+            <p>Click to check your detailed feedback per repository</p>
+            {props.user.stats.repoNames && (
+              <RepoStats repos={props.user.stats.repoNames} />
             )}
           </section>
+        )}
 
-          {props.user && props.user.stats.totalPinnedRepos !== null && (
-            <section className="stats__pinnedRepos">
-              <h2> Git Use </h2>
-              <p>Click to check your detailed feedback per repository</p>
-              {props.user.stats.repoNames && (
-                <RepoStats repos={props.user.stats.repoNames} />
-              )}
-            </section>
-          )}
-
-          {props.user && !props.user.stats.totalPinnedRepos && (
-            <p> Please add some pinned repositories </p>
-          )}
+        {props.user && !props.user.stats.totalPinnedRepos && (
+          <p> Please add some pinned repositories </p>
+        )}
       </div>
     </div>
   );

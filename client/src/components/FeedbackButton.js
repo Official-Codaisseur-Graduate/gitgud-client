@@ -9,7 +9,7 @@ export default function FeebackButton () {
 };
 
   return (
-    <button id="popup" class="feedback-button" onClick={() => issuePage()}>Feedback</button>
+    <button id="popup" className="feedback-button" onClick={() => issuePage()}>Feedback</button>
   )    
 
 }

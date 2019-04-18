@@ -9,6 +9,7 @@ class MultiColorProgressBar extends React.Component {
     return (
       <div className="progressbar">
       <div className="progressbar__header-container">
+        <p className='logo logo-small'>{this.props.username}</p>
         {badge(this.props.score)}
         <h1> Profile strength: {this.props.profileScore + this.props.repoScore}% </h1>
       </div>

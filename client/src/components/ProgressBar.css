@@ -42,10 +42,9 @@
   flex-wrap: wrap;
 }
 
-.progressbar__label {
-  padding-left: 25px;
-  margin: 0 20px 10px 20px;
+.progressbar__label:first-child {
   position: relative;
+  padding-right: 1em;
 }
 
 .progressbar__label::before {
