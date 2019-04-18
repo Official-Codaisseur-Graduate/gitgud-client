@@ -171,7 +171,7 @@ h3 {
   background: url(../img/arrow-right.svg) no-repeat 0 0;
   background-size: contain;
   top: 0;
-  right: 20%;
+  right: 15%;
   width: 19px;
   height: 15px;
 }
@@ -179,7 +179,7 @@ h3 {
 
 .stats-breakdown__item--active::after {
   background: url(../img/arrow-down.svg) no-repeat 0 0 !important;
-  right: 20.6% !important;
+  right: 15.6% !important;
 }
 
 .stats-breakdown li:hover::after {
