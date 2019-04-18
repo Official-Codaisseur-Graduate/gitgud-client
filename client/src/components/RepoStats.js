@@ -42,7 +42,7 @@ export default class Tabs extends React.Component {
       const tabActivityModifier = this.state.tabs[i].isActive ? ` ${TAB_ACTIVITY_MODIFIER}` : ``;
           
       let content =  <div onClick={this.checkDataSet}>
-          <h3>Your total repository score: {item.totalRepoScore}%</h3>
+          <h3>Total Repository score: {item.totalRepoScore}%</h3>
           <p className="stats__description"> This is accumulated based on following factors: </p>
             <div className="stats__repos">
               <ul data-name="ul-1" className={"stats__header " + (this.state.ulOpen === "ul-1" ? "stats__header--active" : "")}> General

@@ -37,7 +37,7 @@ export default function ProfileStats(props) {
         />
         {props.user && props.user.stats.totalPinnedRepos !== null && (
           <section className="stats__average">
-            <h2> Average github usage </h2>
+            <h2> GitHub & Git statistics </h2>
             <p>
               {" "}
               Total pinned repositories: {
@@ -51,7 +51,7 @@ export default function ProfileStats(props) {
             </p>
             <p>
               {" "}
-              Average number of commits per branch:{" "}
+              Average commits per branch:{" "}
               {props.user.stats.averageCommitPerBranch}
             </p>
           </section>
@@ -66,7 +66,7 @@ export default function ProfileStats(props) {
       </div>
       <div class="col-2-of-3">
           <section className="stats__profile">
-            <h2 className="stats__profile-header"> Profile statistics </h2>
+            <h2 className="stats__profile-header"> Profile Statistics </h2>
             {props.user && props.user.profileStats !== 0 && (
               <div className="stats__profile-container">
                 <div className="stats__profile-item" key="bio">
@@ -87,16 +87,16 @@ export default function ProfileStats(props) {
                 </div>
                 <div className="stats__profile-item" key="name">
                   {icon(profileStats.name)}
-                  <p className="stats__item-name">Full name</p>
+                  <p className="stats__item-name">Name</p>
                 </div>
                 <div className="stats__profile-item" key="picture">
                   {icon(profileStats.picture)}
-                  <p className="stats__item-name">Propper profile photo</p>
+                  <p className="stats__item-name">Profile photo</p>
                 </div>
                 <div className="stats__profile-item" key="website">
                   {icon(profileStats.websiteUrl)}
                   <p className="stats__item-name">
-                    URL to your website / LinkedIn
+                    Personal website
                   </p>
                 </div>
                 <div className="stats__profile-item" key="pinnedRepositories">
@@ -107,14 +107,14 @@ export default function ProfileStats(props) {
             )}
             {props.user.profileScore < 49 && (
               <p className="stats__improve">
-                To improve your GitHub appearence go{" "}
+                To improve your GitHub appearence manage your{" "}
                 <a
                   className="stats__link"
                   href="https://github.com/settings/profile"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  HERE
+                  settings
                 </a>
               </p>
             )}
@@ -122,7 +122,8 @@ export default function ProfileStats(props) {
 
           {props.user && props.user.stats.totalPinnedRepos !== null && (
             <section className="stats__pinnedRepos">
-              <h2> Click to see detailed feedback about each repository </h2>
+              <h2> Git Use </h2>
+              <p>Click to check your detailed feedback per repository</p>
               {props.user.stats.repoNames && (
                 <RepoStats repos={props.user.stats.repoNames} />
               )}

@@ -9,7 +9,7 @@ class MultiColorProgressBar extends React.Component {
     return (
       <div className="progressbar">
       <div className="progressbar__header-container">
-        <h1> You total profile strength: {this.props.profileScore + this.props.repoScore}% </h1>
+        <h1> Profile strength: {this.props.profileScore + this.props.repoScore}% </h1>
         {badge(this.props.score)}
       </div>
       <div className="progressbar__bar">
@@ -20,10 +20,10 @@ class MultiColorProgressBar extends React.Component {
     
       <div className="progressbar__labels">
         <p className="progressbar__label  progressbar__label--profile">
-          Profile info — <span>{this.props.profileScore}</span>%
+          GitHub Profile — <span>{this.props.profileScore}</span>%
         </p>
         <p className="progressbar__label  progressbar__label--repos">
-          Repositories design — <span>{this.props.repoScore}</span>%
+          Git Use — <span>{this.props.repoScore}</span>%
         </p>
       </div>
     </div>
