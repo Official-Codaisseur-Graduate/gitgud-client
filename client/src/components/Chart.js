@@ -68,7 +68,7 @@ export default class ChartContainer extends React.Component {
           data: this.getProfileScore(this.props.previousScores)
         },
         {
-          name: "GitUse score",
+          name: "Git Use score",
           data: this.getGitScore(this.props.previousScores)
         }
       ]
