@@ -94,12 +94,9 @@ const resolvers = {
       score.userName = username;
 
       if (data.stats.totalPinnedRepos > 0) {
-
-
         const promises = data.stats.repoNames.map(async (repo, i) => {
-
-          const TEST = await fetchRepoData(repo.owner, repo.name)
-            .then(repoData => {
+          const TEST = await fetchRepoData(repo.owner, repo.name).then(
+            repoData => {
               if (!repoData) throw new Error();
 
               averageRepoScore += repoData.totalRepoScore;
@@ -112,19 +109,14 @@ const resolvers = {
                 gitIgnoreScore: repoData.gitIgnoreScore,
                 repoReadMe: repoData.repoReadMe,
                 totalRepoScore: repoData.totalRepoScore
-
               };
+            }
+          );
 
-            });
-
-          return TEST
+          return TEST;
         });
 
-
-
-
         return Promise.all(promises).then(() => {
-
           data.profileScore = data.score;
           data.averageRepoScore = Math.round(
             averageRepoScore / data.stats.repoNames.length
@@ -133,11 +125,15 @@ const resolvers = {
           data.score += data.repoScore;
           data.score = Math.round(data.score);
           score.gitScore = data.repoScore;
+
+          // if new date or new score then save
           getRepository(Score).save(score);
 
           return data;
         });
       }
+
+      // if new date or new score then save
       await getRepository(Score).save(score);
       data.profileScore = data.score;
       data.repoScore = 0;
