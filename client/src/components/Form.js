@@ -29,8 +29,9 @@ export default function Form(props) {
       >
         {({ loading, error, data }) => {
           if (loading) return <Loader />;
-          if (error)
-            return <p className="error"> Please submit valid username </p>;
+          
+          if (error) return <p className="error"> Please submit valid username </p>;
+
           return <div> {data && <ProfileStats user={data.user} />}</div>;
         }}
       </Query>
