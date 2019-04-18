@@ -5,7 +5,7 @@ export default function LandingPage(props) {
   return (
     <section className="landing-page">
       <div className="landing-page__header">
-        <h1>GitGud</h1>
+        <p className='logo'>GitGud</p>
         <p>A validator of your GitHub profile and Git use </p>
         <p>
           designed to provide feedback for job seekers and graduated students
