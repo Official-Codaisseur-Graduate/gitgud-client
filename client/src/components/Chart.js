@@ -33,6 +33,7 @@ export default class ChartContainer extends React.Component {
             enabled: true
           }
         },
+        colors: ['#37867E', '#99EE86'],
         responsive: [
           {
             breakpoint: 480,
