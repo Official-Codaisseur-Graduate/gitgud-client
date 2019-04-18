@@ -23,6 +23,11 @@
   margin: 1rem;
 }
 
+.stats__profile-item:first-child,
+.stats__profile-item:nth-child(5) {
+  margin-left: 0;
+} 
+
 .stats__profile-header {
   margin: 10px 0 20px;
 }
@@ -76,5 +81,5 @@
   padding: 1rem;
   display: flex;
   width: 90%;
-  }
+}
 
