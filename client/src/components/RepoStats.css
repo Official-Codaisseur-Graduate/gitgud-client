@@ -97,7 +97,8 @@ h3 {
 }
 
 .content:hover {
-  color: black;
+  color: black !important;
+  cursor: auto;
 }
 
 .content-wrapper {
