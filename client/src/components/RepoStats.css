@@ -1,10 +1,9 @@
 .tabs-list {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: flex-start;
   position: relative;
   width: 100%;
-  min-height: 350px;
   margin: 45px 0 0;
   list-style: none;
   background-color: var(--background-color-dark);
@@ -23,8 +22,8 @@
 .tabs-list__tab {
   width: 30%;
   display:inline-block;
-  padding:0.4em 1.2em;
-  margin:0 0.1em 0.1em 0;
+  padding:15px 1.2em;
+  margin:0.3em 0.1em 0.1em 0;
   border:0.16em solid rgba(255,255,255,0);
   border-radius:2em;
   box-sizing: border-box;
@@ -54,18 +53,18 @@
 
 .tabs-list__content {
   display: none;
-  width: 100%;
-  min-height: 100%;
+  width: 65%;
+  min-height: 380px;
   position: absolute;
-  top: 50px;
+  top: 0;
   right: 0;
-  padding: 20px;
+  padding: 0;
   margin: 0;
-  background-color: var(--background-color-dark);
+  background-color:white;
   font-size: 16px;
-  color: var(--text-color-dark);
   overflow-x: hidden;
   overflow-y: auto;
+  border-radius: 15px;
 }
 .tabs-list__tab--active + .tabs-list__content {
   display: block;
@@ -76,7 +75,12 @@ li {
 }
 
 h2 {
-  margin: 0;
+  margin: 14px 0 8px;
+}
+
+h3 {
+  margin: 14px;
+  font-size: 22px;
 }
 
 .advice {
@@ -92,7 +96,8 @@ h2 {
 }
 
 .content-wrapper {
-  padding: 10px 8px 20px 8px;
+  padding: 10px 8px 10px 8px;
+  font-size: 14px;
 }
 
 .stats {
@@ -103,9 +108,8 @@ h2 {
 .stats-breakdown {
   display: none;
   position: absolute;
-  width: 75%;
   right: 0;
-  top: 0;
+  top: 65px;
   text-align: center;
 }
 
@@ -118,60 +122,87 @@ h2 {
   text-align: left;
   position: relative;
   margin-left: 15px;
+  display: flex;
+  justify-content: center;
 }
 
 .stats__header {
   border-bottom: 1px solid black;
   width: 25%;
-  padding:0.4em 1.2em;
+  padding:10px 1.2em;
   margin:0 0.1em 0.1em 0;
-  border:0.16em solid rgba(255,255,255,0);
-  border-radius:2em;
+  background-color: transparent;
+  border-bottom: 1px solid black;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: black;
+  border-radius: 8px;
   box-sizing: border-box;
   text-decoration:none;
   font-family:'Roboto',sans-serif;
   font-weight:300;
-  color:#FFFFFF;
+  color: black;
   text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
-  background-color: #A0ACBD;
   cursor: pointer;
   transition: all 0.2s;
-  margin-bottom: 10px;
+  margin: 10px;
+  text-align: center;
 }
 
 .stats__header:hover {
-  background-color:#3C4856;
+  background-color:rgba(255, 255, 255, 0.845);
 }
 
 .stats__header--active {
-  background-color: #3C4856;
+  border-bottom: 3px solid #0082C8;
 }
 
 .stats-breakdown li {
   margin-top: 5px;
+  position: relative;
+  padding-right: 50px;
 }
 
 
 .stats-breakdown li::after {
-  content: '';
-  display: block;
-  left: 30%;
+  content: "";
   position: absolute;
-  width: 0;
-  height: 2px;
-  background: #37867E;
-  transition: width .5s;
+  background: url(../img/arrow-right.svg) no-repeat 0 0;
+  background-size: contain;
+  top: 0;
+  right: 20%;
+  width: 19px;
+  height: 15px;
+}
+
+
+.stats-breakdown__item--active::after {
+  background: url(../img/arrow-down.svg) no-repeat 0 0 !important;
+  right: 20.6% !important;
 }
 
 .stats-breakdown li:hover::after {
   margin-bottom: -5px;
-  width: 40%;
 }
 
 .stats-breakdown__points {
   cursor: auto;
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 20px !important;
+}
+
+.stats-breakdown__points::after {
+  width: 0 !important;
+  height: 0 !important;
 }
 
 .stats-breakdown__points:hover::after {
-  width: 0% !important;
+  width: 0;
+  height: 0;
+}
+
+.stats__description {
+  margin: 0 0 8px;
+  font-size: 12px;
 }
