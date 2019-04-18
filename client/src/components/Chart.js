@@ -26,7 +26,7 @@ export default class ChartContainer extends React.Component {
     this.state = {
       options: {
         chart: {
-          height: 350,
+          width: 350,
           type: "bar",
           stacked: true,
           zoom: {
@@ -54,8 +54,8 @@ export default class ChartContainer extends React.Component {
           categories: this.getDates(this.props.previousScores)
         },
         legend: {
-          position: "right",
-          offsetY: 40
+          position: "top",
+          offsetY: 0
         },
         fill: {
           opacity: 1
@@ -83,7 +83,7 @@ export default class ChartContainer extends React.Component {
               options={this.state.options}
               series={this.state.series}
               type="bar"
-              width="500"
+              height="350"
             />
           </div>
         </div>

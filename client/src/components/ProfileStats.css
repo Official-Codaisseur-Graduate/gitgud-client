@@ -6,13 +6,14 @@
   background-color: rgba(111,148,188, 0.1);
   border-radius: 5px;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
-  margin-top: 20px;
+  margin: 2rem auto;
+  width: 100%;
 }
 
 .stats__profile-container {
     justify-content: center;
     display: grid;
-    grid-column-gap: 30px;
+    grid-column-gap: 1rem;
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
@@ -46,11 +47,8 @@
 }
 
 .stats__average {
-  padding: 40px 20% 50px;
+  padding: 2rem;
   margin-top: 20px;
-  background-color: rgba(230,244,241, 0.4);
-  border-radius: 5px;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1)
 }
 
 .stats__pinnedRepos {
@@ -59,4 +57,22 @@
   border-radius: 5px;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
   margin-top: 20px;
+  width: 100%;
 }
+
+.col-1-of-3 {
+  width: 25%;
+  border-right: 1px solid #999999;
+}
+
+.col-2-of-3 {
+  margin-left: 1rem;
+  width: 75%;
+}
+
+.row {
+  max-width: 100%;
+  margin: 0 2rem;
+  display: flex;
+  justify-content: flex-start;
+  }

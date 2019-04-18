@@ -18,12 +18,10 @@ const httpLink = {
 
 const defaultOptions = {
   watchQuery: {
-    fetchPolicy: 'network-only',
-    errorPolicy: 'ignore',
+    fetchPolicy: 'network-only'
   },
   query: {
-    fetchPolicy: 'network-only',
-    errorPolicy: 'all',
+    fetchPolicy: 'network-only'
   },
 }
 
