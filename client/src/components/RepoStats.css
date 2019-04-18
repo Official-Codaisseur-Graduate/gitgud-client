@@ -96,6 +96,10 @@ h3 {
   margin: 0 30px;
 }
 
+.content:hover {
+  color: black;
+}
+
 .content-wrapper {
   padding: 10px 8px 10px 8px;
   font-size: 14px;
@@ -164,6 +168,10 @@ h3 {
   padding-right: 50px;
 }
 
+
+.stats-breakdown li:hover {
+  color: #0082C8;
+}
 
 .stats-breakdown li::after {
   content: "";
