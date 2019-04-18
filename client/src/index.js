@@ -16,9 +16,21 @@ const httpLink = {
   uri: url
 };
 
+const defaultOptions = {
+  watchQuery: {
+    fetchPolicy: 'network-only',
+    errorPolicy: 'ignore',
+  },
+  query: {
+    fetchPolicy: 'network-only',
+    errorPolicy: 'all',
+  },
+}
+
 const client = new ApolloClient({
   link: new HttpLink(httpLink),
-  cache: new InMemoryCache()
+  cache: new InMemoryCache(),
+  defaultOptions: defaultOptions
 });
 
 

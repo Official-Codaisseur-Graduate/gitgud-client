@@ -85,12 +85,19 @@ const resolvers = {
       const gitUse = await fetchGeneralData(username);
       data.stats = gitUse;
       let averageRepoScore = 0;
+      let lastScore;
       const userScores = await Score.find({ userName: username });
 
-      if (userScores.length > 0) data.previousScores = userScores;
+      if (userScores.length > 0) {
+        data.previousScores = userScores;
+        lastScore = userScores[userScores.length - 1];
+      } else {
+        lastScore = null;
+      }
 
       const score = new Score();
       score.profileScore = data.score;
+      score.gitScore = 0;
       score.userName = username;
 
       if (data.stats.totalPinnedRepos > 0) {
@@ -100,7 +107,6 @@ const resolvers = {
               if (!repoData) throw new Error();
 
               averageRepoScore += repoData.totalRepoScore;
-
               data.stats.repoNames[i] = {
                 ...data.stats.repoNames[i],
                 commitScore: { ...repoData.commitScore },
@@ -125,19 +131,14 @@ const resolvers = {
           data.score += data.repoScore;
           data.score = Math.round(data.score);
           score.gitScore = data.repoScore;
-
-          // if new date or new score then save
-          getRepository(Score).save(score);
-
+          saveScoreIfUpdated(score, lastScore);
           return data;
         });
       }
 
-      // if new date or new score then save
-      await getRepository(Score).save(score);
+      saveScoreIfUpdated(score, lastScore);
       data.profileScore = data.score;
       data.repoScore = 0;
-
       return data;
     }
   }
@@ -147,5 +148,22 @@ const schema = makeExecutableSchema({
   typeDefs,
   resolvers
 });
+
+const saveScoreIfUpdated = (score, lastScore) => {
+  if (!lastScore) {
+    getRepository(Score).save(score);
+  } else {
+    const newScore = score.gitScore + score.profileScore;
+    const oldScoreValue = lastScore.gitScore + lastScore.profileScore;
+    if (
+      new Date().toLocaleDateString() ===
+        lastScore.createdAt.toLocaleDateString() &&
+      newScore === oldScoreValue
+    ) {
+      return;
+    }
+    getRepository(Score).save(score);
+  }
+};
 
 export default schema;
