@@ -4,7 +4,6 @@ import { GET_USER_DATA } from "../gql";
 import ProfileStats from "./ProfileStats";
 import Loader from "./Loader";
 
-
 export default function Form(props) {
   return (
     <div>
@@ -29,8 +28,13 @@ export default function Form(props) {
       >
         {({ loading, error, data }) => {
           if (loading) return <Loader />;
-          
-          if (error) return <p className="error"> Please submit valid username </p>;
+
+          if (error)
+            return (
+              <div className="errorBox">
+                <p>Please submit valid username </p>
+              </div>
+            );
 
           return <div> {data && <ProfileStats user={data.user} />}</div>;
         }}

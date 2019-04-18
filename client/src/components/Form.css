@@ -46,3 +46,19 @@
   background: transparent;
   cursor: pointer;
 }
+
+.errorBox {
+  width: 40%;
+  height: ;
+  margin: 2rem auto;
+  border-radius: 5px;
+  background-color: rgba(111,148,188, 0.1);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.errorBox p {
+  display: inline-block;
+  margin: 3rem;
+}

@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/static/media/git--gud-D-orange.94121b7b.svg"
   },
   {
-    "revision": "f4b0082427400a1632ad",
-    "url": "/static/css/main.dcca7557.chunk.css"
+    "revision": "14a49599cffaa03dfa96",
+    "url": "/static/css/main.46f00aa9.chunk.css"
   },
   {
     "revision": "42ac5946195a7306e2a5",
@@ -28,20 +28,20 @@ self.__precacheManifest = [
     "url": "/static/media/git--gud-C-yellow.e9dd50e4.svg"
   },
   {
-    "revision": "f4b0082427400a1632ad",
-    "url": "/static/js/main.e3fd2766.chunk.js"
+    "revision": "14a49599cffaa03dfa96",
+    "url": "/static/js/main.2e08129d.chunk.js"
   },
   {
     "revision": "69bc71d438d316eca2611d0d184ad243",
     "url": "/static/media/git--gud-E-red.69bc71d4.svg"
   },
   {
-    "revision": "aad3d18f3437a6dc2cf13678e030a3ee",
-    "url": "/static/media/arrow-right.aad3d18f.svg"
-  },
-  {
     "revision": "66e13c5ea5b5bbb90142412facc094b5",
     "url": "/static/media/arrow-down.66e13c5e.svg"
+  },
+  {
+    "revision": "aad3d18f3437a6dc2cf13678e030a3ee",
+    "url": "/static/media/arrow-right.aad3d18f.svg"
   },
   {
     "revision": "4190ac1189db82bcbe4eddaa6a7908d7",
@@ -52,7 +52,7 @@ self.__precacheManifest = [
     "url": "/static/media/cancel.4707e09c.svg"
   },
   {
-    "revision": "67457d7627e30b0ec041bc171359b361",
+    "revision": "78fff0501160452f80b00d64ce12a1c7",
     "url": "/index.html"
   }
 ];

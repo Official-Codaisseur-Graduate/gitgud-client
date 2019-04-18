@@ -103,5 +103,6 @@ export const fetchGeneralData = username => {
         repoNames
       };
     }
-  });
+  })
+  .catch(e => e)
 };

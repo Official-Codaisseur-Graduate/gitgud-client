@@ -71,5 +71,5 @@ export const analizeProfile = (username: string): any => {
         return { username, score, profileStats };
       });
     })
-    .catch(e => console.log(e));
+    .catch(e => e);
 };

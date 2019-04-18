@@ -108,6 +108,7 @@ export const fetchRepoData = (username, repoName) => {
       gitIgnoreScore,
       description
     };
-  });
+  })
+  .catch(e => e)
 };
 
