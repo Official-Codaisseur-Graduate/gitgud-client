@@ -81,6 +81,7 @@ h2 {
 h3 {
   margin: 14px;
   font-size: 22px;
+  text-align: center;
 }
 
 .advice {
@@ -205,4 +206,5 @@ h3 {
 .stats__description {
   margin: 0 0 8px;
   font-size: 12px;
+  text-align: center;
 }
