@@ -29,7 +29,7 @@ export default class Tabs extends React.Component {
     if(event.target.dataset.id)
        this.setState({ open: this.state.open === event.target.dataset.id ? false : +event.target.dataset.id })
     if(event.target.dataset.name) {
-      this.setState({ ulOpen: this.state.ulOpen === event.target.dataset.name ? false : event.target.dataset.name })
+      this.setState({ ulOpen: this.state.ulOpen === event.target.dataset.name ? event.target.dataset.name : event.target.dataset.name })
     }
   }
   
@@ -59,7 +59,7 @@ export default class Tabs extends React.Component {
                         </div>
                       </Content>
                     </li>
-                    <li data-id={i+3} className={this.state.open === i+3 ? 'stats-breakdown__item--active' : 'stats-breakdown__item'}> Gitignore: {item.repoReadMe < 100 ? "0%": '100%'}
+                    <li data-id={i+3} className={this.state.open === i+3 ? 'stats-breakdown__item--active' : 'stats-breakdown__item'}> Gitignore: {item.gitIgnoreScore < 100 ? "0%": '100%'}
                       <Content className="content" pose={this.state.open === i+3 ? 'open' : 'closed'}>
                         <div className="content-wrapper"> A .gitignore file is used to for GIT to know which files to ignore before making a commit. It is, for example, very important to include your /node_modelus because when running npm install to start your app node will install different versions depending on the computer you work.  
                         </div>
