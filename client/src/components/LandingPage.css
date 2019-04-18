@@ -1,0 +1,22 @@
+
+.landing-page__header {
+  font-weight: 800
+}
+
+.landing-page {
+    width: 80%;
+    margin: 20px auto 0;
+    text-align: center;
+}
+
+.landing-page__description {
+  padding: 40px 50px 50px;
+  background-color: rgba(111, 148, 188, 0.1);
+  border-radius: 5px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+img {
+  max-width: 200px
+}

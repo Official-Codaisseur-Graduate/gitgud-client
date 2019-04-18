@@ -4,6 +4,7 @@ import { GET_USER_DATA } from "../gql";
 import ProfileStats from "./ProfileStats";
 import Loader from "./Loader";
 
+
 export default function Form(props) {
   return (
     <div>
@@ -13,7 +14,7 @@ export default function Form(props) {
           type="text"
           name="search"
           id="1"
-          placeholder="please sumbit your username"
+          placeholder="enter your username"
           onChange={props.onChange}
         />
         <button className="form__submit" type="submit">
