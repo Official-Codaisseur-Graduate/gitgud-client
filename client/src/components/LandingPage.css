@@ -1,4 +1,8 @@
 
+h1 {
+  font-size: 3rem
+}
+
 .landing-page__header {
   font-weight: 800
 }
@@ -17,6 +21,17 @@
   margin-top: 20px;
 }
 
+.profiles {
+  display: flex;
+  padding: inherit;
+
+}
+
+.profile {
+  padding: 10px
+}
+
 img {
-  max-width: 200px
+  max-width: 200px;
+  border-radius: 5px;
 }

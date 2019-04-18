@@ -30,13 +30,33 @@ export default function LandingPage(props) {
       <h2>WHO</h2>
       <p>As three graduates of the Codaisseur Academy in Amsterdam we developed this tool from scratch with Rein op ‘t Land - a teacher and developer at Codaisseur - who acted as our Product Owner</p>
       <h2>CONTRIBUTORS</h2>
-      <div>
-        <h3>Oleksandra Akulshyna</h3>
-        <img src="https://media.licdn.com/dms/image/C4D03AQHZVf98b8_9rQ/profile-displayphoto-shrink_800_800/0?e=1560988800&v=beta&t=GJsvLqPTRx9mVyd6mJV-vfNWvZiWeTfkMRM12kTgnh0"></img>
-        <h3>Vincent de Graaf</h3>
-        <img src="https://media.licdn.com/dms/image/C4E03AQHbh18z_ce4NA/profile-displayphoto-shrink_200_200/0?e=1560988800&v=beta&t=Sdjy4ObNeIBXtc4oVvJOeSUeG6oXsw8_0K0pKRwRYZM"></img>
-        <h3>Natalia Volchatova</h3>
-        <img src="https://media.licdn.com/dms/image/C4D03AQFJAEpuEOJn2A/profile-displayphoto-shrink_800_800/0?e=1560988800&v=beta&t=Pfb7rIZKrgWPpbpcfP7Q9mVhO1mui-t5HSrgzXe6Bgc"></img>
+      <div className =" profiles">
+        <div className='profile'>
+          <img src="https://media.licdn.com/dms/image/C4D03AQHZVf98b8_9rQ/profile-displayphoto-shrink_800_800/0?e=1560988800&v=beta&t=GJsvLqPTRx9mVyd6mJV-vfNWvZiWeTfkMRM12kTgnh0"></img>
+          <h3>Oleksandra Akulshyna</h3>
+          <ul>
+            <li><a href="https://www.linkedin.com/in/akulshyna/" target="_blank">LinkedIn</a></li>
+            <li><a href="https://github.com/w3bgir1" target="_blank">GitHub</a></li>
+          </ul>
+        </div>
+        
+        <div className='profile'>
+          <img src="https://media.licdn.com/dms/image/C4E03AQHbh18z_ce4NA/profile-displayphoto-shrink_200_200/0?e=1560988800&v=beta&t=Sdjy4ObNeIBXtc4oVvJOeSUeG6oXsw8_0K0pKRwRYZM"></img>
+          <h3>Vincent de Graaf</h3>
+          <ul>
+            <li><a href="https://www.linkedin.com/in/vincent-de-graaf-7a5375a4/" target="_blank">LinkedIn</a></li>
+            <li><a href="https://github.com/vdegraaf" target="_blank">GitHub</a></li>
+          </ul>
+        </div>
+
+        <div className='profile'>
+          <img src="https://media.licdn.com/dms/image/C4D03AQFJAEpuEOJn2A/profile-displayphoto-shrink_800_800/0?e=1560988800&v=beta&t=Pfb7rIZKrgWPpbpcfP7Q9mVhO1mui-t5HSrgzXe6Bgc"></img>
+          <h3>Natalia Volchatova</h3>
+          <ul>
+            <li><a href="https://www.linkedin.com/in/nataliavolchatova/" target="_blank">LinkedIn</a></li>
+            <li><a href="https://github.com/Klackky" target="_blank">GitHub</a></li>
+          </ul>
+        </div>
       </div>
     </div>
 
