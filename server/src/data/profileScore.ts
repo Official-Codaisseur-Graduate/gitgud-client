@@ -1,7 +1,7 @@
 import { createApolloFetch } from "apollo-fetch";
 import * as face from "face-detector";
 
-const token = "b52";
+const token = process.env.GITHUB_ACCESS_TOKEN;
 
 export const analizeProfile = (username: string): any => {
   const fetch = createApolloFetch({
@@ -16,7 +16,7 @@ export const analizeProfile = (username: string): any => {
     next();
   });
 
-  fetch({
+  return fetch({
     query: `{
               user(login: "${username}") {
                 avatarUrl
@@ -55,21 +55,21 @@ export const analizeProfile = (username: string): any => {
         user.name ? (score += 5) : (profileStats.name = false);
         user.websiteUrl ? (score += 5) : (profileStats.websiteUrl = false);
         user.pinnedRepositories.totalCount > 0
-          ? (score += 5)
+          ? (score += 10)
           : (profileStats.pinnedRepositories = false);
         resolve();
       });
 
       const data2 = new Promise(resolve => {
         face.detect(image, function(result) {
-          result > 0 ? (score += 5) : (profileStats.picture = false);
+          result > 0 ? (score += 10) : (profileStats.picture = false);
           resolve();
         });
       });
-      Promise.all([data2, data1]).then(() => {
-        console.log({ username, score, profileStats });
+
+      return Promise.all([data1, data2]).then(() => {
         return { username, score, profileStats };
       });
     })
-    .catch(e => console.log(e));
+    .catch(e => e);
 };

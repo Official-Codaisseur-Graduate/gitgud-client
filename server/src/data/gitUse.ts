@@ -1,26 +1,24 @@
-import {createApolloFetch} from 'apollo-fetch'
-// import { token } from '../index'
-import { generalReproValidation } from '../validation/generalRepros'
+import { createApolloFetch } from "apollo-fetch";
+import { generalRepoValidation } from "../validation/generalRepos";
 
-const token = 'de4f17275882a741779984364452b82c148e274c'
+const token = process.env.GITHUB_ACCESS_TOKEN;
 
-export const fetchGeneralData = (username) => {
+export const fetchGeneralData = username => {
+  const fetch = createApolloFetch({
+    uri: "https://api.github.com/graphql"
+  });
 
-    const fetch = createApolloFetch({
-        uri: 'https://api.github.com/graphql',
-      });
+  fetch.use(({ options }, next) => {
+    if (!options.headers) {
+      options.headers = {};
+    }
+    options.headers["Authorization"] = `bearer ${token}`;
+    next();
+  });
 
-      fetch.use(({ options }, next) => {
-        if (!options.headers) {
-            options.headers = {};
-          }
-          options.headers['Authorization'] = `bearer ${token}`;
-          next();
-});
-
-    return fetch({
-        query: `{
-          user(login: ${username}) {
+  return fetch({
+    query: `{
+          user(login: "${username}") {
             id
             pinnedRepositories(first: 5) {
               totalCount
@@ -28,6 +26,9 @@ export const fetchGeneralData = (username) => {
                 node {
                   id
                   name
+                  owner {
+                    login
+                  }
                   description
                   refs(refPrefix: "refs/heads/", first: 20) {
                     totalCount
@@ -49,34 +50,59 @@ export const fetchGeneralData = (username) => {
             }
           }
         }
-        `,
-      }).then(res => {
-        
-          const totalPinnedRepros = res.data.user.pinnedRepositories.totalCount
-          const reproPlusBranchCount = res.data.user.pinnedRepositories.edges.map(repro => {
-            const reproName = repro.node.name
-            const branchCount = repro.node.refs.totalCount
-            return {reproName, branchCount}
-          })
-          const branchNamePlusCommitCount = res.data.user.pinnedRepositories.edges.map(repro => {
-            return repro.node.refs.edges.map(branch => {
-              const branchName = branch.node.branchName
-              const commitCount = branch.node.target.history.totalCount
-              return {branchName, commitCount}
-            })
-          })
+        `
+  }).then(res => {
 
-          // console.log(totalPinnedRepros, '- totalPinnenRepro')
-          // console.log(reproPlusBranchCount, '- reproPlusBranchCount')
-          // console.log(branchNamePlusCommitCount, '-branchNamePlusCommitCount')
-          const {averageBranchPerRepro, averageCommitPerBranch} = generalReproValidation(totalPinnedRepros, reproPlusBranchCount, branchNamePlusCommitCount)
+    // console.log(`REPOS RESULT`, res.data.user.pinnedRepositories.edges);
+    // console.log(res.data.user.pinnedRepositories.totalCount);
+    const totalPinnedRepos = res.data.user.pinnedRepositories.totalCount;
+    // console.log(res.data.user.pinnedRepositories.totalCount + ' total count')
+    if (totalPinnedRepos === 0) {
+      return 0;
+    } else {
+      const repoPlusBranchCount = res.data.user.pinnedRepositories.edges.map(
+        repo => {
+          const repoName = repo.node.name;
+          const branchCount = repo.node.refs.totalCount;
+          const repoOwner = repo.node.owner.login
+          return { repoName, repoOwner, branchCount };
+        }
+      );
+      const branchNamePlusCommitCount = res.data.user.pinnedRepositories.edges.map(
+        repo => {
+          return repo.node.refs.edges.map(branch => {
+            const branchName = branch.node.branchName;
+            const commitCount = branch.node.target.history.totalCount;
+            return { branchName, commitCount };
+          });
+        }
+      );
 
+      // console.log(totalPinnedRepos, '- totalPinnenRepo')
+      // console.log(repoPlusBranchCount, '- repoPlusBranchCount')
+      // console.log(branchNamePlusCommitCount, '-branchNamePlusCommitCount')
+      const {
+        averageBranchPerRepo,
+        averageCommitPerBranch
+      } = generalRepoValidation(
+        totalPinnedRepos,
+        repoPlusBranchCount,
+        branchNamePlusCommitCount
+      );
 
-          // console.log(totalPinnedRepros, averageBranchPerRepro, averageCommitPerBranch)
-        return {totalPinnedRepros, averageBranchPerRepro, averageCommitPerBranch}
+      // console.log(totalPinnedRepos, averageBranchPerRepo, averageCommitPerBranch)
+      const repoNames = repoPlusBranchCount.map(rep => {
+        return { name: rep.repoName, 
+          owner: rep.repoOwner }
       });
-}
 
-fetchGeneralData('vdegraaf')
-
-
+      return {
+        totalPinnedRepos,
+        averageBranchPerRepo,
+        averageCommitPerBranch,
+        repoNames
+      };
+    }
+  })
+  .catch(e => e)
+};

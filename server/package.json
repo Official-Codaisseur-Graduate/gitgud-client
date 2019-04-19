@@ -1,13 +1,18 @@
 {
-  "name": "ebay",
+  "name": "gitgud",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start-nodemon": "nodemon",
-    "dev": "nodemon --inspect ."
+    "start": "node target/index.js",
+    "postinstall": "tsc",
+    "dev": "nodemon .",
+    "watch": "node_modules/.bin/tsc -w",
+    "compile": "node_modules/.bin/tsc -p ."
   },
+
   "dependencies": {
     "@koa/cors": "^2.2.3",
+    "@types/graphql": "^14.2.0",
     "@types/jest": "^24.0.11",
     "@types/koa": "^2.0.48",
     "@types/koa-bodyparser": "^4.2.2",
@@ -32,24 +37,30 @@
     "koa-request-logger": "^1.2.0",
     "koa-router": "^7.4.0",
     "nodemon": "^1.18.11",
+    "opencv": "github:peterbraden/node-opencv",
+    "pg": "^7.9.0",
     "ts-node": "^8.0.3",
     "typeorm": "^0.2.15",
     "typescript": "^3.3.4000"
   },
+  
   "browserslist": [
     ">0.2%",
     "not dead",
     "not ie <= 11",
     "not op_mini all"
   ],
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-  "main": "index.js",
+  "main": "target/index.js",
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.4.0",
     "@babel/node": "^7.2.2",
     "@babel/preset-env": "^7.4.2",
     "@babel/register": "^7.4.0"
+  },
+  "engines": {
+    "node": "10.15.1",
+    "npm": "6.9.0"
   },
   "author": "",
   "license": "ISC"

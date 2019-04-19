@@ -1,0 +1,85 @@
+.logo {
+  font-size: 4rem;
+  text-transform: uppercase;
+  display: inline-block;
+  font-weight: 800;
+    background-image: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
+    -webkit-background-clip: text;
+    color: transparent;
+    letter-spacing: .2rem;
+    margin: 1rem .3rem 0 .3rem;
+}
+
+.logo-small {
+  font-size: 2rem;
+  margin-left: 0;
+}
+
+.landing-page__header {
+
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+  margin-bottom: 4rem;
+}
+
+.landing-page__header p {
+  margin: 0.4rem;
+}
+
+.landing-page {
+    width: 60%;
+    margin: 20px auto 0;
+    text-align: left;
+}
+
+.landing-page__description {
+  padding: 3rem;
+  background-color: rgba(111, 148, 188, 0.1);
+  border-radius: 5px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  margin: 2rem 0;
+}
+
+.profiles {
+  display: flex;
+  justify-content: space-evenly;
+
+}
+
+.profile {
+  text-align: center;
+  padding: 10px;
+  flex-basis: 100%;
+}
+
+.profile a,
+.profile a:visited,
+.landing-page__description a,
+.landing-page__description a:visited  {
+  display: inline-block;
+  color: #0082c8;
+  text-decoration: none;
+  cursor: pointer;
+  padding: .3rem;
+  transition: all .2s;
+}
+
+.profile a:hover,
+.landing-page__description a:hover
+{
+  color: #00937B;
+  text-decoration: underline;
+}
+
+.contributors {
+  margin: 2rem 0;
+}
+
+img {
+  max-width: 200px;
+  border-radius: 5px;
+}
+
+/* #wiki a {
+  margin-left: 20px
+} */

@@ -10,15 +10,25 @@ import { ApolloClient } from 'apollo-client';
 import { HttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 
-const url = `http://localhost:3030/graphql`
+const url = `https://gitgudserver.herokuapp.com/graphql`
 
 const httpLink = {
   uri: url
 };
 
+const defaultOptions = {
+  watchQuery: {
+    fetchPolicy: 'network-only'
+  },
+  query: {
+    fetchPolicy: 'network-only'
+  },
+}
+
 const client = new ApolloClient({
   link: new HttpLink(httpLink),
-  cache: new InMemoryCache()
+  cache: new InMemoryCache(),
+  defaultOptions: defaultOptions
 });
 
 

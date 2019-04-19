@@ -1,17 +1,64 @@
 .form {
   text-align: center;
-  margin-top: 220px;
+  position: relative;
+  padding: .6em 0;
+  font-size: 2.5em;
+  background: #667db6;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+  
+  color: #fff;
+  text-align: center;
+  margin-top: 0;
+  outline: none;
+  border-radius: 3px;
 }
 
 .form__username {
-  width: 300px;
-  padding: 10px;
-  font-size: 13px;
+  -webkit-appearance: none;
+  position: relative;
+  border: 0;
+  border-bottom: 1px solid #fff;
+  background: transparent;
+  font: inherit;
+  color: #fff;
+  width: 50%;
+  padding: 0 4px;
+  border-radius: 0;
+  outline: none;
+  text-align: center;
+}
+
+.form__username::placeholder {
+  color: #e0e0e0;
 }
 
 .form__submit {
-  padding: 10px;
-  font-size: 13px;
-  background-color: #000000;
-  color: aliceblue;
+  border: none;
+  padding: 0 0 5px 10px;
+  white-space: nowrap;
+  vertical-align: 0.1em;
+  font-size: 2rem;
+  font-weight: 300;
+  outline: none;
+  color:white;
+  background: transparent;
+  cursor: pointer;
+}
+
+.errorBox {
+  width: 40%;
+  height: ;
+  margin: 2rem auto;
+  border-radius: 5px;
+  background-color: rgba(111,148,188, 0.1);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.errorBox p {
+  display: inline-block;
+  margin: 3rem;
 }
