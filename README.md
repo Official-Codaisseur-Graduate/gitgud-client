@@ -48,7 +48,7 @@ cd into server <br>
 
 NodeJS buildpack
 
-&nbsp$ heroku buildpacks:add heroku/nodejs
+&nbsp: $ heroku buildpacks:add heroku/nodejs
 
 OpenCV builbpack
 
