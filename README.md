@@ -36,7 +36,7 @@ Clone repository <br>
 setup local postgresql database<br>
 cd into client  <br>
 $ npm install <br>
-$ npm run start<br>
+$ npm run dev<br>
 install open cv <br>
 $ brew install pkg-config opencv@2<br>
 $ brew link opencv@2 --force<br>
@@ -44,7 +44,7 @@ cd into server <br>
 $ npm install <br> 
 $ GITHUB_ACCESS_TOKEN= yourtokenhere \ npm run dev<br>
 
-## Deployment
+## Deployment server to Heroku
 
 NodeJS buildpack
 
