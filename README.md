@@ -26,23 +26,23 @@ As three graduates of the Codaisseur Academy in Amsterdam we developed this tool
 
 ## Tools
 
-Frontend - JavaScript, ApolloClient
-Backend - TypeScript, GraphQL, Apollo/KoaServer
-GitHub API v4 - GraphQL
+Frontend - JavaScript, ApolloClient <br>
+Backend - TypeScript, GraphQL, Apollo/KoaServer <br>
+GitHub API v4 - GraphQL <br>
 
 ## Development
 
-Clone repository
-setup local postgresql database
-cd into client  
-  $ npm install 
-  $ npm run start
-install open cv 
-  $ brew install pkg-config opencv@2
-  $ brew link opencv@2 --force
-cd into server 
-  $ npm install 
-  $ GITHUB_ACCESS_TOKEN= yourtokenhere \ npm run dev
+Clone repository <br>
+setup local postgresql database<br>
+cd into client  <br>
+  $ npm install <br>
+  $ npm run start<br>
+install open cv <br>
+  $ brew install pkg-config opencv@2<br>
+  $ brew link opencv@2 --force<br>
+cd into server <br>
+  $ npm install <br> 
+  $ GITHUB_ACCESS_TOKEN= yourtokenhere \ npm run dev<br>
 
 ## Deployment
 
