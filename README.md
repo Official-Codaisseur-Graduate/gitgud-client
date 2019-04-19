@@ -35,14 +35,14 @@ GitHub API v4 - GraphQL <br>
 Clone repository <br>
 setup local postgresql database<br>
 cd into client  <br>
-npm install <br>
-npm run start<br>
+$ npm install <br>
+$ npm run start<br>
 install open cv <br>
-brew install pkg-config opencv@2<br>
-brew link opencv@2 --force<br>
+$ brew install pkg-config opencv@2<br>
+$ brew link opencv@2 --force<br>
 cd into server <br>
-npm install <br> 
-GITHUB_ACCESS_TOKEN= yourtokenhere \ npm run dev<br>
+$ npm install <br> 
+$ GITHUB_ACCESS_TOKEN= yourtokenhere \ npm run dev<br>
 
 ## Deployment
 
@@ -52,20 +52,20 @@ $ heroku buildpacks:add heroku/nodejs
 
 OpenCV builbpack
 
-heroku buildpacks:add --index 1 https://github.com/automata/heroku-buildpack-opencv.git
+$ heroku buildpacks:add --index 1 https://github.com/automata/heroku-buildpack-opencv.git
 
 Downgrade to Cedar 14 since on Cedar 16 it won’t work without extra configurations
 
-heroku stack:set cedar-14
+$ heroku stack:set cedar-14
 
 Push to Heroku
 
-git push heroku
+$ git push heroku
 
 After deploying your app may scale down to 0 dynos
 ... so increase dynos amount to the desired number
 
-heroku ps:scale web=1
+$ heroku ps:scale web=1
 
 ## Acknowledgments
 
