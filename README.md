@@ -48,7 +48,7 @@ $ GITHUB_ACCESS_TOKEN= yourtokenhere \ npm run dev<br>
 
 NodeJS buildpack
 
-$ heroku buildpacks:add heroku/nodejs
+** $ heroku buildpacks:add heroku/nodejs
 
 OpenCV builbpack
 
