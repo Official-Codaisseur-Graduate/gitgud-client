@@ -25,7 +25,7 @@ As three graduates of the Codaisseur Academy in Amsterdam we developed this tool
 * **Vincent de Graaf** - *Initial work* - [vdegraaf](https://github.com/vdegraaf)
 * **Natalia Volchatova** - *Initial work* - [Klackky](https://github.com/Klackky)
 
-## Tools
+## Technology
 
 Frontend - JavaScript, ApolloClient <br>
 Backend - TypeScript, GraphQL, Apollo/KoaServer <br>
