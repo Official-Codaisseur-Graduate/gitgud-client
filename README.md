@@ -1,7 +1,6 @@
 # GitGud
+A validator of your GitHub profile and usage, designed to provide feedback for job seekers and graduated students.
 [CHECK OUT OUR DEMO](https://gityougud.herokuapp.com/)
-
-A validator of your GitHub profile and Git use, designed to provide feedback for job seekers and graduated students.
 
 ## How
 
