@@ -57,7 +57,7 @@ The below files have been touched (files contain comments for further guidance):
 
 #### 5. Next steps for the students continuing this project
 - We encourage to use the repo languages data received on client side, e.g. with a pie chart.
-- The newly added query (step 1-4) can be extended to quert more repository data from GitHub.
+- The newly added query (step 1-4) can be extended to query more repository data from GitHub.
 
 ## Running the app locally
 
