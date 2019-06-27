@@ -17,10 +17,6 @@ Unfortunately many recent graduates or job seekers lack a proper GitHub profile.
 
 ## Who
 
-As three graduates of the Codaisseur Academy in Amsterdam we developed this tool from scratch with Rein op ‘t Land - a teacher and developer at Codaisseur - who acted as our Product Owner
-
-## Authors
-
 * **Oleksandra Akulshyna** - *Initial work* - [w3bgir1](https://github.com/w3bgir1)
 * **Vincent de Graaf** - *Initial work* - [vdegraaf](https://github.com/vdegraaf)
 * **Natalia Volchatova** - *Initial work* - [Klackky](https://github.com/Klackky)
