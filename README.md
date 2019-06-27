@@ -10,7 +10,7 @@ A validator of your GitHub profile and usage, designed to provide feedback for j
 - **[Why](#why)**
 - **[Who](#who)**
 - **[Technologies](#technologies)**
-- **[Current progress](#current-progress)**
+- **[Current progress of the app](#current-progress-of-the-app)**
 - **[Running the app locally](#running-the-app-locally)**
 - **[Deployment server to Heroku](#deployment-server-to-heroku)**
 
@@ -36,7 +36,7 @@ A validator of your GitHub profile and usage, designed to provide feedback for j
 * Backend - TypeScript, GraphQL, Apollo/KoaServer <br>
 * GitHub API v4 - GraphQL <br>
 
-## Current progress
+## Current progress of the app
 
 On branch [languages-2](https://github.com/Official-Codaisseur-Graduate/git-gud/tree/languages-2) there are 14 commits ahead of master. These contain an additional query on the repo to return the languages used. The goal is to create awareness in the students practice per language.
 
@@ -57,7 +57,7 @@ The below files have been touched (files contain comments for further guidance):
 
 #### 5. Next steps for the students continuing this project
 - We encourage to use the repo languages data received on client side, e.g. with a pie chart.
-- The current repo query (step 1-4) can be extended with more repo data to use on client side.
+- The newly added query (step 1-4) can be extended to quert more repository data from GitHub.
 
 ## Running the app locally
 
