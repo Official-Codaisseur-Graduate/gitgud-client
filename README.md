@@ -4,6 +4,16 @@ A validator of your GitHub profile and usage, designed to provide feedback for j
 
 ![](https://github.com/Official-Codaisseur-Graduate/git-gud/blob/master/demo.gif)
 
+## Table of contents:
+
+- **[How](#how)**
+- **[Why](#why)**
+- **[Who](#who)**
+- **[Technologies](#technologies)**
+- **[Current progress](#current-progress)**
+- **[Running the app locally](#running-the-app-locally)**
+- **[Deployment server to Heroku](#deployment-server-to-heroku)**
+
 ## How
 
 First it checks your public profile - A good GitHub profile can impress an interviewer.
@@ -22,7 +32,7 @@ Unfortunately many recent graduates or job seekers lack a proper GitHub profile.
 * **Vincent de Graaf** - *Initial work* - [vdegraaf](https://github.com/vdegraaf)
 * **Natalia Volchatova** - *Initial work* - [Klackky](https://github.com/Klackky)
 
-## Technology
+## Technologies
 
 * Frontend - JavaScript, ApolloClient <br>
 * Backend - TypeScript, GraphQL, Apollo/KoaServer <br>
@@ -30,9 +40,9 @@ Unfortunately many recent graduates or job seekers lack a proper GitHub profile.
 
 ## Current progress
 
-On branch 'languages-2' there are 14 commits ahead of master. These contain an additional query on the repo to return the languages used. The goal is to create awareness in the students practice per language.
+On branch [languages-2](https://github.com/Official-Codaisseur-Graduate/git-gud/tree/languages-2) there are 14 commits ahead of master. These contain an additional query on the repo to return the languages used. The goal is to create awareness in the students practice per language.
 
-The below files have been touched (files carry comments):
+The below files have been touched (files contain comments for further guidance):
 
 #### 1. [server/src/details/details.ts](https://github.com/Official-Codaisseur-Graduate/git-gud/blob/languages-2/server/src/details/details.ts)
 - fetchLanguages function sends 2 queries to GitHub's GraphQL server.
@@ -51,42 +61,41 @@ The below files have been touched (files carry comments):
 - We encourage to use the repo languages data received on client side, e.g. with a pie chart.
 - The current repo query (step 1-4) can be extended with more repo data to use on client side.
 
-## Install
+## Running the app locally
 
-Clone repository <br>
-setup local postgresql database<br>
-cd into client  <br>
-$ npm install <br>
-$ npm run dev<br>
-install open cv <br>
-$ brew install pkg-config opencv@2<br>
-$ brew link opencv@2 --force<br>
+Clone the repository <br>
+Setup a local postgresql database<br>
+cd into client <br>
+`$ npm install` <br>
+`$ npm run dev` <br>
+`$ brew install pkg-config opencv@2`<br>
+`$ brew link opencv@2 --force`<br>
 cd into server <br>
-$ npm install <br> 
-$ GITHUB_ACCESS_TOKEN= yourtokenhere \ npm run dev<br>
+`$ npm install` <br> 
+`GITHUB_ACCESS_TOKEN=<YOURTOKEN> npm run dev` <br>
+
+> Server needs to be launched with GitHub token to enable GitHub API requests. <br>
+> [See instructions to create GitHub token here](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line). <br>
+> client/src/index.js contains the server url. <br>
+> Install open cv to work on face recognition. <br>
 
 ## Deployment server to Heroku
 
-NodeJS buildpack
+NodeJS buildpack <br>
+`$ heroku buildpacks:add heroku/nodejs` <br>
 
-$ heroku buildpacks:add heroku/nodejs
+OpenCV builbpack <br>
+`$ heroku buildpacks:add --index 1 https://github.com/automata/heroku-buildpack-opencv.git` <br>
 
-OpenCV builbpack
+Downgrade to Cedar 14 since on Cedar 16 it won’t work without extra configurations <br>
+`$ heroku stack:set cedar-14` <br>
 
-$ heroku buildpacks:add --index 1 https://github.com/automata/heroku-buildpack-opencv.git
+Push to Heroku <br>
+`$ git push heroku` <br>
+`$ heroku ps:scale web=1` <br>
 
-Downgrade to Cedar 14 since on Cedar 16 it won’t work without extra configurations
-
-$ heroku stack:set cedar-14
-
-Push to Heroku
-
-$ git push heroku
-
-After deploying your app may scale down to 0 dynos
-... so increase dynos amount to the desired number
-
-$ heroku ps:scale web=1
+> After deploying your app may scale down to 0 dynos
+> ... so increase dynos amount to the desired number
 
 ## Acknowledgments
 
