@@ -33,29 +33,27 @@ GitHub API v4 - GraphQL <br>
 
 ## Current progress
 
-On branch 'languages-2' there are 14 commits ahead of master.
-These commits are working towards an additional query on the repo.
-The new query returns the languages used in your own repo's
-The goal is to create awareness in your practice per language.
+On branch 'languages-2' there are 14 commits ahead of master. These contain an additional query on the repo to return the languages used. The goal is to create awareness in the students practice per language.
 
 The below files have been touched (code also contains comments):
+[I'm an inline-style link](https://www.google.com)
 
-### 1. server/src/details/details.ts
-- The fetchLanguages function sends 2 queries to GitHub's GraphQL server.
-- Then, it captures and organizes what the GitHub's GraphQL server returns and sends these results to schema.ts. 
+### 1. [server/src/details/details.ts](https://github.com/Official-Codaisseur-Graduate/git-gud/blob/languages-2/server/src/details/details.ts)
+- fetchLanguages function sends 2 queries to GitHub's GraphQL server.
+- fetchLanguages function captures and organizes what GitHub returns and sends results to schema.ts. 
 
-### 2. server/src/schema.ts
-- Below in the resolver we receive the results and organize a new object for the client to receive.
+### 2. [server/src/schema.ts](https://github.com/Official-Codaisseur-Graduate/git-gud/blob/languages-2/server/src/schema.ts)
+- Resolver receives the above results and organizes a new object for the client to receive.
 
-### 3. client/src/gql.js
+### 3. [client/src/gql.js](https://github.com/Official-Codaisseur-Graduate/git-gud/blob/languages-2/client/src/gql.js)
 - The actual query from the client to the server is defined here.
 
-### 4. client/src/App.js
+### 4. [client/src/App.js](https://github.com/Official-Codaisseur-Graduate/git-gud/blob/languages-2/client/src/App.js)
 - Contains the component that initiates the query.
 
 ### 5. Next steps
-- The repo languages query is ready to be used on client side. It would be very cool to combine this e.g. with a pie chart.
-- The repo query (step 1-4) can be extended so you could bring more repo information to client side.
+- We encourage to use the repo languages data received on client side, e.g. with a pie chart.
+- The current repo query (step 1-4) can be extended with more repo data to use on client side.
 
 ## Install
 
