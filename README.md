@@ -3,7 +3,6 @@
 A validator of your GitHub profile and usage, designed to provide feedback for job seekers and graduated students. <br>
 
 ![](https://github.com/Official-Codaisseur-Graduate/git-gud/blob/master/demo.gif)
-<img src="https://github.com/Official-Codaisseur-Graduate/git-gud/blob/master/demo.gif" width="100" height="100">
 
 ## How
 
