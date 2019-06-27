@@ -1,6 +1,7 @@
 # GitGud
-A validator of your GitHub profile and usage, designed to provide feedback for job seekers and graduated students.
-[CHECK OUT OUR DEMO](https://gityougud.herokuapp.com/)
+[DEMO](https://gityougud.herokuapp.com/)
+
+A validator of your GitHub profile and Git use, designed to provide feedback for job seekers and graduated students.
 
 ## How
 
@@ -30,7 +31,33 @@ Frontend - JavaScript, ApolloClient <br>
 Backend - TypeScript, GraphQL, Apollo/KoaServer <br>
 GitHub API v4 - GraphQL <br>
 
-## Development
+## Current progress
+
+On branch 'languages-2' there are 14 commits ahead of master.
+These commits are working towards an additional query on the repo.
+The new query returns the languages used in your own repo's
+The goal is to create awareness in your practice per language.
+
+The below files have been touched (code also contains comments):
+
+### 1. server/src/details/details.ts
+- The fetchLanguages function sends 2 queries to GitHub's GraphQL server.
+- Then, it captures and organizes what the GitHub's GraphQL server returns and sends these results to schema.ts. 
+
+### 2. server/src/schema.ts
+- Below in the resolver we receive the results and organize a new object for the client to receive.
+
+### 3. client/src/gql.js
+- The actual query from the client to the server is defined here.
+
+### 4. client/src/App.js
+- Contains the component that initiates the query.
+
+### 5. Next steps
+- The repo languages query is ready to be used on client side. It would be very cool to combine this e.g. with a pie chart.
+- The repo query (step 1-4) can be extended so you could bring more repo information to client side.
+
+## Install
 
 Clone repository <br>
 setup local postgresql database<br>
