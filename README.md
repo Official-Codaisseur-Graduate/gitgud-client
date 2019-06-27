@@ -1,8 +1,7 @@
 # GitGud
 [CHECK OUR DEMO](https://gityougud.herokuapp.com/)
-![alt text](https://github.com/Official-Codaisseur-Graduate/git-gud/blob/master/demo.gif "Demo of Git Gud")
-
 A validator of your GitHub profile and usage, designed to provide feedback for job seekers and graduated students.
+![alt text](https://github.com/Official-Codaisseur-Graduate/git-gud/blob/master/demo.gif "Demo of Git Gud")
 
 ## How
 
