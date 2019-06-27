@@ -31,8 +31,7 @@ Unfortunately many recent graduates or job seekers lack a proper GitHub profile.
 
 On branch 'languages-2' there are 14 commits ahead of master. These contain an additional query on the repo to return the languages used. The goal is to create awareness in the students practice per language.
 
-The below files have been touched (code also contains comments):
-[I'm an inline-style link](https://www.google.com)
+The below files have been touched (files carry comments):
 
 #### 1. [server/src/details/details.ts](https://github.com/Official-Codaisseur-Graduate/git-gud/blob/languages-2/server/src/details/details.ts)
 - fetchLanguages function sends 2 queries to GitHub's GraphQL server.
@@ -47,7 +46,7 @@ The below files have been touched (code also contains comments):
 #### 4. [client/src/App.js](https://github.com/Official-Codaisseur-Graduate/git-gud/blob/languages-2/client/src/App.js)
 - Contains the component that initiates the query.
 
-#### 5. Next steps
+#### 5. Next steps for the students continuing this project
 - We encourage to use the repo languages data received on client side, e.g. with a pie chart.
 - The current repo query (step 1-4) can be extended with more repo data to use on client side.
 
