@@ -23,9 +23,9 @@ Unfortunately many recent graduates or job seekers lack a proper GitHub profile.
 
 ## Technology
 
-Frontend - JavaScript, ApolloClient <br>
-Backend - TypeScript, GraphQL, Apollo/KoaServer <br>
-GitHub API v4 - GraphQL <br>
+* Frontend - JavaScript, ApolloClient <br>
+* Backend - TypeScript, GraphQL, Apollo/KoaServer <br>
+* GitHub API v4 - GraphQL <br>
 
 ## Current progress
 
