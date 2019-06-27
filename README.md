@@ -56,7 +56,7 @@ The below files have been touched (files contain comments for further guidance):
 - Contains the component that initiates the query.
 
 #### 5. Next steps for the students continuing this project
-- We encourage to use the repo languages data received on client side, e.g. with a pie chart.
+- We encourage to display the returned languages data with a pie chart in the Git Use block.
 - The newly added query (step 1-4) can be extended to query more repository data from GitHub.
 
 ## Running the app locally
