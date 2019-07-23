@@ -22,6 +22,12 @@ const totalScoreCalculator = (commitScore) => {
     const totalScoreCalc = Object.values(commitScore).splice(0, 4);
     commitScore.totalScore = Math.floor(average(totalScoreCalc));
 };
+const returnToDefault = () => {
+    commitStats.lengthExceeds = 0;
+    commitStats.containsAND = 0;
+    commitStats.constainsPeriod = 0;
+    commitStats.upperCase = 0;
+};
 exports.commitValidation = commitMessages => {
     const commitCount = commitMessages
         .map(branch => branch.length)
@@ -47,6 +53,7 @@ exports.commitValidation = commitMessages => {
     commitStats.upperCase = upperCaseCount.reduce((partial_sum, a) => partial_sum + a);
     scoreCalculator(commitStats.upperCase, "upperCase", commitCount);
     totalScoreCalculator(commitScore);
+    returnToDefault();
     return commitScore;
 };
 //# sourceMappingURL=commits.js.map

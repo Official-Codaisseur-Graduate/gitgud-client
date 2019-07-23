@@ -86,6 +86,7 @@ exports.fetchRepoData = (username, repoName) => {
             gitIgnoreScore,
             description
         };
-    });
+    })
+        .catch(e => e);
 };
 //# sourceMappingURL=repoDetails.js.map

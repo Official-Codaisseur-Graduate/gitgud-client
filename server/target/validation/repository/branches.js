@@ -27,20 +27,31 @@ const descriptiveNamingArray = [
     "hotFix",
     "HotFix",
     "junk",
-    "Junk"
+    "Junk",
+    "Dev",
+    "dev",
+    "Development",
+    "development"
 ];
-const scoreCalculator = () => {
-    branchStats.hasThreeBranches >= 3 ? (branchScore.hasThreeBranches = Math.floor((7 / 7) * 100)) : null;
-    branchStats.hasMasterBranch === true ? (branchScore.hasMasterBranch = Math.floor((3 / 3) * 100)) : null;
-    branchStats.hasDevelopmentBranch === true ? (branchScore.hasDevelopmentBranch = Math.floor((3 / 3) * 100)) : null;
-    branchStats.hasFeatBranch === true ? (branchScore.hasFeatBranch = Math.floor((3 / 3) * 100)) : null;
-    branchScore.useDescriptiveNames = Math.floor(((8 - branchStats.useDescriptiveNames) / 8) * 100);
+const scoreCalculator = (branchCount) => {
+    branchStats.hasThreeBranches >= 3 ? branchScore.hasThreeBranches = 100 : null;
+    branchStats.hasMasterBranch === true ? branchScore.hasMasterBranch = 100 : null;
+    branchStats.hasDevelopmentBranch === true ? branchScore.hasDevelopmentBranch = 100 : null;
+    branchStats.hasFeatBranch === true ? branchScore.hasFeatBranch = 100 : null;
+    branchScore.useDescriptiveNames = Math.round(((branchCount - branchStats.useDescriptiveNames) / branchCount) * 100);
     branchScore.useDescriptiveNames < 0 ? (branchScore.useDescriptiveNames = 0) : null;
 };
 const totalScoreCalculator = (branchScore) => {
     const average = arr => arr.reduce((p, c) => p + c, 0) / arr.length;
     const totalScoreCalc = Object.values(branchScore).splice(0, 5);
-    branchScore.totalScore = Math.floor(average(totalScoreCalc));
+    branchScore.totalScore = Math.round(average(totalScoreCalc));
+};
+const returnToDefault = () => {
+    branchStats.hasThreeBranches = 0;
+    branchStats.hasMasterBranch = false;
+    branchStats.hasDevelopmentBranch = false;
+    branchStats.hasFeatBranch = false;
+    branchStats.useDescriptiveNames = 0;
 };
 exports.branchValidation = (hasThreeBranches, branchNamePlusCommitCount) => {
     branchStats.hasThreeBranches = hasThreeBranches;
@@ -58,8 +69,9 @@ exports.branchValidation = (hasThreeBranches, branchNamePlusCommitCount) => {
             : null;
         descriptiveNamingArray.includes(featName) ? null : (branchStats.useDescriptiveNames += 1);
     });
-    scoreCalculator();
+    scoreCalculator(hasThreeBranches);
     totalScoreCalculator(branchScore);
+    returnToDefault();
     return branchScore;
 };
 //# sourceMappingURL=branches.js.map

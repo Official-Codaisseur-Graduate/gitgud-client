@@ -80,6 +80,7 @@ exports.fetchGeneralData = username => {
                 repoNames
             };
         }
-    });
+    })
+        .catch(e => e);
 };
 //# sourceMappingURL=gitUse.js.map

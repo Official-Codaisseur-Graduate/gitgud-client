@@ -9,7 +9,6 @@
     "watch": "node_modules/.bin/tsc -w",
     "compile": "node_modules/.bin/tsc -p ."
   },
-
   "dependencies": {
     "@koa/cors": "^2.2.3",
     "@types/graphql": "^14.2.0",
@@ -26,7 +25,7 @@
     "apollo-server-koa": "^1.4.0",
     "cors": "^2.8.5",
     "face-detector": "^1.0.4",
-    "graphql": "^14.2.1",
+    "graphql": "^14.4.2",
     "graphql-tag": "^2.10.1",
     "graphql-tools": "^4.0.4",
     "kcors": "^2.2.2",
@@ -43,7 +42,6 @@
     "typeorm": "^0.2.15",
     "typescript": "^3.3.4000"
   },
-  
   "browserslist": [
     ">0.2%",
     "not dead",
