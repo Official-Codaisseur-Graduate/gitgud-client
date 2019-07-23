@@ -5,11 +5,12 @@ import LandingPage from './LandingPage'
 
 export default class FormContainer extends React.Component {
   constructor(props) {
+
     super(props);
     this.state = {
       search: "",
       username: "",
-      landingPage: true
+      landingPage: true,
     };
   }
 
@@ -25,10 +26,14 @@ export default class FormContainer extends React.Component {
       username: this.state.search,
       landingPage: false
     });
-
   };
 
-  render() {
+
+    render() {
+      const nameLenght = this.state.username.lenght
+      let slash = this.state.username.indexOf("/")
+      const justRepo = this.state.username.slice(slash+1, nameLenght)
+      console.log('SLASH IS', slash)
     if(this.state.landingPage){
     return (
       <div>
@@ -44,6 +49,7 @@ export default class FormContainer extends React.Component {
       username={this.state.username}
       onSubmit={this.onSubmit}
       onChange={this.onChange}
+      reponame={slash === -1 ? null : justRepo }
     />
   }
 }

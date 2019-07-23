@@ -10,7 +10,6 @@ const typeDefs = `
   type Query {
     user(username: String): User
   }
-
   type User {
     username: String
     score: Int
@@ -75,7 +74,6 @@ const typeDefs = `
     useDescriptiveNames: Int
     totalScore: Int
 }
-
 `;
 
 const resolvers = {

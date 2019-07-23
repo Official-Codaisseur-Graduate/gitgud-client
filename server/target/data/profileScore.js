@@ -66,6 +66,6 @@ exports.analizeProfile = (username) => {
             return { username, score, profileStats };
         });
     })
-        .catch(e => console.log(e));
+        .catch(e => e);
 };
 //# sourceMappingURL=profileScore.js.map

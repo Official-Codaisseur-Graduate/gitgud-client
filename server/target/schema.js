@@ -85,20 +85,28 @@ const resolvers = {
             const gitUse = await gitUse_1.fetchGeneralData(username);
             data.stats = gitUse;
             let averageRepoScore = 0;
+            let lastScore;
             const userScores = await entity_1.Score.find({ userName: username });
-            if (userScores.length > 0)
+            if (userScores.length > 0) {
                 data.previousScores = userScores;
+                lastScore = userScores[userScores.length - 1];
+            }
+            else {
+                lastScore = null;
+            }
             const score = new entity_1.Score();
             score.profileScore = data.score;
+            score.gitScore = 0;
             score.userName = username;
             if (data.stats.totalPinnedRepos > 0) {
                 const promises = data.stats.repoNames.map(async (repo, i) => {
-                    return repoDetails_1.fetchRepoData(repo.owner, repo.name).then(repoData => {
+                    const TEST = await repoDetails_1.fetchRepoData(repo.owner, repo.name).then(repoData => {
                         if (!repoData)
                             throw new Error();
                         averageRepoScore += repoData.totalRepoScore;
-                        data.stats.repoNames[i] = Object.assign({}, data.stats.repoNames[i], repoData);
+                        data.stats.repoNames[i] = Object.assign({}, data.stats.repoNames[i], { commitScore: Object.assign({}, repoData.commitScore), branchScore: Object.assign({}, repoData.branchScore), description: repoData.description, gitIgnoreScore: repoData.gitIgnoreScore, repoReadMe: repoData.repoReadMe, totalRepoScore: repoData.totalRepoScore });
                     });
+                    return TEST;
                 });
                 return Promise.all(promises).then(() => {
                     data.profileScore = data.score;
@@ -107,11 +115,11 @@ const resolvers = {
                     data.score += data.repoScore;
                     data.score = Math.round(data.score);
                     score.gitScore = data.repoScore;
-                    typeorm_1.getRepository(entity_1.Score).save(score);
+                    saveScoreIfUpdated(score, lastScore);
                     return data;
                 });
             }
-            await typeorm_1.getRepository(entity_1.Score).save(score);
+            saveScoreIfUpdated(score, lastScore);
             data.profileScore = data.score;
             data.repoScore = 0;
             return data;
@@ -122,5 +130,20 @@ const schema = graphql_tools_1.makeExecutableSchema({
     typeDefs,
     resolvers
 });
+const saveScoreIfUpdated = (score, lastScore) => {
+    if (!lastScore) {
+        typeorm_1.getRepository(entity_1.Score).save(score);
+    }
+    else {
+        const newScore = score.gitScore + score.profileScore;
+        const oldScoreValue = lastScore.gitScore + lastScore.profileScore;
+        if (new Date().toLocaleDateString() ===
+            lastScore.createdAt.toLocaleDateString() &&
+            newScore === oldScoreValue) {
+            return;
+        }
+        typeorm_1.getRepository(entity_1.Score).save(score);
+    }
+};
 exports.default = schema;
 //# sourceMappingURL=schema.js.map

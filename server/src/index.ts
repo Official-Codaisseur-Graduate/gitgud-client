@@ -4,6 +4,7 @@ import setupDb from "./db";
 import * as koaBody from "koa-bodyparser";
 import * as Router from "koa-router";
 import { graphqlKoa } from "apollo-server-koa";
+import { graphiqlKoa } from 'apollo-server-koa';
 import schema from "./schema";
 import * as cors from "@koa/cors";
 
@@ -17,6 +18,12 @@ app
 
 router.post("/graphql", graphqlKoa({ schema }));
 router.get("/graphql", graphqlKoa({ schema }));
+router.get(
+  '/graphiql',
+  graphiqlKoa({
+    endpointURL: '/graphql'// a POST endpoint that GraphiQL will make the actual requests to
+  }),
+);
 
 app
 .use(router.routes())
