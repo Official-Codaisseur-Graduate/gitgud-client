@@ -3,17 +3,21 @@ import { Query } from "react-apollo";
 import { GET_USER_DATA } from "../gql";
 import ProfileStats from "./ProfileStats";
 import Loader from "./Loader";
+import SingleRepoStats from './SingleRepoStats'
 
 export default function Form(props) {
+  console.log('WHAT IS REPONAME' , props.reponame)
   return (
-    <div>
+    
+    props.reponame ? <SingleRepoStats /> :
+      <div>
       <form className="form" onSubmit={props.onSubmit}>
         <input
           className="form__username"
           type="text"
           name="search"
           id="1"
-          placeholder="enter your username"
+          placeholder="enter your username  or username/repo name"
           onChange={props.onChange}
         />
         <button className="form__submit" type="submit">
@@ -21,6 +25,7 @@ export default function Form(props) {
           Go!{" "}
         </button>
       </form>
+
       <Query
         query={GET_USER_DATA}
         skip={props.username === ``}
@@ -39,6 +44,6 @@ export default function Form(props) {
           return <div> {data && <ProfileStats user={data.user} />}</div>;
         }}
       </Query>
-    </div>
+    </div>      
   );
 }
