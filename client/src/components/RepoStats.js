@@ -13,7 +13,6 @@ export default class Tabs extends React.Component {
   constructor(props) {
     super(props);
     this._tabsData = props.repos;
-
     this.state = {
       tabs: this._tabsData.map((element, i) => ({ isActive: (i === 0) })),
       open: false,

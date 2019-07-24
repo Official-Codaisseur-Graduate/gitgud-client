@@ -4,6 +4,7 @@ import "./Form.css";
 import LandingPage from './LandingPage'
 
 export default class FormContainer extends React.Component {
+
   constructor(props) {
 
     super(props);
@@ -30,23 +31,26 @@ export default class FormContainer extends React.Component {
 
 
     render() {
+     console.log('STATE OF FORMCONT', this.state)
       const nameLenght = this.state.username.lenght
       let slash = this.state.username.indexOf("/")
       const justRepo = this.state.username.slice(slash+1, nameLenght)
+      const justName = this.state.username.slice(0, slash)
       console.log('SLASH IS', slash)
     if(this.state.landingPage){
     return (
       <div>
       <Form
-        username={this.state.username}
+        username={justName}
         onSubmit={this.onSubmit}
         onChange={this.onChange}
+  
       />
       <LandingPage />
       </div>
     );
   } else return <Form
-      username={this.state.username}
+      username={slash === -1 ? this.state.username : justName}
       onSubmit={this.onSubmit}
       onChange={this.onChange}
       reponame={slash === -1 ? null : justRepo }
