@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
+import Loader from "./Loader";
 
-export default class SingleRepoStats extends Component {
-  render() {
+export default function SingleRepoStats(props) {
+  console.log('PROPS OF SingleRepoStats', props.user)
     return (
       <div>
-        Repo statistics :)
+        username: {props.user.username}
+        <br/>
+        mail: {props.user.email}
       </div>
     )
-  }
 }
