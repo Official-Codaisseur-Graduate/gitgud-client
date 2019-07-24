@@ -24,6 +24,7 @@ export default class SingleRepoStatsContainer extends Component {
               <p>Please submit valid repo name </p>
             </div>
           ) 
+          console.log('DATA', data)
           return <div> {data && 
             <SingleRepoStats 
             user={data.user}

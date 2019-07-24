@@ -55,10 +55,10 @@ export const GET_USER_DATA = gql`
                   }
                   `;
 
-export const GET_REPO_DATA = gql`query GetRepo($username: String!) {
+export const GET_REPO_DATA = gql`
+query GetRepo($username: String!) {
   user(username: $username ) {
     username,
-    repoScore
     profileStats {email},
     stats {
       averageCommitPerBranch
@@ -87,4 +87,5 @@ export const GET_REPO_DATA = gql`query GetRepo($username: String!) {
       }
     }
   }
-}`
+}
+`

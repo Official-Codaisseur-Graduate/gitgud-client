@@ -13,7 +13,12 @@ const url = `https://gitgudserver.herokuapp.com/graphql`
 // const url = `http://localhost:3030/graphql`
 
 const httpLink = {
-  uri: url
+  uri: url, 
+  headers: {
+    authorization: `Bearer ${
+      process.env.REACT_APP_GITHUB_PERSONAL_ACCESS_TOKEN
+    }`,
+  }
 };
 
 const defaultOptions = {
