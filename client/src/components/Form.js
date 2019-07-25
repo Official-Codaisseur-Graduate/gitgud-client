@@ -10,7 +10,7 @@ export default function Form(props) {
   return (
 
     props.reponame ?
-      <SingleRepoStatsContainer username={props.username} /> :
+      <SingleRepoStatsContainer username={props.username} reponame={props.reponame} /> :
       <div>
         <form className="form" onSubmit={props.onSubmit}>
           <input

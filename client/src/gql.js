@@ -56,10 +56,9 @@ export const GET_USER_DATA = gql`
                   `;
 
 export const GET_REPO_DATA = gql`
-query GetRepo($username: String!) {
-  user(username: $username ) {
+query GetRepo($username: String!, $reponame: String! ) {
+  repository(owner: $username, name: $reponame) {
     username,
-    profileStats {email},
     stats {
       averageCommitPerBranch
       repoNames {
