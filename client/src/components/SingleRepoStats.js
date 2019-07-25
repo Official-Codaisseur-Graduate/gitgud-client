@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 import Loader from "./Loader";
 
 export default function SingleRepoStats(props) {
-  console.log('PROPS OF SingleRepoStats', props.user)
+  console.log('PROPS OF SingleRepoStats', props)
     return (
       <div>
-        username: {props.user.username}
+        total score: {props.repo.branchScore.totalScore}
         <br/>
-        mail: {props.user.email}
+        {/* mail: {props.user.email} */}
       </div>
     )
 }

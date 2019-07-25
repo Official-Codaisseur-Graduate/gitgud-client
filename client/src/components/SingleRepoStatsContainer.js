@@ -14,9 +14,11 @@ export default class SingleRepoStatsContainer extends Component {
         <Query
         query={GET_REPO_DATA}
         skip={this.props.username === ``}
-        variables={{ username: this.props.username, reponame: this.props.reponeame}}
+        variables={{ username: this.props.username, reponame: this.props.reponame}}
       >
-         {({ loading, error, data }) => {
+       
+         {({ loading, error, data }) => { 
+           console.log('AM I BEING CALLED?', this.props.reponame)
           if (loading) return <Loader />;
           if (error)
           return (
@@ -27,7 +29,7 @@ export default class SingleRepoStatsContainer extends Component {
           console.log('DATA', data)
           return <div> {data && 
             <SingleRepoStats 
-            user={data.user}
+            repo={data.repository}
             />
             }</div>;
          }}

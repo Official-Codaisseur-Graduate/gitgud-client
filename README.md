@@ -29,6 +29,7 @@ A validator of your GitHub profile and usage, designed to provide feedback for j
 * **Oleksandra Akulshyna** - *Initial work* - [w3bgir1](https://github.com/w3bgir1)
 * **Vincent de Graaf** - *Initial work* - [vdegraaf](https://github.com/vdegraaf)
 * **Natalia Volchatova** - *Initial work* - [Klackky](https://github.com/Klackky)
+* **Mario Nezmah**  [mnezmah](https://github.com/nemzmah)
 
 ## Technologies
 
@@ -73,9 +74,15 @@ cd into server <br>
 `GITHUB_ACCESS_TOKEN=<YOURTOKEN> npm run dev` <br>
 
 > Server needs to be launched with GitHub token to enable GitHub API requests. <br>
-> [See instructions to create GitHub token here](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line). <br>
-> client/src/index.js contains the server url. <br>
-> Install open cv to work on face recognition. <br>
+> [See instructions to create GitHub token here](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line). (don't forget to check user scopes)<br>
+> client/src/index.js contains the server url. 
+If you want to run local server, change it to your localhost.<br>
+>Project uses open cv for face recognition. Before npm install 
+make sure you have installed OpenCV
+>* for Linux follow this steps:
+>1. `npm install pyton-opencv`
+>2. `npm install opencv-dev`
+>3. `npm install opencv`  <br>
 
 ## Deployment server to Heroku
 

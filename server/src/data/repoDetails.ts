@@ -60,7 +60,7 @@ export const fetchRepoData = (username, repoName) => {
     }
   `
   }).then(res => {
-    
+    console.log('REPO DATA=', res)
     const repoDescription = res.data.repository.description
       ? res.data.repository.description
       : "";
