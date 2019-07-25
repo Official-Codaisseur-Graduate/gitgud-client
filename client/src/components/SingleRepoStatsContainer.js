@@ -14,7 +14,7 @@ export default class SingleRepoStatsContainer extends Component {
         <Query
         query={GET_REPO_DATA}
         skip={this.props.username === ``}
-        variables={{ username: this.props.username }}
+        variables={{ username: this.props.username, reponame: this.props.reponeame}}
       >
          {({ loading, error, data }) => {
           if (loading) return <Loader />;

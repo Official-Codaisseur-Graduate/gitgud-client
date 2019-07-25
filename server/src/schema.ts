@@ -9,6 +9,7 @@ const typeDefs = `
 
   type Query {
     user(username: String): User
+    repository(owner: String, name: String): Repository
   }
   type User {
     username: String
@@ -138,6 +139,9 @@ const resolvers = {
       data.profileScore = data.score;
       data.repoScore = 0;
       return data;
+    },
+    repository: async(obj, args, context, info)=> {
+      console.log(obj, args, context, info)
     }
   }
 };
