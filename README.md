@@ -1,4 +1,5 @@
 # GitGud
+
 [CHECK OUR DEMO](https://gityougud.herokuapp.com/) <br>
 A validator of your GitHub profile and usage, designed to provide feedback for job seekers. <br>
 
@@ -6,13 +7,13 @@ A validator of your GitHub profile and usage, designed to provide feedback for j
 
 ## Table of contents:
 
-- **[How](#how)**
-- **[Why](#why)**
-- **[Who](#who)**
-- **[Technologies](#technologies)**
-- **[Current progress of the app](#current-progress-of-the-app)**
-- **[Running the app locally](#running-the-app-locally)**
-- **[Deployment server to Heroku](#deployment-server-to-heroku)**
+* **[How](#how)**
+* **[Why](#why)**
+* **[Who](#who)**
+* **[Technologies](#technologies)**
+* **[Current progress of the app](#current-progress-of-the-app)**
+* **[Running the app locally](#running-the-app-locally)**
+* **[Deployment server to Heroku](#deployment-server-to-heroku)**
 
 ## How
 
@@ -44,60 +45,69 @@ On branch [languages-2](https://github.com/Official-Codaisseur-Graduate/git-gud/
 The below files have been touched (files contain comments for further guidance):
 
 #### 1. [server/src/details/details.ts](https://github.com/Official-Codaisseur-Graduate/git-gud/blob/languages-2/server/src/details/details.ts)
-- fetchLanguages function sends 2 queries to GitHub's GraphQL server.
-- fetchLanguages function captures and organizes what GitHub returns and sends results to schema.ts. 
+
+* fetchLanguages function sends 2 queries to GitHub's GraphQL server.
+* fetchLanguages function captures and organizes what GitHub returns and sends results to schema.ts. 
 
 #### 2. [server/src/schema.ts](https://github.com/Official-Codaisseur-Graduate/git-gud/blob/languages-2/server/src/schema.ts)
-- Resolver receives the above results and organizes a new object for the client to receive.
+
+* Resolver receives the above results and organizes a new object for the client to receive.
 
 #### 3. [client/src/gql.js](https://github.com/Official-Codaisseur-Graduate/git-gud/blob/languages-2/client/src/gql.js)
-- The actual query from the client to the server is defined here.
+
+* The actual query from the client to the server is defined here.
 
 #### 4. [client/src/App.js](https://github.com/Official-Codaisseur-Graduate/git-gud/blob/languages-2/client/src/App.js)
-- Contains the component that initiates the query.
+
+* Contains the component that initiates the query.
 
 #### 5. Next steps for the students continuing this project
-- We encourage to display the returned languages data with a pie chart in the Git Use block.
-- The newly added query (step 1-4) can be extended to query more repository data from GitHub.
+
+* We encourage to display the returned languages data with a pie chart in the Git Use block.
+* The newly added query (step 1-4) can be extended to query more repository data from GitHub.
 
 ## Running the app locally
 
 Clone the repository <br>
 Setup a local postgresql database<br>
 cd into client <br>
-`$ npm install` <br>
-`$ npm run dev` <br>
-`$ brew install pkg-config opencv@2`<br>
-`$ brew link opencv@2 --force`<br>
+ `$ npm install` <br>
+ `$ npm run dev` <br>
+ `$ brew install pkg-config opencv@2` <br>
+ `$ brew link opencv@2 --force` <br>
 cd into server <br>
-`$ npm install` <br> 
-`GITHUB_ACCESS_TOKEN=<YOURTOKEN> npm run dev` <br>
+ `$ npm install` <br> 
+ `GITHUB_ACCESS_TOKEN=<YOURTOKEN> npm run dev` <br>
 
 > Server needs to be launched with GitHub token to enable GitHub API requests. <br>
 > [See instructions to create GitHub token here](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line). (don't forget to check user scopes)<br>
 > client/src/index.js contains the server url. 
+
 If you want to run local server, change it to your localhost.<br>
->Project uses open cv for face recognition. Before npm install 
+
+> Project uses open cv for face recognition. Before npm install 
+
 make sure you have installed OpenCV
->* for Linux follow this steps:
->1. `npm install pyton-opencv`
->2. `npm install opencv-dev`
->3. `npm install opencv`  <br>
+
+> * for Linux follow this steps:
+> 1. `npm install pyton-opencv` 
+> 2. `npm install opencv-dev` 
+> 3. `npm install opencv` <br>
 
 ## Deployment server to Heroku
 
 NodeJS buildpack <br>
-`$ heroku buildpacks:add heroku/nodejs` <br>
+ `$ heroku buildpacks:add heroku/nodejs` <br>
 
 OpenCV builbpack <br>
-`$ heroku buildpacks:add --index 1 https://github.com/automata/heroku-buildpack-opencv.git` <br>
+ `$ heroku buildpacks:add --index 1 https://github.com/automata/heroku-buildpack-opencv.git` <br>
 
 Downgrade to Cedar 14 since on Cedar 16 it won’t work without extra configurations <br>
-`$ heroku stack:set cedar-14` <br>
+ `$ heroku stack:set cedar-14` <br>
 
 Push to Heroku <br>
-`$ git push heroku` <br>
-`$ heroku ps:scale web=1` <br>
+ `$ git push heroku` <br>
+ `$ heroku ps:scale web=1` <br>
 
 > After deploying your app may scale down to 0 dynos
 > ... so increase dynos amount to the desired number
@@ -105,4 +115,6 @@ Push to Heroku <br>
 ## Acknowledgments
 
 Special thanks to Rein op 't Land, our teacher and Product Owner. 
+
 * **Rein op 't Land** - [ReinoptLand](https://github.com/Reinoptland)
+
