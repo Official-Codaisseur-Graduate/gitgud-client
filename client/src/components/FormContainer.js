@@ -31,12 +31,10 @@ export default class FormContainer extends React.Component {
 
 
     render() {
-     console.log('STATE OF FORMCONT', this.state)
       const nameLenght = this.state.username.lenght
       let slash = this.state.username.indexOf("/")
       const justRepo = this.state.username.slice(slash+1, nameLenght)
       const justName = this.state.username.slice(0, slash)
-      console.log('SLASH IS', slash)
     if(this.state.landingPage){
     return (
       <div>

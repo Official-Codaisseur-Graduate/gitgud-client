@@ -1,0 +1,57 @@
+.tabs-list__content {
+  display: block;
+  width: 65%;
+  min-height: 380px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0;
+  margin: 0;
+  background-color:white;
+  font-size: 16px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  border-radius: 15px;
+}
+
+.stats__profile {
+  background-color: rgba(111,148,188, 0.1);
+  border-radius: 5px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  padding: 40px 50px 50px;
+  width: 65%;
+  text-align: center
+}
+
+.repo__name {
+  color: #0082c8;
+  font-size: 3rem;
+text-align: center;
+text-transform: capitalize;
+}
+
+.repo__name-title {
+  font-size: 0.8rem;
+  margin-bottom: -2%;
+  text-align: center;
+}
+
+.repo__score {
+  background: #32BA7C;
+  border-radius: 50%;
+  color: white;
+  display: inline-block;
+  line-height: 2rem;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 1%;
+  padding: 12px;
+  width: 2rem;
+}
+
+.repo__container {
+ display: flex;
+ justify-content: space-between;
+ width: 100%;
+}

@@ -90,13 +90,25 @@ export const GET_USER_DATA = gql`
 export const GET_REPO_DATA = gql`
 query GetRepo($username: String!, $reponame: String!) {
   repository(owner: $username, name: $reponame) {
-        branchScore {
-          hasThreeBranches
-          hasMasterBranch
-          hasDevelopmentBranch
-          hasFeatBranch
-          useDescriptiveNames
-          totalScore
-        }
+    name
+    gitIgnoreScore
+    description
+    repoReadMe
+    totalRepoScore       
+    branchScore {
+      hasThreeBranches
+      hasMasterBranch
+      hasDevelopmentBranch
+      hasFeatBranch
+      useDescriptiveNames
+      totalScore
+    }
+    commitScore {
+      lengthExceeds
+      containsAND
+      containsPeriod
+      upperCase
+      totalScore
+            }    
       }
     }`
