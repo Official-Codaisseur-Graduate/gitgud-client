@@ -27,7 +27,7 @@ export default class SingleRepoStats extends Component {
         <h1 className="repo__name">{name}</h1>
           <h3>Total Repository score: </h3>
           <p className="repo__score">{totalRepoScore}</p>
-          <h6>This is accumulated based on folowing factors:</h6>
+          <p>This is accumulated based on folowing factors:</p>
           <div className="repo__container">
             <div>
               <h4>General</h4>
@@ -42,7 +42,7 @@ export default class SingleRepoStats extends Component {
               branchScore={branchScore}/>
             </div>
             <div>
-              <h4>commits</h4>
+              <h4>Commits</h4>
               <CommitsAccordionContainer 
               commitScore={commitScore}/>
             </div>
