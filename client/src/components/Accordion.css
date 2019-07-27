@@ -1,0 +1,22 @@
+.accordion {
+  margin-bottom: 2%;
+  margin-left: 4%;
+  background: white;
+}
+
+.accordion__headding {
+  max-width: 90%;
+}
+.accordion__button{
+  max-width:90%;
+  padding-right:9px;
+}
+
+.accordion__button:before {
+  height: 5px;
+  width: 5px;
+  color:  #0082c8;
+}
+.accordion__content {
+  color: #0082c8;
+}
