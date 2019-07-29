@@ -75,7 +75,7 @@ The below files have been touched (files contain comments for further guidance):
 
 ## Running the app locally
 > App has a Server and  Client in same repository.<br>
-You need to run npm install in both the server and the client. And then you run the server and client in seperate terminals.<br> Follow the steps below 
+You'll need to run npm install in both the server and the client, and run the server and client in seperate terminals.<br> Follow the steps below <br>
 > Server needs to be launched with GitHub token to enable GitHub API requests. <br>
 > [See instructions to create GitHub token here](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line). (don't forget to check user scopes)
 Once you've created a token on GitHub, copy it, you'll need id :) <br>
