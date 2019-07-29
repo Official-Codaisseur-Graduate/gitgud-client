@@ -81,7 +81,7 @@ const resolvers = {
     Query: {
         user: async (_, { username }, __, ___) => {
             console.log('USERNAME!!', username);
-            const data = await profileScore_1.analizeProfile(username);
+            const data = await profileScore_1.analyzeProfile(username);
             const gitUse = await gitUse_1.fetchGeneralData(username);
             data.stats = gitUse;
             let averageRepoScore = 0;

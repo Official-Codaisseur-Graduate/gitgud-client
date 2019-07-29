@@ -3,7 +3,7 @@ import * as face from "face-detector";
 
 const token = process.env.GITHUB_ACCESS_TOKEN;
 
-export const analizeProfile = (username: string): any => {
+export const analyzeProfile = (username: string): any => {
   const fetch = createApolloFetch({
     uri: "https://api.github.com/graphql"
   });

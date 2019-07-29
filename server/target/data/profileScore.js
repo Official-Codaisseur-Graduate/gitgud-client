@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const apollo_fetch_1 = require("apollo-fetch");
 const face = require("face-detector");
 const token = process.env.GITHUB_ACCESS_TOKEN;
-exports.analizeProfile = (username) => {
+exports.analyzeProfile = (username) => {
     const fetch = apollo_fetch_1.createApolloFetch({
         uri: "https://api.github.com/graphql"
     });

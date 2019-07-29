@@ -1,7 +1,7 @@
 import { makeExecutableSchema } from "graphql-tools";
 import { getRepository } from "typeorm";
 import { fetchRepoData } from "./data/repoDetails";
-import { analizeProfile } from "./data/profileScore";
+import { analyzeProfile } from "./data/profileScore";
 import { fetchGeneralData } from "./data/gitUse";
 import { Score } from "./score/entity";
 
@@ -81,7 +81,7 @@ const resolvers = {
   Query: {
     user: async (_, { username }, __, ___) => {
       console.log('USERNAME!!', username)
-      const data = await analizeProfile(username);
+      const data = await analyzeProfile(username);
       const gitUse = await fetchGeneralData(username);
       data.stats = gitUse;
       let averageRepoScore = 0;
