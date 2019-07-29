@@ -6,7 +6,6 @@ import LandingPage from './LandingPage'
 export default class FormContainer extends React.Component {
 
   constructor(props) {
-
     super(props);
     this.state = {
       search: "",
@@ -42,9 +41,8 @@ export default class FormContainer extends React.Component {
         username={justName}
         onSubmit={this.onSubmit}
         onChange={this.onChange}
-  
       />
-      <LandingPage />
+     <LandingPage />
       </div>
     );
   } else return <Form

@@ -25,7 +25,6 @@ const icon = value => {
 };
 
 export default function ProfileStats(props) {
-  console.log(props)
   const profileStats = props.user.profileStats;
   return (
     <div className="row">
