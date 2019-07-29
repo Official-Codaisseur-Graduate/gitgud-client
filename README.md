@@ -94,10 +94,12 @@ Once you've created a token on GitHub, copy it, you'll need id :) <br>
 >`$ brew link opencv@2 --force` 
 
 Clone the repository <br>
-Setup a local postgresql database (username: postgres, pasword:secret)<br>
+Setup a local postgresql database (username: postgres, password:secret)<br>
+<br>
 cd into server <br>
  `$ npm install` <br> 
  `GITHUB_ACCESS_TOKEN=<YOURTOKEN> npm run dev` <br>
+ <br>
 cd into client <br>
  `$ npm install` <br>
  `$ npm run dev` <br>
