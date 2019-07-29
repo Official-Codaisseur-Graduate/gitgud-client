@@ -77,9 +77,9 @@ The below files have been touched (files contain comments for further guidance):
 > Server needs to be launched with GitHub token to enable GitHub API requests. <br>
 > [See instructions to create GitHub token here](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line). (don't forget to check user scopes)<br>
 > client/src/index.js contains the server url. 
->If you want to run local server, change it to your localhost.<br>
-> Project uses open cv for face recognition. Before npm install 
->make sure you have installed OpenCV
+> If you want to run local server, change it to your localhost.<br>
+> Project uses open cv for face recognition. 
+> Before npm install make sure you have installed OpenCV
 
 > * For Linux follow these steps:
 > 1. `npm install pyton-opencv` 
