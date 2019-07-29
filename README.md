@@ -74,6 +74,8 @@ The below files have been touched (files contain comments for further guidance):
 * The newly added query (step 1-4) can be extended to query more repository data from GitHub.
 
 ## Running the app locally
+> App has a Server and  Client in same repository.
+You need to install two npm_modules and run two scripts from two terminals.
 > Server needs to be launched with GitHub token to enable GitHub API requests. <br>
 > [See instructions to create GitHub token here](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line). (don't forget to check user scopes)
 Once you've created a token on GitHub, copy it, you'll need id :) <br>
@@ -87,17 +89,19 @@ Once you've created a token on GitHub, copy it, you'll need id :) <br>
 > 2. `npm install opencv-dev` 
 > 3. `npm install opencv` <br>
 
+> * For MacOS follow these steps:
+> $ brew install pkg-config opencv@2`
+>`$ brew link opencv@2 --force` 
+
 Clone the repository <br>
-Setup a local postgresql database<br>
-cd into client <br>
- `$ npm install` <br>
- `$ npm run dev` <br>
- `$ brew install pkg-config opencv@2` <br>
-*for Mac only*
- `$ brew link opencv@2 --force` <br>
+Setup a local postgresql database (username: postgres, pasword:secret)<br>
 cd into server <br>
  `$ npm install` <br> 
  `GITHUB_ACCESS_TOKEN=<YOURTOKEN> npm run dev` <br>
+cd into client <br>
+ `$ npm install` <br>
+ `$ npm run dev` <br>
+
 
 > * For Windows follow these steps:
 > 1. `Install Microsoft Visual Studio 2019 and enable Desktop development with C++` 
