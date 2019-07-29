@@ -1,8 +1,6 @@
 
 import React, { Component } from 'react'
 import 'react-accessible-accordion/dist/fancy-example.css'
-import './Accordion.css'
-
 import {
   Accordion,
   AccordionItem,
@@ -10,12 +8,16 @@ import {
   AccordionItemPanel,
   AccordionItemButton
 } from 'react-accessible-accordion';
+import './Accordion.css'
 
 export default class RepoAccordion extends Component {
 
   render() {
     return (
-      <Accordion allowZeroExpanded='true' >
+      <Accordion
+      allowMultipleExpanded='false'
+      allowZeroExpanded='true'
+      >
         <AccordionItem>
           <AccordionItemHeading>
             <AccordionItemButton>
@@ -25,7 +27,7 @@ export default class RepoAccordion extends Component {
           <AccordionItemPanel>
             <p className="accordion__content">
               {this.props.panel}
-                  </p>
+            </p>
           </AccordionItemPanel>
         </AccordionItem>
       </Accordion>

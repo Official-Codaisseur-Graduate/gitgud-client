@@ -4,7 +4,8 @@ import RepoAccordion from './Accordion'
 export default class GeneralAccordionContainer extends Component {
   state = {
     accordionItems: [
-      { id: 1,
+      {
+        id: 1,
         button: `Master branch: ${this.props.branchScore.hasMasterBranch}`,
         panel: "‘master’ is considered to be the main branch where the source code of HEAD always reflects a production-ready state."
       }, {
@@ -31,7 +32,7 @@ export default class GeneralAccordionContainer extends Component {
     return (
       this.state.accordionItems.map(accordionItem => {
         return <RepoAccordion
-        key={accordionItem.id}
+          key={accordionItem.id}
           button={accordionItem.button}
           panel={accordionItem.panel}
         />

@@ -29,7 +29,8 @@ export default class GeneralAccordionContainer extends Component {
     return (
       this.state.accordionItems.map(accordionItem => {
         return <RepoAccordion
-          key={accordionItem.id}
+        allowZeroExpanded='true'
+        key={accordionItem.id}
           button={accordionItem.button}
           panel={accordionItem.panel}
         />
