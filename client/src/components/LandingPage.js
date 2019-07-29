@@ -53,7 +53,7 @@ export default function LandingPage(props) {
         <div className=" profiles">
           <div className="profile">
             <img
-              src="https://media.licdn.com/dms/image/C4D03AQHZVf98b8_9rQ/profile-displayphoto-shrink_800_800/0?e=1560988800&v=beta&t=GJsvLqPTRx9mVyd6mJV-vfNWvZiWeTfkMRM12kTgnh0"
+            src="https://avatars3.githubusercontent.com/u/47144624?s=460&v=4"
               alt="Oleksandra"
             />
             <h3>Oleksandra Akulshyna</h3>
@@ -76,7 +76,7 @@ export default function LandingPage(props) {
 
           <div className="profile">
             <img
-              src="https://media.licdn.com/dms/image/C4E03AQHbh18z_ce4NA/profile-displayphoto-shrink_200_200/0?e=1560988800&v=beta&t=Sdjy4ObNeIBXtc4oVvJOeSUeG6oXsw8_0K0pKRwRYZM"
+              src="https://avatars3.githubusercontent.com/u/46756331?s=460&v=4"
               alt="Vincent"
             />
             <h3>Vincent de Graaf</h3>
@@ -98,7 +98,7 @@ export default function LandingPage(props) {
 
           <div className="profile">
             <img
-              src="https://media.licdn.com/dms/image/C4D03AQFJAEpuEOJn2A/profile-displayphoto-shrink_800_800/0?e=1560988800&v=beta&t=Pfb7rIZKrgWPpbpcfP7Q9mVhO1mui-t5HSrgzXe6Bgc"
+              src="https://avatars2.githubusercontent.com/u/27397992?s=460&v=4"
               alt="Natalia"
             />
             <h3>Natalia Volchatova</h3>
@@ -117,6 +117,51 @@ export default function LandingPage(props) {
               GitHub
             </a>
           </div>
+
+          <div className="profile">
+            <img
+              src="https://avatars3.githubusercontent.com/u/51077942?s=460&v=4"
+              alt="Jelle"
+            />
+            <h3>Jelle Monen</h3>
+            <a
+              href="https://www.linkedin.com/in/jelle-monen-87570b8a/?originalSubdomain=nl"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="https://github.com/jelle89"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              GitHub
+            </a>
+          </div>
+
+          <div className="profile">
+            <img
+              src="https://media.licdn.com/dms/image/C5603AQHDevsbbtVO9Q/profile-displayphoto-shrink_200_200/0?e=1570060800&v=beta&t=hG9NoR2Ul0KBGtzHBzINFv3x9Mhx-VkTDf8cuuVQjUw"
+              alt="Mario"
+            />
+            <h3>Mario <br/> Nezmah</h3>
+            <a
+              href="https://www.linkedin.com/in/mario-nezmah/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="https://github.com/mnezmah"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              GitHub
+            </a>
+          </div>
+
         </div>
       </div>
       <div className="landing-page__description" id='wiki' >
