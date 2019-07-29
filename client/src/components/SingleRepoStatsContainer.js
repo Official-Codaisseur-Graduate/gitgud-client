@@ -16,20 +16,21 @@ export default class SingleRepoStatsContainer extends Component {
             reponame: this.props.reponame
           }}
         >
-
           {({ loading, error, data }) => {
             if (loading) return <Loader />;
             if (error)
               return (
+
                 <div className="errorBox">
                   <p>Please submit valid repo name </p>
                 </div>
               )
-            console.log('DATA', data)
-            return <div> {data &&
-              <SingleRepoStats
-                repo={data.repository}
-              />
+            return <div> {data && 
+              <div>
+                <SingleRepoStats
+                  repo={data.repository}
+                />
+              </div>
             }</div>;
           }}
         </Query>
