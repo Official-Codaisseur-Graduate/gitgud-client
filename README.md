@@ -30,12 +30,12 @@ A validator of your GitHub profile and usage, designed to provide feedback for j
 * **Oleksandra Akulshyna** - *Initial work* - [w3bgir1](https://github.com/w3bgir1)
 * **Vincent de Graaf** - *Initial work* - [vdegraaf](https://github.com/vdegraaf)
 * **Natalia Volchatova** - *Initial work* - [Klackky](https://github.com/Klackky)
-* **Mario Nezmah**  [mnezmah](https://github.com/nemzmah)
+* **Mario Nezmah** - *Repository page* -  [mnezmah](https://github.com/mnezmah)
 
 ## Technologies
 
 * Frontend - JavaScript, ApolloClient <br>
-* Backend - TypeScript, GraphQL, Apollo/KoaServer <br>
+* Backend - TypeScript, TypeORM,  GraphQL, Apollo/KoaServer <br>
 * GitHub API v4 - GraphQL <br>
 
 ## Current progress of the app
@@ -63,10 +63,24 @@ The below files have been touched (files contain comments for further guidance):
 
 #### 5. Next steps for the students continuing this project
 
+* Improve naming in the server directory (files, functions and variables), so structure is more understandable
+* Add routing to client to reduce cnfusion with rendering due to different input scenarios (create a Home component and make Form display component)
+* Make app responsive ( adjust for smaller displays )
+* Systematize the Components directory
 * We encourage to display the returned languages data with a pie chart in the Git Use block.
 * The newly added query (step 1-4) can be extended to query more repository data from GitHub.
 
 ## Running the app locally
+> Server needs to be launched with GitHub token to enable GitHub API requests. <br>
+> [See instructions to create GitHub token here](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line). (don't forget to check user scopes)<br>
+> client/src/index.js contains the server url. 
+>If you want to run local server, change it to your localhost.<br>
+> Project uses open cv for face recognition. Before npm install 
+>make sure you have installed OpenCV
+> * for Linux follow this steps:
+> 1. `npm install pyton-opencv` 
+> 2. `npm install opencv-dev` 
+> 3. `npm install opencv` <br>
 
 Clone the repository <br>
 Setup a local postgresql database<br>
@@ -74,25 +88,13 @@ cd into client <br>
  `$ npm install` <br>
  `$ npm run dev` <br>
  `$ brew install pkg-config opencv@2` <br>
+*for Mac only*
  `$ brew link opencv@2 --force` <br>
 cd into server <br>
  `$ npm install` <br> 
  `GITHUB_ACCESS_TOKEN=<YOURTOKEN> npm run dev` <br>
 
-> Server needs to be launched with GitHub token to enable GitHub API requests. <br>
-> [See instructions to create GitHub token here](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line). (don't forget to check user scopes)<br>
-> client/src/index.js contains the server url. 
 
-If you want to run local server, change it to your localhost.<br>
-
-> Project uses open cv for face recognition. Before npm install 
-
-make sure you have installed OpenCV
-
-> * for Linux follow this steps:
-> 1. `npm install pyton-opencv` 
-> 2. `npm install opencv-dev` 
-> 3. `npm install opencv` <br>
 
 ## Deployment server to Heroku
 
