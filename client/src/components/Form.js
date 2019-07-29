@@ -6,7 +6,6 @@ import Loader from "./Loader";
 import SingleRepoStatsContainer from './SingleRepoStatsContainer'
 
 export default function Form(props) {
-  console.log('WHAT IS REPONAME', props.reponame)
   return (
 
     props.reponame ?

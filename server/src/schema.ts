@@ -80,6 +80,7 @@ const typeDefs = `
 const resolvers = {
   Query: {
     user: async (_, { username }, __, ___) => {
+      console.log('USERNAME!!', username)
       const data = await analizeProfile(username);
       const gitUse = await fetchGeneralData(username);
       data.stats = gitUse;
@@ -140,8 +141,12 @@ const resolvers = {
       data.repoScore = 0;
       return data;
     },
-    repository: async(obj, args, context, info)=> {
-      console.log(obj, args, context, info)
+    repository: async (_, args , __, ___,)=> {
+       console.log('PROPS!!',args)
+       const data = await fetchRepoData(args.owner, args.name)
+       console.log('THIS IS DATA', data)
+
+       return data
     }
   }
 };

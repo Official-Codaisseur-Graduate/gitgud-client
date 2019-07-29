@@ -55,36 +55,60 @@ export const GET_USER_DATA = gql`
                   }
                   `;
 
+// export const GET_REPO_DATA = gql`
+// query GetRepo($username: String!, $reponame: String!) {
+//   repository(owner: $username, name: $reponame) {
+//     stats {
+//       averageCommitPerBranch
+//       repoNames {
+//         name
+//         owner
+//         totalRepoScore
+//         repoReadMe
+//         gitIgnoreScore
+//         description
+//         commitScore{
+//           lengthExceeds
+//           containsAND
+//           containsPeriod
+//           upperCase
+//           totalScore
+//         }
+//         branchScore {
+//           hasThreeBranches
+//           hasMasterBranch
+//           hasDevelopmentBranch
+//           hasFeatBranch
+//           useDescriptiveNames
+//           totalScore
+//         }
+//       }
+//     }
+//   }
+// }
+// `
 export const GET_REPO_DATA = gql`
-query GetRepo($username: String!, $reponame: String! ) {
+query GetRepo($username: String!, $reponame: String!) {
   repository(owner: $username, name: $reponame) {
-    username,
-    stats {
-      averageCommitPerBranch
-      repoNames {
-        name
-        owner
-        totalRepoScore
-        repoReadMe
-        gitIgnoreScore
-        description
-        commitScore{
-          lengthExceeds
-          containsAND
-          containsPeriod
-          upperCase
-          totalScore
-        }
-        branchScore {
-          hasThreeBranches
-          hasMasterBranch
-          hasDevelopmentBranch
-          hasFeatBranch
-          useDescriptiveNames
-          totalScore
-        }
-      }
+    name
+    gitIgnoreScore
+    description
+    repoReadMe
+    totalRepoScore       
+    branchScore {
+      hasThreeBranches
+      hasMasterBranch
+      hasDevelopmentBranch
+      hasFeatBranch
+      useDescriptiveNames
+      totalScore
     }
-  }
-}
-`
+    commitScore {
+      lengthExceeds
+      containsAND
+      containsPeriod
+      upperCase
+      totalScore
+            }    
+      }
+    }`
