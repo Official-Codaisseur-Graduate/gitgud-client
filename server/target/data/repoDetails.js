@@ -57,6 +57,10 @@ exports.fetchRepoData = (username, repoName) => {
     }
   `
     }).then(res => {
+        console.log('REPO DATA=', res.data);
+        const name = res.data.repository.name;
+        const createdAt = res.data.repository.createdAt;
+        const entries = res.data.repository.object.entries;
         const repoDescription = res.data.repository.description
             ? res.data.repository.description
             : "";
@@ -84,7 +88,10 @@ exports.fetchRepoData = (username, repoName) => {
             totalRepoScore,
             repoReadMe,
             gitIgnoreScore,
-            description
+            description,
+            name,
+            createdAt,
+            entries
         };
     })
         .catch(e => e);

@@ -31,6 +31,7 @@ exports.analizeProfile = (username) => {
             }`
     })
         .then(res => {
+        console.log('RES DATA=', res);
         const user = res.data.user;
         const image = `${user.avatarUrl}`;
         let score = 0;

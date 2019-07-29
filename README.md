@@ -30,7 +30,9 @@ A validator of your GitHub profile and usage, designed to provide feedback for j
 * **Oleksandra Akulshyna** - *Initial work* - [w3bgir1](https://github.com/w3bgir1)
 * **Vincent de Graaf** - *Initial work* - [vdegraaf](https://github.com/vdegraaf)
 * **Natalia Volchatova** - *Initial work* - [Klackky](https://github.com/Klackky)
+* **Demmy Honore de Vries**    [demmyhonore](https://github.com/demmyhonore)
 * **Mario Nezmah** - *Repository page* -  [mnezmah](https://github.com/mnezmah)
+* **Jelle Monen**    [jelle89](https://github.com/jelle89)
 
 ## Technologies
 
@@ -77,6 +79,7 @@ The below files have been touched (files contain comments for further guidance):
 >If you want to run local server, change it to your localhost.<br>
 > Project uses open cv for face recognition. Before npm install 
 >make sure you have installed OpenCV
+
 > * for Linux follow this steps:
 > 1. `npm install pyton-opencv` 
 > 2. `npm install opencv-dev` 
@@ -94,6 +97,18 @@ cd into server <br>
  `$ npm install` <br> 
  `GITHUB_ACCESS_TOKEN=<YOURTOKEN> npm run dev` <br>
 
+> * for Windows follow these steps:
+> 1. `Install Microsoft Visual Studio 2019 and enable Desktop development with C++` 
+> 2. `npm install --global windows-build-tools` 
+> 3. `Download this version of opencv and extract it to C:/ so your opencv folder will be C:/opencv
+https://sourceforge.net/projects/opencvlibrary/files/opencv-win/2.4.12/opencv-2.4.12.exe/download
+(If the link stops working, it's opencv version cv12.)`
+> 4. `set environment variables. Create a system variable called OPENCV_DIR and set it to C:\OpenCV\build\x64\vc12
+Also add the following to your system PATH ;%OPENCV_DIR%\bin
+You can do this by set OPENCV_DIR=C:\OpenCV\build\x64\vc12`
+> 5. `npm install in client and server folders`
+> 6. `copy everything from C:/opencv/build/x64/vc12/bin to server/node-modules/face-detector/node_modules/opencv/build/release`
+> 7. `npm run dev in /server and in /client`<br>
 
 
 ## Deployment server to Heroku

@@ -10,8 +10,8 @@ const typeDefs = `
 
   type Query {
     user(username: String): User
+    repository(owner: String, name: String): Repository
   }
-
   type User {
     username: String
     score: Int
@@ -76,11 +76,11 @@ const typeDefs = `
     useDescriptiveNames: Int
     totalScore: Int
 }
-
 `;
 const resolvers = {
     Query: {
         user: async (_, { username }, __, ___) => {
+            console.log('USERNAME!!', username);
             const data = await profileScore_1.analizeProfile(username);
             const gitUse = await gitUse_1.fetchGeneralData(username);
             data.stats = gitUse;
@@ -122,6 +122,11 @@ const resolvers = {
             saveScoreIfUpdated(score, lastScore);
             data.profileScore = data.score;
             data.repoScore = 0;
+            return data;
+        },
+        repository: async (_, args, __, ___) => {
+            const data = await repoDetails_1.fetchRepoData(args.owner, args.name);
+            console.log('THIS IS DATA', data);
             return data;
         }
     }
