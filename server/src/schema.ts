@@ -142,7 +142,6 @@ const resolvers = {
       return data;
     },
     repository: async (_, args , __, ___,)=> {
-       console.log('PROPS!!',args)
        const data = await fetchRepoData(args.owner, args.name)
        console.log('THIS IS DATA', data)
 
