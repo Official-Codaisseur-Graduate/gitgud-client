@@ -18,12 +18,13 @@ A validator of your GitHub profile and usage, designed to provide feedback for j
 ## How
 
 1. It checks your public profile - A good GitHub profile can impress an interviewer.
-2. It validates your pinned repositories on how you use Git - Proper use of version control with Git can show that you are a structured worker and is able to work in development teams. We chose to focus on your pinned repos because you can present certain project as you portfolio for potential employers
+2. It validates your pinned repositories on how you use Git - Proper use of version control with Git can show that you are a structured worker and are able to work in development teams. We chose to focus on your pinned repos because you can present certain project as your portfolio for potential employers
+3. It is also possible to go to individual repositories and look at their ratings.
 
 ## Why
 
 * You can use GitHub as your resume for job hunting. For developers it is important to code regularly, be able to work in teams, communicate properly and continue with a learning curve. Obviously this is something you can say you are the best in and write it on your resume, but with GitHub you are able to show that you can do this. Which will give you headsup on your next interview.
-* Unfortunately many recent graduates or job seekers lack a proper GitHub profile. And as Codaisseur teachers can acknowledge, the feedback they get is repetitive. Therefore we developed this tool and provide constructive feedback which is based on various resources accross the internet and uses live data from the GitHub API.
+* Unfortunately many recent graduates or job seekers lack a proper GitHub profile. And as Codaisseur teachers can acknowledge, the feedback they get is repetitive. Therefore we developed this tool and provide constructive feedback which is based on various resources across the internet and uses live data from the GitHub API.
 
 ## Who
 
@@ -66,7 +67,7 @@ The below files have been touched (files contain comments for further guidance):
 #### 5. Next steps for the students continuing this project
 
 * Improve naming in the server directory (files, functions and variables), so structure is more understandable
-* Add routing to client to reduce cnfusion with rendering due to different input scenarios (create a Home component and make Form display component)
+* Add routing to client to reduce confusion with rendering due to different input scenarios (create a Home component and make Form display component)
 * Make app responsive ( adjust for smaller displays )
 * Systematize the Components directory
 * We encourage to display the returned languages data with a pie chart in the Git Use block.
@@ -80,7 +81,7 @@ The below files have been touched (files contain comments for further guidance):
 > Project uses open cv for face recognition. Before npm install 
 >make sure you have installed OpenCV
 
-> * for Linux follow this steps:
+> * For Linux follow these steps:
 > 1. `npm install pyton-opencv` 
 > 2. `npm install opencv-dev` 
 > 3. `npm install opencv` <br>
@@ -97,7 +98,7 @@ cd into server <br>
  `$ npm install` <br> 
  `GITHUB_ACCESS_TOKEN=<YOURTOKEN> npm run dev` <br>
 
-> * for Windows follow these steps:
+> * For Windows follow these steps:
 > 1. `Install Microsoft Visual Studio 2019 and enable Desktop development with C++` 
 > 2. `npm install --global windows-build-tools` 
 > 3. `Download this version of opencv and extract it to C:/ so your opencv folder will be C:/opencv
