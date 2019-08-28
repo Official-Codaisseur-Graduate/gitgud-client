@@ -1,11 +1,8 @@
 import * as React from "react";
-import { Query } from "react-apollo";
-import { GET_USER_DATA } from "../gql";
-import ProfileStats from "./ProfileStats";
-import Loader from "./Loader";
 import SingleRepoStatsContainer from './SingleRepoStatsContainer'
 
 export default function Form(props) {
+  console.log('PROPS:', props)
   return (
     props.reponame ?
       <SingleRepoStatsContainer
@@ -28,24 +25,7 @@ export default function Form(props) {
           </button>
         </form>
 
-        <Query
-          query={GET_USER_DATA}
-          skip={props.username === ``}
-          variables={{ username: props.username }}
-        >
-          {({ loading, error, data }) => {
-            if (loading) return <Loader />;
-
-            if (error)
-              return (
-                <div className="errorBox">
-                  <p>Please submit valid username </p>
-                </div>
-              );
-
-            return <div> {data && <ProfileStats user={data.user} />}</div>;
-          }}
-        </Query>
+        {props.render({renderQuery: this.renderQuery})}
       </div>
   );
 }
