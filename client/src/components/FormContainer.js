@@ -6,6 +6,7 @@ import { Query } from "react-apollo";
 import { GET_USER_DATA } from "../gql";
 import ProfileStats from "./ProfileStats";
 import Loader from "./Loader";
+import {Link} from 'react-router-dom'
 
 export default class FormContainer extends React.Component {
 
@@ -44,7 +45,7 @@ export default class FormContainer extends React.Component {
             </div>
           );
 
-        return <div> {data && <ProfileStats user={data.user} />}</div>;
+        return <div>  {data && <ProfileStats user={data.user} />}</div>;
       }}
     </Query>
   }
