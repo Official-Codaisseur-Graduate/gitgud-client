@@ -26,6 +26,7 @@ export default class FormContainer extends React.Component {
   onSubmit = event => {
     event.preventDefault();
     this.setState({username: this.state.search, landingPage: false});
+    this.props.history.push(`/${this.state.search}`)
   };
 
   renderQuery = () => {
