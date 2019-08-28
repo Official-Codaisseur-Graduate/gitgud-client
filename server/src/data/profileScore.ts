@@ -1,5 +1,8 @@
 import { createApolloFetch } from "apollo-fetch";
-import * as face from "face-detector";
+import * as face from 'face-api.js'
+const canvas = require("canvas")
+
+
 
 const token = process.env.GITHUB_ACCESS_TOKEN;
 
@@ -61,11 +64,50 @@ export const analyzeProfile = (username: string): any => {
         resolve();
       });
 
+
+      const { Canvas, Image, ImageData } = canvas
+      face.env.monkeyPatch({ Canvas, Image, ImageData })
+
+      const faceDetectionNet = face.nets.ssdMobilenetv1
+
+      // SsdMobilenetv1Options
+      const minConfidence = 0.5
+
+      // TinyFaceDetectorOptions
+      const inputSize = 408
+      const scoreThreshold = 0.5
+
+      // MtcnnOptions
+      const minFaceSize = 50
+      const scaleFactor = 0.8
+
+      function getFaceDetectorOptions(net) {
+        return net === face.nets.ssdMobilenetv1
+          ? new face.SsdMobilenetv1Options({ minConfidence })
+          : (net === face.nets.tinyFaceDetector
+            ? new face.TinyFaceDetectorOptions({ inputSize, scoreThreshold })
+            : new face.MtcnnOptions({ minFaceSize, scaleFactor })
+          )
+      }
+
+      const faceDetectionOptions = getFaceDetectorOptions(faceDetectionNet)
+
+
+      const getIMG = async () => {
+        await faceDetectionNet.loadFromDisk('weights')
+        await face.nets.faceLandmark68Net.loadFromDisk('weights')
+
+        console.log(image)
+        const img = await canvas.loadImage(image)
+        const result = await face.detectAllFaces(img, faceDetectionOptions)
+        console.log(result)
+      }
+
+      const result = getIMG()
+
       const data2 = new Promise(resolve => {
-        face.detect(image, function(result) {
-          result > 0 ? (score += 10) : (profileStats.picture = false);
-          resolve();
-        });
+        if (result) (profileStats.picture = false);
+        resolve();
       });
 
       return Promise.all([data1, data2]).then(() => {

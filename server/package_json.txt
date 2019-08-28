@@ -1,0 +1,2 @@
+"face-detector": "^1.0.4",
+"opencv": "github:peterbraden/node-opencv",

@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const apollo_fetch_1 = require("apollo-fetch");
-const face = require("face-detector");
+const face = require("face-api.js");
 const token = process.env.GITHUB_ACCESS_TOKEN;
 exports.analyzeProfile = (username) => {
     const fetch = apollo_fetch_1.createApolloFetch({
@@ -57,11 +57,12 @@ exports.analyzeProfile = (username) => {
                 : (profileStats.pinnedRepositories = false);
             resolve();
         });
-        const data2 = new Promise(resolve => {
-            face.detect(image, function (result) {
-                result > 0 ? (score += 10) : (profileStats.picture = false);
-                resolve();
-            });
+        const data2 = new Promise(async (resolve) => {
+            const result = await face.detectSingleFace(image);
+            console.log(result);
+            if (result)
+                (profileStats.picture = false);
+            resolve();
         });
         return Promise.all([data1, data2]).then(() => {
             return { username, score, profileStats };
