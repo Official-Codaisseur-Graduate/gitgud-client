@@ -1,0 +1,81 @@
+.progressbar {
+  padding: 2rem;
+  overflow: hidden;
+  margin: 0 auto;
+  margin-top: 20px;
+
+}
+
+.progressbar__bar {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.progressbar__profile,
+.progressbar__repos,
+.progressbar__rest {
+  height: 10px;
+  flex-grow: 1;
+}
+
+.progressbar__profile {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  background-color: #37867E;
+}
+
+.progressbar__repos {
+  background-color: #99EE86;
+}
+
+.progressbar__rest {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: #e2e2e2;
+}
+
+.progressbar__labels {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.progressbar__label:first-child {
+  position: relative;
+  padding-right: 1em;
+}
+
+.progressbar__label::before {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  left: 0;
+  top: 2px;
+  border-radius: 50%;
+}
+
+.progressbar__label--profile::before {
+  background-color: var(--color-orange);
+}
+
+.progressbar__label--repos::before {
+  background-color: var(--color-blue);
+}
+
+h1 {
+  margin: 20px 0;
+  font-size: 20px;
+}
+
+.progressbar__header-container {
+  width: 100%;
+  margin: auto;
+}
+.progressbar__badge {
+  width: 80px;
+  height: 24px;
+  margin: 20px 0 0 0;
+}
