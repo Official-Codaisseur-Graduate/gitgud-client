@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Route} from 'react-router-dom'
 import FormContainer from './components/FormContainer';
 import FeedbackButton from './components/FeedbackButton'
 
@@ -6,7 +7,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <FormContainer />
+      <Route path='/' exact component={FormContainer}/>
+      
       <FeedbackButton />
       </div>
     );

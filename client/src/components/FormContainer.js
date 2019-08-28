@@ -27,6 +27,28 @@ export default class FormContainer extends React.Component {
     this.setState({username: this.state.search, landingPage: false});
   };
 
+  renderQuery = () => {
+    return <Query
+      query={GET_USER_DATA}
+      skip={this.state.username === ``}
+      variables={{ username: this.state.username }}
+    >
+      {({ loading, error, data }) => {
+        console.log("LOADING", loading)
+        if (loading) return <Loader />;
+
+        if (error)
+          return (
+            <div className="errorBox">
+              <p>Please submit valid username </p>
+            </div>
+          );
+
+        return <div> {data && <ProfileStats user={data.user} />}</div>;
+      }}
+    </Query>
+  }
+
   render() {
     const nameLenght = this.state.username.lenght
     let slash = this
@@ -44,7 +66,12 @@ export default class FormContainer extends React.Component {
     if (this.state.landingPage) {
       return (
         <div>
-          <Form username={justName} onSubmit={this.onSubmit} onChange={this.onChange}/>
+          <Form
+            username={justName}
+            onSubmit={this.onSubmit}
+            onChange={this.onChange}
+            renderQuery={this.renderQuery}
+          />
           <LandingPage/>
         </div>
       );
@@ -62,27 +89,7 @@ export default class FormContainer extends React.Component {
             ? null
             : justRepo
         }
-        renderQuery={() => {
-          return <Query
-            query={GET_USER_DATA}
-            skip={this.state.username === ``}
-            variables={{ username: this.state.username }}
-          >
-            {({ loading, error, data }) => {
-              console.log("LOADING", loading)
-              if (loading) return <Loader />;
-
-              if (error)
-                return (
-                  <div className="errorBox">
-                    <p>Please submit valid username </p>
-                  </div>
-                );
-
-              return <div> {data && <ProfileStats user={data.user} />}</div>;
-            }}
-          </Query>
-        }}
+        renderQuery={this.renderQuery}
       />
   }
 }

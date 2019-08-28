@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import {BrowserRouter} from 'react-router-dom'
 
 import { ApolloProvider } from 'react-apollo';
 import { ApolloClient } from 'apollo-client';
@@ -36,6 +37,6 @@ const client = new ApolloClient({
   defaultOptions: defaultOptions
 });
 
-ReactDOM.render(<ApolloProvider client={client}><App/></ApolloProvider>, document.getElementById('root'));
+ReactDOM.render(<BrowserRouter><ApolloProvider client={client}><App/></ApolloProvider></BrowserRouter>, document.getElementById('root'));
 
 serviceWorker.unregister();

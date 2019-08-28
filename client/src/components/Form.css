@@ -13,7 +13,14 @@
   outline: none;
   border-radius: 3px;
 }
-
+form a{
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  
+}
 .form__username {
   -webkit-appearance: none;
   position: relative;
@@ -49,7 +56,6 @@
 
 .errorBox {
   width: 40%;
-  height: ;
   margin: 2rem auto;
   border-radius: 5px;
   background-color: rgba(111,148,188, 0.1);
