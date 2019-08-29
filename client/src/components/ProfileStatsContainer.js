@@ -11,7 +11,7 @@ export default class ProfileStatsContainer extends React.Component{
     query={GET_USER_DATA}
     skip={this.props.username === ``}
     variables={{
-    username: this.props.username
+    username: this.props.match.params.username
   }}>
     {({loading, error, data}) => {
       console.log("LOADING", loading)
@@ -27,7 +27,7 @@ export default class ProfileStatsContainer extends React.Component{
         );
       
       return <div>
-        {data && <div><ProfileStats user={data.user}/></div>}
+        {data && <ProfileStats user={data.user}/>}
         
         </div>;
         

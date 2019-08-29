@@ -34,32 +34,6 @@ class FormContainer extends React.Component {
     }
   };
 
-  // renderQuery = () => {
-  //   return <Query
-  //     query={GET_USER_DATA}
-  //     skip={this.state.username === ``}
-  //     variables={{
-  //     username: this.state.username
-  //   }}>
-  //     {({loading, error, data}) => {
-  //       console.log("LOADING", loading)
-  //       if (loading) 
-  //         return <Loader/>;
-        
-  //       if (error) 
-  //         return (
-  //           <div className="errorBox">
-  //             <p>Please submit valid username
-  //             </p>
-  //           </div>
-  //         );
-        
-  //       return <div>
-  //         {data && <ProfileStats user={data.user}/>}</div>;
-  //     }}
-  //   </Query>
-  // }
-
   render() {
     console.log('STATE:', this.state)
     const nameLenght = this.state.username.lenght
@@ -83,7 +57,6 @@ class FormContainer extends React.Component {
             onSubmit={this.onSubmit}
             onChange={this.onChange}
             />
-          <LandingPage/>
          
         </div>
       );
@@ -97,11 +70,12 @@ class FormContainer extends React.Component {
         reponame={slash === -1
         ? null
         : justRepo}
-        />
-        {slash === -1
+       
+        {...slash === -1
           ? this.state.username
-          : justName} />
-          </div>
+          : justName} 
+          />
+        </div>
   }
 }
 

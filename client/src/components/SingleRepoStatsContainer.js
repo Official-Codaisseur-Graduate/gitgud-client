@@ -3,6 +3,7 @@ import { Query } from "react-apollo";
 import { GET_REPO_DATA } from "../gql";
 import Loader from "./Loader";
 import SingleRepoStats from './SingleRepoStats';
+import Form from './Form';
 
 export default class SingleRepoStatsContainer extends Component {
   render() {
@@ -25,8 +26,9 @@ export default class SingleRepoStatsContainer extends Component {
                   <p>Please submit valid repo name </p>
                 </div>
               )
-            return <div> {data && 
+            return <div>{data && 
               <div>
+                 <Form/>
                 <SingleRepoStats
                   repo={data.repository}
                 />

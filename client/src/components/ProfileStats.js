@@ -36,7 +36,9 @@ export default function ProfileStats(props) {
           username={props.user.username}
           profileScore={props.user.profileScore}
           repoScore={props.user.repoScore}
-          score={props.user.score}/> {props.user && props.user.stats.totalPinnedRepos !== null && (
+          score={props.user.score}
+          /> 
+          {props.user && props.user.stats.totalPinnedRepos !== null && (
           <section className="stats__average">
             <h2>
               GitHub & Git statistics
@@ -131,10 +133,12 @@ export default function ProfileStats(props) {
             Please add some pinned repositories
           </p>
         )}
+       
       </div>
       
     </div>
     </div>
+    
   : null
   );
 }

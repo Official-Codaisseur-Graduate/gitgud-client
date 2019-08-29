@@ -9,8 +9,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        
-      <Route path='/' exact component={FormContainer}/>
+      <FormContainer />
+      <Route path='/' exact component={LandingPage}/>
       <Route path='/user/:username'  exact component={ProfileStatsContainer}/>
       <FeedbackButton />
       </div>
