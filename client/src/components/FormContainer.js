@@ -25,11 +25,15 @@ class FormContainer extends React.Component {
     this.setState({search: event.target.value});
   };
 
-  onSubmit = event => {
+  onSubmit = async(event) => {
     event.preventDefault();
-    this.setState({username: this.state.search, landingPage: false, redirect: true});
+    console.log('REDIRECT1:',this.state.redirect )
+    await this.setState({username: this.state.search, landingPage: false, redirect: true});
+    console.log('STATE NOW:', this.state)
+    console.log('REDIRECT2:',this.state.redirect )
     if (this.state.redirect === true) {
-      return <Redirect to={`/${this.state.username}`}/>
+      
+      return <Redirect to={`/${this.state.search}`}/>
     }
   };
 
@@ -60,6 +64,7 @@ class FormContainer extends React.Component {
   }
 
   render() {
+    console.log('STATE:', this.state)
     const nameLenght = this.state.username.lenght
     let slash = this
       .state
