@@ -19,7 +19,7 @@ export default function Form(props) {
             type="text"
             name="search"
             id="1"
-            placeholder="enter your username  or username/repo name"
+            placeholder="enter your username or username/repo name"
             onChange={props.onChange}
           />
           <button className="form__submit" type="submit">

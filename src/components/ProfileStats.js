@@ -127,7 +127,6 @@ export default function ProfileStats(props) {
             )}
           </section>
         )}
-
         {props.user && !props.user.stats.totalPinnedRepos && (
           <p> Please add some pinned repositories </p>
         )}
