@@ -2,9 +2,11 @@ import * as React from "react";
 import SingleRepoStatsContainer from './SingleRepoStatsContainer'
 import {Link} from 'react-router-dom'
 
+
 export default function Form(props) {
   console.log('PROPS:', props)
   return (
+    
     props.reponame ?
       <SingleRepoStatsContainer
         username={props.username}
@@ -27,7 +29,7 @@ export default function Form(props) {
           </button>
         </form>
 
-        {props.renderQuery()}
+        
       </div>
   );
 }

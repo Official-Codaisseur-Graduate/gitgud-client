@@ -2,10 +2,7 @@ import React from "react";
 import Form from "./Form";
 import "./Form.css";
 import LandingPage from './LandingPage'
-import {Query} from "react-apollo";
-import {GET_USER_DATA} from "../gql";
-import ProfileStats from "./ProfileStats";
-import Loader from "./Loader";
+import Query from './Query'
 import {withRouter} from "react-router";
 import {Redirect} from 'react-router-dom'
 
@@ -32,36 +29,37 @@ class FormContainer extends React.Component {
     console.log('STATE NOW:', this.state)
     console.log('REDIRECT2:',this.state.redirect )
     if (this.state.redirect === true) {
-      
-      return <Redirect to={`/${this.state.search}`}/>
+      console.log('propssss', this.props);
+      this.props.history.push(`/user/${this.state.username}`)
+      // return <Redirect to={`/${this.state.search}`}/>
     }
   };
 
-  renderQuery = () => {
-    return <Query
-      query={GET_USER_DATA}
-      skip={this.state.username === ``}
-      variables={{
-      username: this.state.username
-    }}>
-      {({loading, error, data}) => {
-        console.log("LOADING", loading)
-        if (loading) 
-          return <Loader/>;
+  // renderQuery = () => {
+  //   return <Query
+  //     query={GET_USER_DATA}
+  //     skip={this.state.username === ``}
+  //     variables={{
+  //     username: this.state.username
+  //   }}>
+  //     {({loading, error, data}) => {
+  //       console.log("LOADING", loading)
+  //       if (loading) 
+  //         return <Loader/>;
         
-        if (error) 
-          return (
-            <div className="errorBox">
-              <p>Please submit valid username
-              </p>
-            </div>
-          );
+  //       if (error) 
+  //         return (
+  //           <div className="errorBox">
+  //             <p>Please submit valid username
+  //             </p>
+  //           </div>
+  //         );
         
-        return <div>
-          {data && <ProfileStats user={data.user}/>}</div>;
-      }}
-    </Query>
-  }
+  //       return <div>
+  //         {data && <ProfileStats user={data.user}/>}</div>;
+  //     }}
+  //   </Query>
+  // }
 
   render() {
     console.log('STATE:', this.state)
@@ -85,12 +83,13 @@ class FormContainer extends React.Component {
             username={justName}
             onSubmit={this.onSubmit}
             onChange={this.onChange}
-            renderQuery={this.renderQuery}/>
+            />
           <LandingPage/>
+          <Query username={justName} />
         </div>
       );
     } else 
-      return <Form
+      return <div><Form
         username={slash === -1
         ? this.state.username
         : justName}
@@ -99,7 +98,11 @@ class FormContainer extends React.Component {
         reponame={slash === -1
         ? null
         : justRepo}
-        renderQuery={this.renderQuery}/>
+        />
+        <Query username={slash === -1
+          ? this.state.username
+          : justName} />
+          </div>
   }
 }
 

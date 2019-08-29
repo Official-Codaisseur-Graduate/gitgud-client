@@ -11,7 +11,7 @@ class App extends Component {
       <div className="App">
         
       <Route path='/' exact component={FormContainer}/>
-      <Route path='/:username'  exact component={ProfileStats}/>
+      <Route path='/user/:username'  exact component={ProfileStats}/>
       <FeedbackButton />
       </div>
     );
