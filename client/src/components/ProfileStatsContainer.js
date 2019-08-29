@@ -5,7 +5,7 @@ import {GET_USER_DATA} from "../gql";
 import Loader from "./Loader";
 import ProfileStats from './ProfileStats';
 
-export default class QueryComponent extends React.Component{
+export default class ProfileStatsContainer extends React.Component{
   render(){
     return <div><Query
     query={GET_USER_DATA}
@@ -27,7 +27,7 @@ export default class QueryComponent extends React.Component{
         );
       
       return <div>
-        {data && <div> <ProfileStats user={data.user}/></div>}
+        {data && <div><ProfileStats user={data.user}/></div>}
         
         </div>;
         

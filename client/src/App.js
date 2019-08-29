@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Route} from 'react-router-dom'
 import FormContainer from './components/FormContainer';
 import FeedbackButton from './components/FeedbackButton';
-import ProfileStats from './components/ProfileStats';
+import ProfileStatsContainer from './components/ProfileStatsContainer';
 import LandingPage from './components/LandingPage';
 
 class App extends Component {
@@ -11,7 +11,7 @@ class App extends Component {
       <div className="App">
         
       <Route path='/' exact component={FormContainer}/>
-      <Route path='/user/:username'  exact component={ProfileStats}/>
+      <Route path='/user/:username'  exact component={ProfileStatsContainer}/>
       <FeedbackButton />
       </div>
     );

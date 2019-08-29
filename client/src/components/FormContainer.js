@@ -2,9 +2,8 @@ import React from "react";
 import Form from "./Form";
 import "./Form.css";
 import LandingPage from './LandingPage'
-import Query from './Query'
 import {withRouter} from "react-router";
-import {Redirect} from 'react-router-dom'
+
 
 class FormContainer extends React.Component {
 
@@ -85,7 +84,7 @@ class FormContainer extends React.Component {
             onChange={this.onChange}
             />
           <LandingPage/>
-          <Query username={justName} />
+         
         </div>
       );
     } else 
@@ -99,7 +98,7 @@ class FormContainer extends React.Component {
         ? null
         : justRepo}
         />
-        <Query username={slash === -1
+        {slash === -1
           ? this.state.username
           : justName} />
           </div>
