@@ -7,11 +7,7 @@ export default function Form(props) {
   console.log('PROPS:', props)
   return (
     
-    props.reponame ?
-      <SingleRepoStatsContainer
-        username={props.username}
-        reponame={props.reponame}
-      /> :
+   
       <div>
         <form className="form" onSubmit={props.onSubmit}>
           <Link to='/'><img  src ='https://upload.wikimedia.org/wikipedia/commons/2/22/Home_font_awesome.svg' alt='home'/></Link>

@@ -3,7 +3,6 @@ import { Query } from "react-apollo";
 import { GET_REPO_DATA } from "../gql";
 import Loader from "./Loader";
 import SingleRepoStats from './SingleRepoStats';
-import Form from './Form';
 import FormContainer from './FormContainer';
 
 export default class SingleRepoStatsContainer extends Component {
@@ -12,10 +11,10 @@ export default class SingleRepoStatsContainer extends Component {
       <div>
         <Query
           query={GET_REPO_DATA}
-          skip={this.props.username === ``}
+          skip={this.props.match.params.username === ``}
           variables={{
-            username: this.props.username,
-            reponame: this.props.reponame
+            username: this.props.match.params.username,
+            reponame: this.props.match.params.reponame
           }}
         >
           {({ loading, error, data }) => {
@@ -28,7 +27,6 @@ export default class SingleRepoStatsContainer extends Component {
             //   )
             return <div>{data && 
               <div>
-                 <Form />
                 <SingleRepoStats
                   repo={data.repository}
                 />

@@ -1,7 +1,6 @@
 import React from "react";
 import Form from "./Form";
 import "./Form.css";
-import LandingPage from './LandingPage'
 import {withRouter} from "react-router";
 
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Switch,Route} from 'react-router-dom'
+import {Route} from 'react-router-dom'
 import FormContainer from './components/FormContainer';
 import FeedbackButton from './components/FeedbackButton';
 import ProfileStatsContainer from './components/ProfileStatsContainer';
