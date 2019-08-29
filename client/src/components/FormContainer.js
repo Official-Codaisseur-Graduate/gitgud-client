@@ -16,7 +16,7 @@ class FormContainer extends React.Component {
       redirect: false
     };
   }
-
+  
   onChange = event => {
     this.setState({search: event.target.value});
   };

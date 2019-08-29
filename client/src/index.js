@@ -37,6 +37,15 @@ const client = new ApolloClient({
   defaultOptions: defaultOptions
 });
 
-ReactDOM.render(<BrowserRouter><ApolloProvider client={client}><App/></ApolloProvider></BrowserRouter>, document.getElementById('root'));
+class Base extends React.Component {
+  render(){
+    return (
+      <BrowserRouter><ApolloProvider client={client}><App/></ApolloProvider></BrowserRouter>
+    )
+  }
+}
+
+
+ReactDOM.render(<Base/>, document.getElementById('root'));
 
 serviceWorker.unregister();
