@@ -3,7 +3,6 @@ import { Query } from "react-apollo";
 import { GET_REPO_DATA } from "../gql";
 import Loader from "./Loader";
 import SingleRepoStats from './SingleRepoStats';
-import FormContainer from './FormContainer';
 
 export default class SingleRepoStatsContainer extends Component {
   render() {
@@ -19,13 +18,13 @@ export default class SingleRepoStatsContainer extends Component {
         >
           {({ loading, error, data }) => {
             if (loading) return <Loader />;
-            // if (error)
-            //   return (
-            //     <div className="errorBox">
-            //       <p>Please submit valid repo name </p>
-            //     </div>
-            //   )
-            return <div>{data && 
+            if (error)
+              return (
+                <div className="errorBox">
+                  <p>Please submit valid repo name </p>
+                </div>
+              )
+            return <div> {data && 
               <div>
                 <SingleRepoStats
                   repo={data.repository}
