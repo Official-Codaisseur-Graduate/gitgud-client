@@ -1,19 +1,12 @@
 import * as React from "react";
-import { Query } from "react-apollo";
-import { GET_USER_DATA } from "../gql";
-import ProfileStats from "./ProfileStats";
-import Loader from "./Loader";
-import SingleRepoStatsContainer from './SingleRepoStatsContainer'
+import {Link} from 'react-router-dom'
 
-export default function Form(props) {
+
+export default function Form(props){
   return (
-    props.reponame ?
-      <SingleRepoStatsContainer
-        username={props.username}
-        reponame={props.reponame}
-      /> :
       <div>
         <form className="form" onSubmit={props.onSubmit}>
+          <Link to='/'><img  src ='https://upload.wikimedia.org/wikipedia/commons/2/22/Home_font_awesome.svg' alt='home'/></Link>
           <input
             className="form__username"
             type="text"
@@ -27,25 +20,6 @@ export default function Form(props) {
             Go!{" "}
           </button>
         </form>
-
-        <Query
-          query={GET_USER_DATA}
-          skip={props.username === ``}
-          variables={{ username: props.username }}
-        >
-          {({ loading, error, data }) => {
-            if (loading) return <Loader />;
-
-            if (error)
-              return (
-                <div className="errorBox">
-                  <p>Please submit valid username </p>
-                </div>
-              );
-
-            return <div> {data && <ProfileStats user={data.user} />}</div>;
-          }}
-        </Query>
       </div>
   );
 }

@@ -11,7 +11,6 @@ import {
 import './Accordion.css'
 
 export default class RepoAccordion extends Component {
-
   render() {
     return (
       <Accordion
