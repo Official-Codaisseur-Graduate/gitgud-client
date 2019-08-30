@@ -1,7 +1,7 @@
 import React from "react";
 import Form from "./Form";
 import "./Form.css";
-import {withRouter} from "react-router";
+import { withRouter } from "react-router";
 
 
 class FormContainer extends React.Component {
@@ -15,26 +15,21 @@ class FormContainer extends React.Component {
       redirect: false
     };
   }
-  
+
   onChange = event => {
-    this.setState({search: event.target.value});
+    this.setState({ search: event.target.value });
   };
 
-  onSubmit = async(event) => {
+  onSubmit = async (event) => {
     event.preventDefault();
-    console.log('REDIRECT1:',this.state.redirect )
-    await this.setState({username: this.state.search, landingPage: false, redirect: true});
-    console.log('STATE NOW:', this.state)
-    console.log('REDIRECT2:',this.state.redirect )
+    await this.setState({ username: this.state.search, landingPage: false, redirect: true });
     if (this.state.redirect === true) {
-      console.log('propssss', this.props);
       this.props.history.push(`/user/${this.state.username}`)
       // return <Redirect to={`/${this.state.search}`}/>
     }
   };
 
   render() {
-    console.log('STATE:', this.state)
     const nameLenght = this.state.username.lenght
     let slash = this
       .state
@@ -55,26 +50,26 @@ class FormContainer extends React.Component {
             username={justName}
             onSubmit={this.onSubmit}
             onChange={this.onChange}
-            />
-         
+          />
+
         </div>
       );
-    } else 
+    } else
       return <div><Form
         username={slash === -1
-        ? this.state.username
-        : justName}
+          ? this.state.username
+          : justName}
         onSubmit={this.onSubmit}
         onChange={this.onChange}
         reponame={slash === -1
-        ? null
-        : justRepo}
-       
+          ? null
+          : justRepo}
+
         {...slash === -1
           ? this.state.username
-          : justName} 
-          />
-        </div>
+          : justName}
+      />
+      </div>
   }
 }
 
