@@ -40,7 +40,7 @@ export default class Tabs extends React.Component {
               <ul data-name="ul-1" className={"stats__header " + (this.state.ulOpen === "ul-1" ? "stats__header--active" : "")}> General
                 <li>
                   <ul className={"stats-breakdown " + (this.state.ulOpen === "ul-1" ? "stats-breakdown--active" : "")}>
-                    <li data-id={i + 1} className={this.state.open === i + 1 ? 'stats-breakdown__item--active' : 'stats-breakdown__item'}> Description: {!item.description ? '0%' : '100%'}
+                    <li data-id={i + 1} className={this.state.open === i + 1 ? 'stats-breakdown__item--active' : 'stats-breakdown__item'}> Description: {`${item.description}%` }
                       <Content className="content" pose={this.state.open === i + 1 ? 'open' : 'closed'}>
                         <div className="content-wrapper"> Although there isn’t a format for a good repository description, it is a way to provide a summary of a where the project is about and which stack and tools are used. It is show on your main page below the repository name.</div>
                       </Content>
