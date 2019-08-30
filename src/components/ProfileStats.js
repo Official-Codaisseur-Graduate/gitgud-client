@@ -103,9 +103,13 @@ export default function ProfileStats(props) {
               </div>
             </div>
           )}
+
+          {!props.user.profileStats.picture &&
+            <p><strong><u>*Note:</u></strong> Profile photo should include your face.</p>}
+
           {props.user.profileScore < 49 && (
             <p className="stats__improve">
-              To improve your GitHub appearence manage your{" "}
+              To improve your GitHub appearance manage your{" "}
               <a
                 className="stats__link"
                 href="https://github.com/settings/profile"
