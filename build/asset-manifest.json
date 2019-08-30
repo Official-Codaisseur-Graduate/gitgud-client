@@ -1,0 +1,21 @@
+{
+  "main.css": "/static/css/main.46f00aa9.chunk.css",
+  "main.js": "/static/js/main.2e08129d.chunk.js",
+  "main.js.map": "/static/js/main.2e08129d.chunk.js.map",
+  "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
+  "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
+  "static/js/2.523d296b.chunk.js": "/static/js/2.523d296b.chunk.js",
+  "static/js/2.523d296b.chunk.js.map": "/static/js/2.523d296b.chunk.js.map",
+  "index.html": "/index.html",
+  "precache-manifest.59adfcf777fb3145af817a0369823a20.js": "/precache-manifest.59adfcf777fb3145af817a0369823a20.js",
+  "service-worker.js": "/service-worker.js",
+  "static/css/main.46f00aa9.chunk.css.map": "/static/css/main.46f00aa9.chunk.css.map",
+  "static/media/RepoStats.css": "/static/media/arrow-right.aad3d18f.svg",
+  "static/media/cancel.svg": "/static/media/cancel.4707e09c.svg",
+  "static/media/checked.svg": "/static/media/checked.4190ac11.svg",
+  "static/media/git--gud-A-green.svg": "/static/media/git--gud-A-green.2eff5f8a.svg",
+  "static/media/git--gud-B-yellowgreen.svg": "/static/media/git--gud-B-yellowgreen.a86ab6e6.svg",
+  "static/media/git--gud-C-yellow.svg": "/static/media/git--gud-C-yellow.e9dd50e4.svg",
+  "static/media/git--gud-D-orange.svg": "/static/media/git--gud-D-orange.94121b7b.svg",
+  "static/media/git--gud-E-red.svg": "/static/media/git--gud-E-red.69bc71d4.svg"
+}
