@@ -10,17 +10,16 @@ export default class SingleRepoStatsContainer extends Component {
       <div>
         <Query
           query={GET_REPO_DATA}
-          skip={this.props.username === ``}
+          skip={this.props.match.params.username === ``}
           variables={{
-            username: this.props.username,
-            reponame: this.props.reponame
+            username: this.props.match.params.username,
+            reponame: this.props.match.params.reponame
           }}
         >
           {({ loading, error, data }) => {
             if (loading) return <Loader />;
             if (error)
               return (
-
                 <div className="errorBox">
                   <p>Please submit valid repo name </p>
                 </div>
