@@ -4,7 +4,6 @@ import ProgressBar from "./ProgressBar";
 import RepoStats from "./RepoStats";
 import Chart from "./Chart";
 
-
 const icon = value => {
   if (value)
     return (<img
@@ -39,7 +38,7 @@ export default function ProfileStats(props) {
               <section className="stats__average">
                 <h2>
                   GitHub & Git statistics
-            </h2>
+                </h2>
                 <p>
                   {" "}
                   Total pinned repositories: {props.user.stats.totalPinnedRepos
@@ -128,7 +127,7 @@ export default function ProfileStats(props) {
                 {props.user.stats.repoNames && (<RepoStats repos={props.user.stats.repoNames} />)}
               </section>
             )}
-
+            
             {props.user && !props.user.stats.totalPinnedRepos && (
               <p>
                 Please add some pinned repositories

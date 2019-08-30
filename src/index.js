@@ -3,22 +3,22 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {BrowserRouter} from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 
 import { ApolloProvider } from 'react-apollo';
 import { ApolloClient } from 'apollo-client';
 import { HttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 
-const url = `https://gitgudserver.herokuapp.com/graphql`
-// const url = `http://localhost:3030/graphql`
+// const url = `https://gitgudserver.herokuapp.com/graphql`
+const url = `http://localhost:3030/graphql`
 
 const httpLink = {
-  uri: url, 
+  uri: url,
   headers: {
     authorization: `Bearer ${
       process.env.REACT_APP_GITHUB_PERSONAL_ACCESS_TOKEN
-    }`,
+      }`,
   }
 };
 
@@ -38,13 +38,14 @@ const client = new ApolloClient({
 });
 
 class Base extends React.Component {
-  render(){
+  render() {
     return (
-      <BrowserRouter><ApolloProvider client={client}><App/></ApolloProvider></BrowserRouter>
+      <BrowserRouter><ApolloProvider client={client}><App /></ApolloProvider></BrowserRouter>
     )
   }
 }
 
 
-ReactDOM.render(<Base/>, document.getElementById('root'));
+ReactDOM.render(<Base />, document.getElementById('root'));
+
 serviceWorker.unregister();
