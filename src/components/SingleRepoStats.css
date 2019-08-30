@@ -1,0 +1,44 @@
+
+.stats__profile {
+  background-color: rgba(111,148,188, 0.1);
+  border-radius: 5px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  margin: 5% auto;
+  padding: 40px 50px 50px;
+  width: 65%;
+  text-align: center
+}
+
+.repo__name {
+  color: #0082c8;
+  font-size: 3rem;
+text-align: center;
+text-transform: capitalize;
+}
+
+.repo__name-title {
+  font-size: 0.9rem;
+  margin-bottom: -2%;
+  text-align: center;
+}
+
+.repo__score {
+  background: #32BA7C;
+  border-radius: 50%;
+  color: white;
+  display: inline-block;
+  line-height: 2rem;
+  font-family: 'Lato', sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 1%;
+  padding: 12px;
+  width: 2.3rem;
+}
+
+.repo__container {
+ display: grid;
+ grid-template-columns: 1fr 1fr 1fr;
+ grid-template-rows: 1fr;
+ width: 100%;
+}
