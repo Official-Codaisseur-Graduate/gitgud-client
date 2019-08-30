@@ -7,7 +7,7 @@ export default class GeneralAccordionContainer extends Component {
     accordionItems: [
       {
         id: 1,
-        button: `Description: ${this.props.description ? 100 : 0}`,
+        button: `Description: ${this.props.description}`,
         panel: "Although there isn’t a format for a good repository description, it is a way to provide a summary of a where the project is about and which stack and tools are used. It is show on your main page below the repository name."
       }, {
         id: 2,
