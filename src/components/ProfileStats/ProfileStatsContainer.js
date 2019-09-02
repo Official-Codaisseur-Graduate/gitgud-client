@@ -1,7 +1,7 @@
 import React from 'react'
 import { Query } from "react-apollo";
-import { GET_USER_DATA } from "../gql";
-import Loader from "./Loader";
+import { GET_USER_DATA } from "../../gql";
+import Loader from "../Loader";
 import ProfileStats from './ProfileStats';
 
 export default class ProfileStatsContainer extends React.Component {

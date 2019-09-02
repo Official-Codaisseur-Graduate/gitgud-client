@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Query } from "react-apollo";
-import { GET_REPO_DATA } from "../gql";
-import Loader from "./Loader";
+import { GET_REPO_DATA } from "../../gql";
+import Loader from "../Loader";
 import SingleRepoStats from './SingleRepoStats';
 
 export default class SingleRepoStatsContainer extends Component {

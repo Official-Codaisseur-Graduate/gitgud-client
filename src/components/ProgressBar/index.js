@@ -1,6 +1,6 @@
 import * as React from "react";
 import './ProgressBar.css';
-import { badge } from '../logic';
+import { badge } from '../../logic';
 
 class MultiColorProgressBar extends React.Component {
 
