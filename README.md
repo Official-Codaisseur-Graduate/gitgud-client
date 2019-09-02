@@ -1,69 +1,54 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# GitGud
 
-## Available Scripts
+[CHECK THE APP](https://gitgud.netlify.com/) <br>
+A validator of your GitHub profile and usage, designed to provide feedback for job seekers. <br>
 
-In the project directory, you can run:
+![](gitgud.gif)
 
-### `npm start` 
+## Table of contents:
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* **[How](#how)**
+* **[Why](#why)**
+* **[Who](#who)**
+* **[Technologies](#technologies)**
+* **[Next steps to continue this project](#next-steps-to-continue-this-project)**
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## How
 
-### `npm test` 
+1. It checks your public profile - A good GitHub profile can impress an interviewer.
+2. It validates your pinned repositories on how you use Git - Proper use of version control with Git can show that you are a structured worker and are able to work in development teams. We chose to focus on your pinned repos because you can present certain project as your portfolio for potential employers
+3. It is also possible to go to individual repositories and look at their ratings, this can be done by typing githubname/reponame in the form. 
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Why
 
-### `npm run build` 
+* You can use GitHub as your resume for job hunting. For developers it is important to code regularly, be able to work in teams, communicate properly and continue with a learning curve. Obviously this is something you can say you are the best in and write it on your resume, but with GitHub you are able to show that you can do this. Which will give you headsup on your next interview.
+* Unfortunately many recent graduates or job seekers lack a proper GitHub profile. And as Codaisseur teachers can acknowledge, the feedback they get is repetitive. Therefore we developed this tool and provide constructive feedback which is based on various resources across the internet and uses live data from the GitHub API.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Who
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+* **Oleksandra Akulshyna** - *Initial work* - [w3bgir1](https://github.com/w3bgir1)
+* **Vincent de Graaf** - *Initial work* - [vdegraaf](https://github.com/vdegraaf)
+* **Natalia Volchatova** - *Initial work* - [Klackky](https://github.com/Klackky)
+* **Demmy Honore de Vries**    [demmyhonore](https://github.com/demmyhonore)
+* **Mario Nezmah** - *Repository page* -  [mnezmah](https://github.com/mnezmah)
+* **Jelle Monen**    [jelle89](https://github.com/jelle89)
+* **Subash Pradhan** [SubashPradhan](https://github.com/SubashPradhan)
+* **Duc Trinh** [Ducatrinh](https://github.com/ducatrinh)
+* **Halyna Burdiian** [Verdie](https://github.com/verdie)
+* **Shawn Wu** [Mqspx800](https://github.com/Mqspx800)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Technologies
 
-### `npm run eject` 
+* Frontend - React, ApolloClient <br>
 
-**Note: this is a one-way operation. Once you `eject` , you can’t go back!**
+## Next steps to continue this project
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* Make app responsive (adjust for other displays).
+* We encourage to display the returned languages data with a pie chart in the Git Use block.
+* Extra feature: Feedback on the commit usage of individuals when there is multiple contributors on the project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Acknowledgments
 
-You don’t have to ever use `eject` . The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Special thanks to Rein op 't Land, our teacher and Product Owner. 
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-
+* **Rein op 't Land** - [ReinoptLand](https://github.com/Reinoptland)
