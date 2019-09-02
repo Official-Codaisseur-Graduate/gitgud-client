@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import './SingleRepoStats.css'
-import GeneralAccordionContainer from './GeneralAccordionContainer'
-import BranchesAccordionContainer from './BranchesAccordionContainer'
-import CommitsAccordionContainer from './CommitsAccordionContainer'
+import GeneralAccordionContainer from '../GeneralAccordionContainer'
+import BranchesAccordionContainer from '../BranchesAccordionContainer'
+import CommitsAccordionContainer from '../CommitsAccordionContainer'
 
 export default class SingleRepoStats extends Component {
   render() {

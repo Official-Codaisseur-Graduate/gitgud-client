@@ -5,7 +5,7 @@ import './FeedbackButton.css';
 export default function FeebackButton() {
 
   const issuePage = () => {
-    window.open('https://github.com/Official-Codaisseur-Graduate/git-gud/issues', '_blank');
+    window.open('https://github.com/Official-Codaisseur-Graduate/gitgud-client/issues', '_blank');
   };
 
   return (

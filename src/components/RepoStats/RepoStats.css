@@ -177,7 +177,7 @@ h3 {
 .stats-breakdown li::after {
   content: "";
   position: absolute;
-  background: url(../img/arrow-right.svg) no-repeat 0 0;
+  background: url(../../img/arrow-right.svg) no-repeat 0 0;
   background-size: contain;
   top: 0;
   right: 15%;
@@ -187,7 +187,7 @@ h3 {
 
 
 .stats-breakdown__item--active::after {
-  background: url(../img/arrow-down.svg) no-repeat 0 0 !important;
+  background: url(../../img/arrow-down.svg) no-repeat 0 0 !important;
   right: 15.6% !important;
 }
 
