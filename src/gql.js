@@ -55,38 +55,6 @@ export const GET_USER_DATA = gql`
                   }
                   `;
 
-// export const GET_REPO_DATA = gql`
-// query GetRepo($username: String!, $reponame: String!) {
-//   repository(owner: $username, name: $reponame) {
-//     stats {
-//       averageCommitPerBranch
-//       repoNames {
-//         name
-//         owner
-//         totalRepoScore
-//         repoReadMe
-//         gitIgnoreScore
-//         description
-//         commitScore{
-//           lengthExceeds
-//           containsAND
-//           containsPeriod
-//           upperCase
-//           totalScore
-//         }
-//         branchScore {
-//           hasThreeBranches
-//           hasMasterBranch
-//           hasDevelopmentBranch
-//           hasFeatBranch
-//           useDescriptiveNames
-//           totalScore
-//         }
-//       }
-//     }
-//   }
-// }
-// `
 export const GET_REPO_DATA = gql`
 query GetRepo($username: String!, $reponame: String!) {
   repository(owner: $username, name: $reponame) {
