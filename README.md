@@ -47,6 +47,10 @@ A validator of your GitHub profile and usage, designed to provide feedback for j
 * We encourage to display the returned languages data with a pie chart in the Git Use block.
 * Extra feature: Feedback on the commit usage of individuals when there is multiple contributors on the project.
 
+## How to setup
+* CD into client folder
+* Run npm install & npm run start 
+
 ## Acknowledgments
 
 Special thanks to Rein op 't Land, our teacher and Product Owner. 
