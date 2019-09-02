@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import {Route} from 'react-router-dom'
-import FormContainer from './components/FormContainer';
+import FormContainer from './components/Form/FormContainer';
 import FeedbackButton from './components/FeedbackButton';
-import ProfileStatsContainer from './components/ProfileStatsContainer';
+import ProfileStatsContainer from './components/ProfileStats/ProfileStatsContainer';
 import LandingPage from './components/LandingPage';
-import SingleRepoStatsContainer from './components/SingleRepoStatsContainer'
+import SingleRepoStatsContainer from './components/SingleRepoStats/SingleRepoStatsContainer'
 
 class App extends Component {
   render() {

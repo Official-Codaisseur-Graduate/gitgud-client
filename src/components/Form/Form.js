@@ -1,5 +1,4 @@
 import * as React from "react";
-import SingleRepoStatsContainer from './SingleRepoStatsContainer'
 import {Link} from 'react-router-dom'
 
 

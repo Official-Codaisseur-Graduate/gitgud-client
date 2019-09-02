@@ -1,5 +1,6 @@
 
 .stats__profile {
+  margin: 0 auto;
   background-color: rgba(111,148,188, 0.1);
   border-radius: 5px;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);

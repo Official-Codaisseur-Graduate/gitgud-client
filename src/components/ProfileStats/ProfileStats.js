@@ -1,19 +1,19 @@
 import * as React from "react";
 import "./ProfileStats.css";
-import ProgressBar from "./ProgressBar";
-import RepoStats from "./RepoStats";
-import Chart from "./Chart";
+import ProgressBar from "../ProgressBar";
+import RepoStats from "../RepoStats";
+import Chart from "../Chart";
 
 
 const icon = value => {
   if (value)
     return (<img
-      src={require("../img/checked.svg")}
+      src={require("../../img/checked.svg")}
       alt="checked"
       width="30px"
       height="30px" />);
   return (<img
-    src={require("../img/cancel.svg")}
+    src={require("../../img/cancel.svg")}
     alt="not-checked"
     width="30px"
     height="30px" />);
