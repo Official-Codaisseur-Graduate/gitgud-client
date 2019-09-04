@@ -142,7 +142,7 @@ export default function LandingPage(props) {
 
           <div className="profile">
             <img
-              src="https://media.licdn.com/dms/image/C5603AQHDevsbbtVO9Q/profile-displayphoto-shrink_200_200/0?e=1570060800&v=beta&t=hG9NoR2Ul0KBGtzHBzINFv3x9Mhx-VkTDf8cuuVQjUw"
+              src="https://media.licdn.com/dms/image/C5603AQHMWTWOkUpAMA/profile-displayphoto-shrink_200_200/0?e=1573084800&v=beta&t=-D1eWKMrK3ePh17Az-j25R5nz7BIoqf3E3Js9Rj4BIY"
               alt="Mario"
             />
             <h3>Mario <br/> Nezmah</h3>
