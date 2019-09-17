@@ -45,7 +45,4 @@ class Base extends React.Component {
   }
 }
 
-
 ReactDOM.render(<Base />, document.getElementById('root'));
-
-serviceWorker.unregister();
