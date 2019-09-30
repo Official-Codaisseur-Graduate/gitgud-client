@@ -1,35 +1,34 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
-import { BrowserRouter } from 'react-router-dom'
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+// import * as serviceWorker from "./serviceWorker";
+import { BrowserRouter } from "react-router-dom";
 
-import { ApolloProvider } from 'react-apollo';
-import { ApolloClient } from 'apollo-client';
-import { HttpLink } from 'apollo-link-http';
-import { InMemoryCache } from 'apollo-cache-inmemory';
+import { ApolloProvider } from "react-apollo";
+import { ApolloClient } from "apollo-client";
+import { HttpLink } from "apollo-link-http";
+import { InMemoryCache } from "apollo-cache-inmemory";
 
-const url = `https://gitgud-server.herokuapp.com/graphql`
-// const url = `http://localhost:3030/graphql`
+// const url = `https://gitgud-server.herokuapp.com/graphql`
+// token 081383e5f33bbc09b404bb2b1b0a324968085c23
+const url = `http://localhost:3030/graphql`;
 
 const httpLink = {
   uri: url,
   headers: {
-    authorization: `Bearer ${
-      process.env.REACT_APP_GITHUB_PERSONAL_ACCESS_TOKEN
-      }`,
+    authorization: `Bearer ${process.env.REACT_APP_GITHUB_PERSONAL_ACCESS_TOKEN}`
   }
 };
 
 const defaultOptions = {
   watchQuery: {
-    fetchPolicy: 'network-only'
+    fetchPolicy: "network-only"
   },
   query: {
-    fetchPolicy: 'network-only'
-  },
-}
+    fetchPolicy: "network-only"
+  }
+};
 
 const client = new ApolloClient({
   link: new HttpLink(httpLink),
@@ -40,9 +39,13 @@ const client = new ApolloClient({
 class Base extends React.Component {
   render() {
     return (
-      <BrowserRouter><ApolloProvider client={client}><App /></ApolloProvider></BrowserRouter>
-    )
+      <BrowserRouter>
+        <ApolloProvider client={client}>
+          <App />
+        </ApolloProvider>
+      </BrowserRouter>
+    );
   }
 }
 
-ReactDOM.render(<Base />, document.getElementById('root'));
+ReactDOM.render(<Base />, document.getElementById("root"));
