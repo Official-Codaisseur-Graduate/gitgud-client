@@ -39,6 +39,7 @@ export const GET_USER_DATA = gql`
             containsAND
             containsPeriod
             upperCase
+            commitCount
             totalScore
           }
           branchScore {
@@ -48,6 +49,8 @@ export const GET_USER_DATA = gql`
             hasFeatBranch
             useDescriptiveNames
             totalScore
+            branchCount
+            properNamesCount
           }
           descriptionDetails {
             tooLong
@@ -76,12 +79,15 @@ export const GET_REPO_DATA = gql`
         hasFeatBranch
         useDescriptiveNames
         totalScore
+        branchCount
+        properNamesCount
       }
       commitScore {
         lengthExceeds
         containsAND
         containsPeriod
         upperCase
+        commitCount
         totalScore
       }
       descriptionDetails {
