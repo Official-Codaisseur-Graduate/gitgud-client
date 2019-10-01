@@ -49,6 +49,8 @@ export const GET_USER_DATA = gql`
             hasFeatBranch
             useDescriptiveNames
             totalScore
+            branchCount
+            properNamesCount
           }
           descriptionDetails {
             tooLong
@@ -77,6 +79,8 @@ export const GET_REPO_DATA = gql`
         hasFeatBranch
         useDescriptiveNames
         totalScore
+        branchCount
+        properNamesCount
       }
       commitScore {
         lengthExceeds
