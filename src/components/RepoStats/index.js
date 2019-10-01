@@ -29,6 +29,7 @@ export default class Tabs extends React.Component {
   }
 
   render() {
+    console.log("props", this._tabsData)
     return (
       <dl className="tabs-list" key="tabs-list">
         {this._tabsData.map((item, i) => {
@@ -42,7 +43,13 @@ export default class Tabs extends React.Component {
                   <ul className={"stats-breakdown " + (this.state.ulOpen === "ul-1" ? "stats-breakdown--active" : "")}>
                     <li data-id={i + 1} className={this.state.open === i + 1 ? 'stats-breakdown__item--active' : 'stats-breakdown__item'}> Description: {`${item.description}%` }
                       <Content className="content" pose={this.state.open === i + 1 ? 'open' : 'closed'}>
-                        <div className="content-wrapper"> Although there isn’t a format for a good repository description, it is a way to provide a summary of a where the project is about and which stack and tools are used. It is show on your main page below the repository name.</div>
+                        {/* <div className="content-wrapper"> Although there isn’t a format for a good repository description, it is a way to provide a summary of a where the project is about and which stack and tools are used. It is shown on your main page below the repository name.</div> */}
+                        { !item.descriptionDetails.exists ? <div className="content-wrapper">Providing a description is important.</div> : null}
+                        { item.descriptionDetails.tooLong ? <div className="content-wrapper">Description is too long.</div> : null}
+                        { item.descriptionDetails.tooShort ? <div className="content-wrapper">Description is too short.</div> : null}
+                        { !item.descriptionDetails.includesDependencies ? <div className="content-wrapper">Description should include names of the most relevant dependencies you used.</div> : null}
+                        { !item.descriptionDetails.tooShort && !item.descriptionDetails.tooLong? <div className="content-wrapper">Although there isn’t a format for a good repository description, it is a way to provide a summary of a where the project is about and which stack and tools are used.</div> : null}
+
                       </Content>
                     </li>
                     <li data-id={i + 2} className={this.state.open === i + 2 ? 'stats-breakdown__item--active' : 'stats-breakdown__item'}> Readme: {item.repoReadMe < 100 ? "0%" : '100%'}
