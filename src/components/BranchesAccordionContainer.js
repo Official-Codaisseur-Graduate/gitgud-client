@@ -23,7 +23,7 @@ export default class GeneralAccordionContainer extends Component {
       }, {
         id: 5,
         button: `Naming:  ${this.props.branchScore.useDescriptiveNames}`,
-        panel: "All branches, including supporting branches have naming conventions. They should start with master, development, feature, bug, hotfix or junk."
+        panel: `All branches, including supporting branches have naming conventions. They should start with master, development, feature, bug, hotfix or junk. In this repository, ${this.props.branchScore.properNamesCount} out of ${this.props.branchScore.branchCount} branches are named properly`
       }
     ]
   }
