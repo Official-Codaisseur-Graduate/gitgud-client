@@ -35,3 +35,10 @@
 .accordion a:hover {
   color: purple
 }
+
+.highlited 
+div.accordion__item 
+div.accordion__heading 
+div.accordion__button {
+  background: rgba(255,51,51,0.2);
+}
