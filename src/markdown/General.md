@@ -1,7 +1,5 @@
-# TEST
+# Repository description
 
-## Super test
+# Readme
 
-yaaay
-
-### Testy teest
+# Gitignore

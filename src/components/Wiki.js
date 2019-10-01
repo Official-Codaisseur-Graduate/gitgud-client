@@ -6,6 +6,12 @@ import Branches from "../markdown/Branches.md";
 import Commits from "../markdown/Commits.md";
 import Profile from "../markdown/Profile.md";
 
+const wikiStyle = {
+  margin: '0 auto',
+  width: '65%',
+  padding: '15px'
+}
+
 export default class Wiki extends Component {
   state = { markdown: "" };
 
@@ -26,7 +32,7 @@ export default class Wiki extends Component {
   render() {
     const { markdown } = this.state;
     return (
-      <div>
+      <div style={wikiStyle}>
         <ReactMarkdown source={markdown} />;
       </div>
     );
