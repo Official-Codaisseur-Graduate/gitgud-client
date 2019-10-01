@@ -18,10 +18,10 @@ export default class RepoAccordion extends Component {
             <AccordionItemButton>{this.props.button}</AccordionItemButton>
           </AccordionItemHeading>
           <AccordionItemPanel>
-            <p className="accordion__content">
+            <div className="accordion__content">
               {this.props.panel}
               <p>{this.props.link}</p>
-            </p>
+            </div>
           </AccordionItemPanel>
         </AccordionItem>
       </Accordion>
