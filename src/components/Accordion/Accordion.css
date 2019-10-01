@@ -25,3 +25,13 @@
 .accordion__content {
   color: #0082c8;
 }
+
+.accordion a {
+  text-decoration: none;
+  font-size: 14px;
+  color: #0082c8;
+}
+
+.accordion a:hover {
+  color: purple
+}
