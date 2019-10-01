@@ -1,4 +1,6 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
+
 import "./ProfileStats.css";
 import ProgressBar from "../ProgressBar";
 import RepoStats from "../RepoStats";
@@ -131,6 +133,7 @@ export default function ProfileStats(props) {
                 </a>
               </p>
             )}
+            <Link to={`/wiki/profile`}>Learn more</Link>
           </section>
 
           {props.user && props.user.stats.totalPinnedRepos !== null && (
