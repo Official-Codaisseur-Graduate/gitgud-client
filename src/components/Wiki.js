@@ -11,24 +11,16 @@ export default class Wiki extends Component {
 
   componentWillMount() {
     const sectionToFetch = this.props.match.params.section;
+    const map = {
+      general: General,
+      branches: Branches,
+      commits: Commits,
+      profile: Profile
+    };
 
-    if (sectionToFetch === "general") {
-      fetch(General)
-        .then(res => res.text())
-        .then(text => this.setState({ markdown: text }));
-    } else if (sectionToFetch === "branches") {
-      fetch(Branches)
-        .then(res => res.text())
-        .then(text => this.setState({ markdown: text }));
-    } else if (sectionToFetch === "commits") {
-      fetch(Commits)
-        .then(res => res.text())
-        .then(text => this.setState({ markdown: text }));
-    } else if (sectionToFetch === "profile") {
-      fetch(Profile)
-        .then(res => res.text())
-        .then(text => this.setState({ markdown: text }));
-    }
+    fetch(map[sectionToFetch])
+      .then(res => res.text())
+      .then(text => this.setState({ markdown: text }));
   }
 
   render() {
