@@ -17,7 +17,6 @@ export default class SingleRepoStatsContainer extends Component {
           }}
         >
           {({ loading, error, data }) => {
-            console.log('repostats:', data)
 
             if (loading) return <Loader />;
             if (error)

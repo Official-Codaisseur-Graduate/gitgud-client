@@ -28,9 +28,7 @@ export default function ProfileStats(props) {
   let profileStats;
   if (props.user) {
     profileStats = props.user.profileStats;
-    console.log(props.user);
   }
-  // props.user.stats.repoNames
   return props.user ? (
     <div>
       <div className="row">
