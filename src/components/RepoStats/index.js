@@ -29,7 +29,6 @@ export default class Tabs extends React.Component {
   }
 
   render() {
-    console.log("props", this._tabsData)
     return (
       <dl className="tabs-list" key="tabs-list">
         {this._tabsData.map((item, i) => {
