@@ -11,7 +11,6 @@ import { HttpLink } from "apollo-link-http";
 import { InMemoryCache } from "apollo-cache-inmemory";
 
 // const url = `https://gitgud-server.herokuapp.com/graphql`
-// token 081383e5f33bbc09b404bb2b1b0a324968085c23
 const url = `http://localhost:3030/graphql`;
 
 const httpLink = {
