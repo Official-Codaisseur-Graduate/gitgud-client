@@ -58,6 +58,7 @@ export const GET_USER_DATA = gql`
             includesDependencies
             exists
           }
+          nodeModules
         }
       }
     }
@@ -96,6 +97,7 @@ export const GET_REPO_DATA = gql`
         includesDependencies
         exists
       }
+      nodeModules
     }
   }
 `;
