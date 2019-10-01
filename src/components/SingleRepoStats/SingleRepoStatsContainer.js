@@ -17,6 +17,7 @@ export default class SingleRepoStatsContainer extends Component {
           }}
         >
           {({ loading, error, data }) => {
+
             if (loading) return <Loader />;
             if (error)
               return (
@@ -24,7 +25,7 @@ export default class SingleRepoStatsContainer extends Component {
                   <p>Please submit valid repo name </p>
                 </div>
               )
-            return <div> {data && 
+            return <div> {data &&
               <div>
                 <SingleRepoStats
                   repo={data.repository}

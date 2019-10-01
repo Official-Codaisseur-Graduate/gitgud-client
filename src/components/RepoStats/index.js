@@ -42,7 +42,13 @@ export default class Tabs extends React.Component {
                   <ul className={"stats-breakdown " + (this.state.ulOpen === "ul-1" ? "stats-breakdown--active" : "")}>
                     <li data-id={i + 1} className={this.state.open === i + 1 ? 'stats-breakdown__item--active' : 'stats-breakdown__item'}> Description: {`${item.description}%` }
                       <Content className="content" pose={this.state.open === i + 1 ? 'open' : 'closed'}>
-                        <div className="content-wrapper"> Although there isn’t a format for a good repository description, it is a way to provide a summary of a where the project is about and which stack and tools are used. It is show on your main page below the repository name.</div>
+                        {/* <div className="content-wrapper"> Although there isn’t a format for a good repository description, it is a way to provide a summary of a where the project is about and which stack and tools are used. It is shown on your main page below the repository name.</div> */}
+                        { !item.descriptionDetails.exists ? <div className="content-wrapper">Providing a description is important.</div> : null}
+                        { item.descriptionDetails.tooLong ? <div className="content-wrapper">Description is too long.</div> : null}
+                        { item.descriptionDetails.tooShort ? <div className="content-wrapper">Description is too short.</div> : null}
+                        { !item.descriptionDetails.includesDependencies ? <div className="content-wrapper">Description should include names of the most relevant dependencies you used.</div> : null}
+                        { !item.descriptionDetails.tooShort && !item.descriptionDetails.tooLong? <div className="content-wrapper">Although there isn’t a format for a good repository description, it is a way to provide a summary of a where the project is about and which stack and tools are used.</div> : null}
+
                       </Content>
                     </li>
                     <li data-id={i + 2} className={this.state.open === i + 2 ? 'stats-breakdown__item--active' : 'stats-breakdown__item'}> Readme: {item.repoReadMe < 100 ? "0%" : '100%'}
@@ -63,7 +69,7 @@ export default class Tabs extends React.Component {
               <ul data-name="ul-2" className={"stats__header " + (this.state.ulOpen === "ul-2" ? "stats__header--active" : "")}> Branches
               <li>
                   <ul className={"stats-breakdown " + (this.state.ulOpen === "ul-2" ? "stats-breakdown--active" : "")}>
-                    <li data-id={i + 5} className={this.state.open === i + 5 ? 'stats-breakdown__item--active' : 'stats-breakdown__item'}> Master branch: {item.branchScore.hasMasterBranch}
+                    <li data-id={i + 5} className={this.state.open === i + 5 ? 'stats-breakdown__item--active' : 'stats-breakdown__item'}> Master branch: {item.branchScore.hasMasterBranch}%
                       <Content className="content" pose={this.state.open === i + 5 ? 'open' : 'closed'}>
                         <div className="content-wrapper"> ‘master’ is considered to be the main branch where the source code of HEAD always reflects a production-ready state.
                         </div>
@@ -88,7 +94,7 @@ export default class Tabs extends React.Component {
                         </div>
                       </Content>
                     </li>
-                    <li data-id={i + 9} className={this.state.open === i + 9 ? 'stats-breakdown__item--active' : 'stats-breakdown__item'}> Naming: {item.branchScore.useDescriptiveNames}%
+                    <li data-id={i + 9} className={this.state.open === i + 9 ? 'stats-breakdown__item--active' : 'stats-breakdown__item'}> Proper branch names: {item.branchScore.useDescriptiveNames}%
                       <Content className="content" pose={this.state.open === i + 9 ? 'open' : 'closed'}>
                         <div className="content-wrapper"> All branches, including supporting branches have naming conventions. They should start with master, development, feature, bug, hotfix or junk.
                         </div>
