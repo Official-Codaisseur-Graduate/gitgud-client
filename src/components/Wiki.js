@@ -33,7 +33,7 @@ export default class Wiki extends Component {
     const { markdown } = this.state;
     return (
       <div style={wikiStyle}>
-        <ReactMarkdown source={markdown} />;
+        <ReactMarkdown source={markdown} />
       </div>
     );
   }

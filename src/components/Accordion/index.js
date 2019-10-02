@@ -10,9 +10,19 @@ import {
 import "./Accordion.css";
 
 export default class RepoAccordion extends Component {
+
+  highlited = () => {
+    const arr = this.props.button.split(' ')
+    const score = Number(arr[arr.length-1])
+    if (score === 0) {
+      return 'highlited'
+    }
+    return ''
+  }
+
   render() {
     return (
-      <Accordion allowMultipleExpanded="false" allowZeroExpanded="true">
+      <Accordion className={`accordion ${this.highlited()}`} allowMultipleExpanded="false" allowZeroExpanded="true">
         <AccordionItem>
           <AccordionItemHeading>
             <AccordionItemButton>{this.props.button}</AccordionItemButton>
