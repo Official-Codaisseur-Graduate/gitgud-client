@@ -1,5 +1,6 @@
 import * as React from "react";
 import "./LandingPage.css";
+import { Link } from 'react-router-dom'
 
 export default function LandingPage(props) {
   return (
@@ -209,6 +210,20 @@ export default function LandingPage(props) {
           target="_blank"
           >Elaborate explanation of good commit messages</a>
           
+        </p>
+        <b>A few tips from Rein Op't Land</b>
+        <p>
+          <Link to="/wiki/profile">Profile</Link>
+        </p>
+        <p>
+          <Link to="/wiki/general">Description, readme and gitignore</Link>
+        </p>
+        
+        <p>
+          <Link to="/wiki/commits">Commits</Link>
+        </p>
+        <p>
+          <Link to="/wiki/branches">Branches</Link>
         </p>
       </div>
     </section>
