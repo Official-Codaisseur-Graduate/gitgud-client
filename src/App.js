@@ -6,6 +6,7 @@ import ProfileStatsContainer from "./components/ProfileStats/ProfileStatsContain
 import LandingPage from "./components/LandingPage";
 import SingleRepoStatsContainer from "./components/SingleRepoStats/SingleRepoStatsContainer";
 import Wiki from "./components/Wiki";
+import CodeBlock from "./components/CodeBlock";
 
 class App extends Component {
   render() {
@@ -20,6 +21,8 @@ class App extends Component {
           component={SingleRepoStatsContainer}
         />
         <Route path="/wiki/:section" component={Wiki} />
+        {/* <Route path="/wiki/:section" component={CodeBlock} /> */}
+
         <FeedbackButton />
       </div>
     );

@@ -5,6 +5,7 @@ import General from "../markdown/General.md";
 import Branches from "../markdown/Branches.md";
 import Commits from "../markdown/Commits.md";
 import Profile from "../markdown/Profile.md";
+import CodeBlock from "./CodeBlock";
 
 const wikiStyle = {
   margin: '0 auto',
@@ -35,7 +36,7 @@ export default class Wiki extends Component {
     const { markdown } = this.state;
     return (
       <div style={wikiStyle}>
-        <ReactMarkdown source={markdown} />
+        <ReactMarkdown source={markdown} renderers={{ code: CodeBlock }} />{" "}
       </div>
     );
   }
