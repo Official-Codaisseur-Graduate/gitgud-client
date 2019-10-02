@@ -1,7 +1,3 @@
 ### Branches
 
 ## Code Example
-
-```
-
-```
