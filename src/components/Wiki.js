@@ -6,7 +6,6 @@ import Branches from "../markdown/Branches.md";
 import Commits from "../markdown/Commits.md";
 import Profile from "../markdown/Profile.md";
 import CodeBlock from "./CodeBlock";
-import { tomorrowNightEighties } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
 const wikiStyle = {
   margin: "0 auto",
@@ -35,11 +34,7 @@ export default class Wiki extends Component {
     const { markdown } = this.state;
     return (
       <div style={wikiStyle}>
-        <ReactMarkdown
-          source={markdown}
-          // renderers={{ code: CodeBlock }}
-        />
-        <CodeBlock section={this.props.match.params.section} />
+        <ReactMarkdown source={markdown} renderers={{ code: CodeBlock }} />{" "}
       </div>
     );
   }
