@@ -1,5 +1,6 @@
 # Profile
 
+![image grumpy](img/grumpy.jpg)
 # Readme
 
 ```js

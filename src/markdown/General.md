@@ -1,5 +1,7 @@
 # Repository description
 
+![image grumpy](img/grumpy.jpg)
+
 ```js
 function greet(name) {
   console.log("Hello " + name);
