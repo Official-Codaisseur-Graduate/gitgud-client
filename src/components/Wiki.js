@@ -8,10 +8,12 @@ import Profile from "../markdown/Profile.md";
 import CodeBlock from "./CodeBlock";
 
 const wikiStyle = {
-  margin: "0 auto",
-  width: "65%",
-  padding: "15px"
-};
+  margin: '0 auto',
+  marginTop: '20px',
+  width: '65%',
+  padding: '15px',
+  borderLeft: 'solid gray 1px'
+}
 
 export default class Wiki extends Component {
   state = { markdown: "" };
