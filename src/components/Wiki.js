@@ -8,8 +8,10 @@ import Profile from "../markdown/Profile.md";
 
 const wikiStyle = {
   margin: '0 auto',
+  marginTop: '20px',
   width: '65%',
-  padding: '15px'
+  padding: '15px',
+  borderLeft: 'solid gray 1px'
 }
 
 export default class Wiki extends Component {
