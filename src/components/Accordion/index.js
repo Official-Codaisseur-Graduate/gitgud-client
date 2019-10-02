@@ -22,10 +22,10 @@ export default class RepoAccordion extends Component {
 
   render() {
     return (
-      <Accordion className={`accordion ${this.highlited()}`} allowMultipleExpanded="false" allowZeroExpanded="true">
+      <Accordion allowMultipleExpanded="false" allowZeroExpanded="true">
         <AccordionItem>
           <AccordionItemHeading>
-            <AccordionItemButton>{this.props.button}</AccordionItemButton>
+            <AccordionItemButton className={`accordion__button ${this.highlited()}`}>{this.props.button}</AccordionItemButton>
           </AccordionItemHeading>
           <AccordionItemPanel>
             <div className="accordion__content">
