@@ -12,7 +12,7 @@ export default class CreateGroupContainer extends React.Component {
     return (
       <div>
         {this.props.match.params.groupMembers.split("&").map(name => (
-          <p>{name}</p>
+          <p key={name}>{name}</p>
         ))}
         Scores:
         {this.props.match.params.groupMembers.split("&").map(name => (
@@ -22,6 +22,7 @@ export default class CreateGroupContainer extends React.Component {
             variables={{
               username: name
             }}
+            key={name}
           >
             {({ loading, error, data }) => {
               if (loading) return <Loader />;
@@ -34,7 +35,7 @@ export default class CreateGroupContainer extends React.Component {
                 );
               users.push(data);
               return (
-                <div>
+                <div key={data.user.username}>
                   {data.user.username} {data.user.score}
                 </div>
               );
