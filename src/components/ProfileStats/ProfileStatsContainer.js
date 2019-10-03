@@ -6,8 +6,6 @@ import ProfileStats from "./ProfileStats";
 
 export default class ProfileStatsContainer extends React.Component {
   render() {
-    console.log("profile stats props", this.props);
-
     return (
       <div>
         <Query

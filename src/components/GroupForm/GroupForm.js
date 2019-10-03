@@ -2,15 +2,16 @@ import React from "react";
 
 export default function GroupForm(props) {
   return (
-    <div>
+    <div className="group__form">
       <input
+        className="form__username"
         placeholder="enter group name"
         type="text"
         onChange={props.onChange}
         id="2"
       />
-      <button type="button" onClick={props.onClick}>
-        Create group
+      <button className="form__submit" type="button" onClick={props.onClick}>
+        Search group
       </button>
     </div>
   );

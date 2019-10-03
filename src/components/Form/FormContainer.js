@@ -10,9 +10,16 @@ class FormContainer extends React.Component {
       search: "",
       username: "",
       landingPage: true,
-      redirect: false
+      redirect: false,
+      showButton: true
     };
   }
+
+  toggleButton = e => {
+    this.setState({
+      showButton: true
+    });
+  };
 
   onChange = event => {
     this.setState({ search: event.target.value });
@@ -26,8 +33,18 @@ class FormContainer extends React.Component {
       redirect: true
     });
     if (this.state.redirect === true) {
+      this.setState({
+        showButton: true
+      });
       this.props.history.push(`/user/${this.state.username}`);
     }
+  };
+
+  onClick = (e, url) => {
+    this.props.history.push(`/${url}/`);
+    this.setState({
+      showButton: false
+    });
   };
 
   render() {
@@ -42,6 +59,9 @@ class FormContainer extends React.Component {
             username={justName}
             onSubmit={this.onSubmit}
             onChange={this.onChange}
+            onClick={this.onClick}
+            showButton={this.state.showButton}
+            toggleButton={this.toggleButton}
           />
         </div>
       );
@@ -52,6 +72,9 @@ class FormContainer extends React.Component {
             username={slash === -1 ? this.state.username : justName}
             onSubmit={this.onSubmit}
             onChange={this.onChange}
+            onClick={this.onClick}
+            showButton={this.state.showButton}
+            toggleButton={this.toggleButton}
             reponame={slash === -1 ? null : justRepo}
             {...(slash === -1 ? this.state.username : justName)}
           />
