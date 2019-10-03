@@ -8,6 +8,7 @@ import SingleRepoStatsContainer from "./components/SingleRepoStats/SingleRepoSta
 import Wiki from "./components/Wiki";
 import GroupFormContainer from "./components/GroupForm/GroupFormContainer";
 import GroupStatsContainer from "./components/GroupStatsContainer";
+import CreateGroupContainer from "./components/CreateGroupContainer";
 
 class App extends Component {
   render() {
@@ -23,6 +24,10 @@ class App extends Component {
         />
         <Route path="/wiki/:section" component={Wiki} />
         <Route exact path="/group/" component={GroupFormContainer} />
+        <Route
+          path="/create-group/:groupMembers"
+          component={CreateGroupContainer}
+        />
         <Route path="/group/:groupName" component={GroupStatsContainer} />
 
         <FeedbackButton />

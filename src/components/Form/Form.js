@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { withRouter } from "react-router";
 
 function Form(props) {
-  console.log("props on form", props);
   return (
     <div>
       <form className="form" onSubmit={props.onSubmit}>

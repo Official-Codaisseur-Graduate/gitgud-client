@@ -11,7 +11,8 @@ class FormContainer extends React.Component {
       username: "",
       landingPage: true,
       redirect: false,
-      showButton: true
+      showButton: true,
+      groupMembers: []
     };
   }
 
@@ -22,21 +23,30 @@ class FormContainer extends React.Component {
   };
 
   onChange = event => {
+    console.log(this.state.search);
     this.setState({ search: event.target.value });
   };
 
   onSubmit = async event => {
     event.preventDefault();
-    await this.setState({
-      username: this.state.search,
-      landingPage: false,
-      redirect: true
-    });
-    if (this.state.redirect === true) {
-      this.setState({
-        showButton: true
+    if (this.state.search.split(" ").length === 1) {
+      await this.setState({
+        username: this.state.search,
+        landingPage: false,
+        redirect: true
       });
-      this.props.history.push(`/user/${this.state.username}`);
+      if (this.state.redirect === true) {
+        this.setState({
+          showButton: true
+        });
+        this.props.history.push(`/user/${this.state.username}`);
+      }
+    } else {
+      await this.setState({
+        groupMembers: this.state.search.split(" ")
+      });
+      const params = this.state.groupMembers.join("&");
+      this.props.history.push(`/create-group/${params}`);
     }
   };
 
