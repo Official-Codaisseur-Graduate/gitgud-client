@@ -101,3 +101,16 @@ export const GET_REPO_DATA = gql`
     }
   }
 `;
+
+export const GET_GROUP_DATA = gql`
+  query getGroup($groupName: String) {
+    group(groupName: $groupName) {
+      groupName
+      scores {
+        userName
+        profileScore
+        gitScore
+      }
+    }
+  }
+`;

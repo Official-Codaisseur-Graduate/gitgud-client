@@ -3,9 +3,7 @@ import Form from "./Form";
 import "./Form.css";
 import { withRouter } from "react-router";
 
-
 class FormContainer extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -20,28 +18,23 @@ class FormContainer extends React.Component {
     this.setState({ search: event.target.value });
   };
 
-  onSubmit = async (event) => {
+  onSubmit = async event => {
     event.preventDefault();
-    await this.setState({ username: this.state.search, landingPage: false, redirect: true });
+    await this.setState({
+      username: this.state.search,
+      landingPage: false,
+      redirect: true
+    });
     if (this.state.redirect === true) {
-      this.props.history.push(`/user/${this.state.username}`)
+      this.props.history.push(`/user/${this.state.username}`);
     }
   };
 
   render() {
-    const nameLenght = this.state.username.lenght
-    let slash = this
-      .state
-      .username
-      .indexOf("/")
-    const justRepo = this
-      .state
-      .username
-      .slice(slash + 1, nameLenght)
-    const justName = this
-      .state
-      .username
-      .slice(0, slash)
+    const nameLenght = this.state.username.lenght;
+    let slash = this.state.username.indexOf("/");
+    const justRepo = this.state.username.slice(slash + 1, nameLenght);
+    const justName = this.state.username.slice(0, slash);
     if (this.state.landingPage) {
       return (
         <div>
@@ -53,21 +46,18 @@ class FormContainer extends React.Component {
         </div>
       );
     } else
-      return <div><Form
-        username={slash === -1
-          ? this.state.username
-          : justName}
-        onSubmit={this.onSubmit}
-        onChange={this.onChange}
-        reponame={slash === -1
-          ? null
-          : justRepo}
-        {...slash === -1
-          ? this.state.username
-          : justName}
-      />
-      </div>
+      return (
+        <div>
+          <Form
+            username={slash === -1 ? this.state.username : justName}
+            onSubmit={this.onSubmit}
+            onChange={this.onChange}
+            reponame={slash === -1 ? null : justRepo}
+            {...(slash === -1 ? this.state.username : justName)}
+          />
+        </div>
+      );
   }
 }
 
-export default withRouter(FormContainer)
+export default withRouter(FormContainer);
