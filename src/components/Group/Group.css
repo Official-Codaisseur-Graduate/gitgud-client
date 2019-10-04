@@ -12,9 +12,9 @@
   padding-top: 1.5em;
   padding-left: 1em;
 }
+
 .on-group {
   text-align: center;
-  /* margin: 0 auto; */
   font-size: 4rem;
   text-transform: uppercase;
   display: inline-block;
@@ -22,7 +22,23 @@
   color: #0082c8;
   letter-spacing: 0.2rem;
 }
+
 .group-container {
   display: grid;
   grid-template-columns: 1fr;
+}
+
+.create-group {
+  margin-top: 1em;
+  height: 2em;
+  padding-left: 1em;
+  padding-right: 1em;
+  font-size: 1.5rem;
+  background-color: #0082c8;
+  color: white;
+  border: none;
+}
+
+.button-group {
+  text-align: center;
 }

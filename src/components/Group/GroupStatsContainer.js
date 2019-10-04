@@ -18,12 +18,13 @@ export default class GroupStatsContainer extends React.Component {
         >
           {({ loading, error, data }) => {
             if (loading) return <Loader />;
-            if (error)
+            if (error) {
               return (
                 <div className="errorBox">
                   <p>Please submit valid group name</p>
                 </div>
               );
+            }
             return <div>{data && <GroupStats group={data.group} />}</div>;
           }}
         </Query>

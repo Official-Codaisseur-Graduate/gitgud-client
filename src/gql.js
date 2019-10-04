@@ -114,3 +114,11 @@ export const GET_GROUP_DATA = gql`
     }
   }
 `;
+
+export const CREATE_GROUP_WITH_USERS = gql`
+  mutation CreateGroup($input: GroupWithUsers) {
+    createGroup(input: $input) {
+      groupName
+    }
+  }
+`;

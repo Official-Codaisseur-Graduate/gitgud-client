@@ -30,6 +30,7 @@ export default function ProfileStats(props) {
   let profileStats;
   if (props.user) {
     profileStats = props.user.profileStats;
+    console.log(props.user);
   }
   return props.user ? (
     <div>

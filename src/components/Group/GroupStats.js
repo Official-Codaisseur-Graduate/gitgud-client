@@ -1,4 +1,5 @@
 import React from "react";
+import ProgressBar from "../ProgressBar";
 
 export default class GroupStats extends React.Component {
   render() {
@@ -6,12 +7,17 @@ export default class GroupStats extends React.Component {
       <div className="group-container">
         <h1 className="on-group">{this.props.group.groupName}</h1>
         <div>
-          {this.props.group.profiles.map(profile => (
-            <p className="group-scores">
-              {" "}
-              {profile.userName} {profile.profileScore} {profile.reposScore}{" "}
-            </p>
-          ))}
+          {this.props.group.profiles.map(profile => {
+            const reposScore = profile.reposScore / 2;
+            return (
+              <ProgressBar
+                username={profile.userName}
+                profileScore={profile.profileScore}
+                repoScore={reposScore}
+                score={profile.profileScore + reposScore}
+              />
+            );
+          })}
         </div>
       </div>
     );

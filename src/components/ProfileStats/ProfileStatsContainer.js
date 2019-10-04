@@ -24,6 +24,7 @@ export default class ProfileStatsContainer extends React.Component {
                   <p>Please submit valid username</p>
                 </div>
               );
+            console.log(data.user);
             return <div>{data && <ProfileStats user={data.user} />}</div>;
           }}
         </Query>
