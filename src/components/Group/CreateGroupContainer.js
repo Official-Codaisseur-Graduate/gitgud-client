@@ -6,25 +6,6 @@ import "./Group.css";
 import ProgressBar from "../ProgressBar";
 
 export default class CreateGroupContainer extends React.Component {
-  // onClick = () => {
-  //   return (
-  //     <Mutation
-  //       mutation={CREATE_GROUP_WITH_USERS}
-  //       variables={{
-  //         input: {
-  //           groupName: "wait",
-  //           userNames: this.props.match.params.groupMembers.split("&")
-  //         }
-  //       }}
-  //       ignoreResults
-  //     >
-  //       {(createGroup, { data }) => {
-  //         createGroup();
-  //       }}
-  //     </Mutation>
-  //   );
-  // };
-
   render() {
     const users = [];
     return (
@@ -62,11 +43,23 @@ export default class CreateGroupContainer extends React.Component {
             </Query>
           </div>
         ))}
-        {/* <div className="button-group">
-          <button className="create-group" onClick={e => this.onClick(e)}>
-            Create Group
-          </button>
-        </div> */}
+        <div className="button-group">
+          <Mutation
+            mutation={CREATE_GROUP_WITH_USERS}
+            variables={{
+              input: {
+                groupName: "wait",
+                userNames: this.props.match.params.groupMembers.split("&")
+              }
+            }}
+          >
+            {mut => (
+              <button className="create-group" onClick={mut}>
+                Create Group
+              </button>
+            )}
+          </Mutation>
+        </div>
       </div>
     );
   }
