@@ -1,4 +1,5 @@
 import React from "react";
+import "./GroupForm.css";
 
 export default function GroupForm(props) {
   return (

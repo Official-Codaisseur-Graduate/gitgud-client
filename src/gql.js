@@ -106,10 +106,19 @@ export const GET_GROUP_DATA = gql`
   query GetGroup($groupName: String) {
     group(groupName: $groupName) {
       groupName
-      profileScore {
+      profiles {
         userName
-        score
+        profileScore
+        reposScore
       }
+    }
+  }
+`;
+
+export const CREATE_GROUP_WITH_USERS = gql`
+  mutation CreateGroup($input: GroupWithUsers) {
+    createGroup(input: $input) {
+      groupName
     }
   }
 `;

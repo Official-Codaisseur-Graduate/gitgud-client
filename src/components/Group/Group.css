@@ -1,0 +1,44 @@
+.group-scores {
+  background: #f4f4f4f4;
+  margin-bottom: 2%;
+  margin-left: 4%;
+  max-width: 90%;
+  border-radius: 3px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  font-size: 20px;
+  height: 3em;
+  width: 50%;
+  margin: 0 auto;
+  padding-top: 1.5em;
+  padding-left: 1em;
+}
+
+.on-group {
+  text-align: center;
+  font-size: 4rem;
+  text-transform: uppercase;
+  display: inline-block;
+  font-weight: 800;
+  color: #0082c8;
+  letter-spacing: 0.2rem;
+}
+
+.group-container {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.create-group {
+  margin-top: 1em;
+  height: 2em;
+  padding-left: 1em;
+  padding-right: 1em;
+  font-size: 1.5rem;
+  background-color: #0082c8;
+  color: white;
+  border: none;
+}
+
+.button-group {
+  text-align: center;
+}

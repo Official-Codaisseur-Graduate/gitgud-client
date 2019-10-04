@@ -7,8 +7,8 @@ import LandingPage from "./components/LandingPage";
 import SingleRepoStatsContainer from "./components/SingleRepoStats/SingleRepoStatsContainer";
 import Wiki from "./components/Wiki";
 import GroupFormContainer from "./components/GroupForm/GroupFormContainer";
-import GroupStatsContainer from "./components/GroupStatsContainer";
-import CreateGroupContainer from "./components/CreateGroupContainer";
+import GroupStatsContainer from "./components/Group/GroupStatsContainer";
+import CreateGroupContainer from "./components/Group/CreateGroupContainer";
 
 class App extends Component {
   render() {

@@ -16,7 +16,7 @@ class GroupFormContainer extends React.Component {
 
   onClick = async e => {
     e.preventDefault();
-    this.setState({
+    await this.setState({
       groupName: this.state.search,
       landingPage: false,
       redirect: true
