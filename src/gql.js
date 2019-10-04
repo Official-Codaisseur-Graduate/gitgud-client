@@ -106,9 +106,10 @@ export const GET_GROUP_DATA = gql`
   query GetGroup($groupName: String) {
     group(groupName: $groupName) {
       groupName
-      profileScore {
+      profiles {
         userName
-        score
+        profileScore
+        reposScore
       }
     }
   }
