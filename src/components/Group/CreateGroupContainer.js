@@ -6,24 +6,22 @@ import "./Group.css";
 import ProgressBar from "../ProgressBar";
 
 export default class CreateGroupContainer extends React.Component {
-  // onClick = () => {
-  //   return (
-  //     <Mutation
-  //       mutation={CREATE_GROUP_WITH_USERS}
-  //       variables={{
-  //         input: {
-  //           groupName: "wait",
-  //           userNames: this.props.match.params.groupMembers.split("&")
-  //         }
-  //       }}
-  //       ignoreResults
-  //     >
-  //       {(createGroup, { data }) => {
-  //         createGroup();
-  //       }}
-  //     </Mutation>
-  //   );
-  // };
+  state = {
+    groupName: ""
+  };
+
+  onSubmit = async event => {
+    event.preventDefault();
+    await this.setState({
+      groupName: ""
+    });
+  };
+
+  onChange = event => {
+    this.setState({
+      groupName: event.target.value
+    });
+  };
 
   render() {
     const users = [];
@@ -62,11 +60,33 @@ export default class CreateGroupContainer extends React.Component {
             </Query>
           </div>
         ))}
-        {/* <div className="button-group">
-          <button className="create-group" onClick={e => this.onClick(e)}>
-            Create Group
-          </button>
-        </div> */}
+        <div className="button-group">
+          <Mutation
+            mutation={CREATE_GROUP_WITH_USERS}
+            variables={{
+              input: {
+                groupName: this.state.groupName,
+                userNames: this.props.match.params.groupMembers.split("&")
+              }
+            }}
+          >
+            {mut => (
+              <form onSubmit={this.onSubmit}>
+                <input
+                  type="text"
+                  placeholder="Enter group name"
+                  onChange={this.onChange}
+                  className="form__group"
+                  name="groupName"
+                  value={this.state.groupName}
+                ></input>
+                <button className="create-group" onClick={mut}>
+                  Create Group
+                </button>
+              </form>
+            )}
+          </Mutation>
+        </div>
       </div>
     );
   }
