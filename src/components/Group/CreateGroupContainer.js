@@ -6,6 +6,24 @@ import "./Group.css";
 import ProgressBar from "../ProgressBar";
 
 export default class CreateGroupContainer extends React.Component {
+  state = {
+    groupName: ""
+  };
+
+  onSubmit = async event => {
+    event.preventDefault();
+    await this.setState({
+      groupName: ""
+    });
+    console.log(this.state);
+  };
+
+  onChange = event => {
+    this.setState({
+      groupName: event.target.value
+    });
+  };
+
   render() {
     const users = [];
     return (
@@ -48,15 +66,25 @@ export default class CreateGroupContainer extends React.Component {
             mutation={CREATE_GROUP_WITH_USERS}
             variables={{
               input: {
-                groupName: "wait",
+                groupName: this.state.groupName,
                 userNames: this.props.match.params.groupMembers.split("&")
               }
             }}
           >
             {mut => (
-              <button className="create-group" onClick={mut}>
-                Create Group
-              </button>
+              <form onSubmit={this.onSubmit}>
+                <input
+                  type="text"
+                  placeholder="Enter group name"
+                  onChange={this.onChange}
+                  className="form__group"
+                  name="groupName"
+                  value={this.state.groupName}
+                ></input>
+                <button className="create-group" onClick={mut}>
+                  Create Group
+                </button>
+              </form>
             )}
           </Mutation>
         </div>
