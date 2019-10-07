@@ -10,8 +10,9 @@ import { ApolloClient } from "apollo-client";
 import { HttpLink } from "apollo-link-http";
 import { InMemoryCache } from "apollo-cache-inmemory";
 
-const url = `https://gitgud-server.herokuapp.com/graphql`;
-// const url = `http://localhost:3030/graphql`;
+// const url = `https://gitgud-server.herokuapp.com/graphql`;
+const url = `http://localhost:3030/graphql`;
+// const url = "https://damp-thicket-91004.herokuapp.com";
 
 const httpLink = {
   uri: url,
