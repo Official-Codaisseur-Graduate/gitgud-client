@@ -23,7 +23,6 @@ class FormContainer extends React.Component {
   };
 
   onChange = event => {
-    console.log(this.state.search);
     this.setState({ search: event.target.value });
   };
 
