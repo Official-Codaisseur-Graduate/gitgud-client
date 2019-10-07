@@ -15,7 +15,6 @@ export default class CreateGroupContainer extends React.Component {
     await this.setState({
       groupName: ""
     });
-    console.log(this.state);
   };
 
   onChange = event => {
