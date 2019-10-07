@@ -7,28 +7,14 @@ import ProgressBar from "../ProgressBar";
 
 export default class CreateGroupContainer extends React.Component {
   state = {
-    groupName: "",
-    tooLong: false,
-    tooShort: false
+    groupName: ""
   };
 
   onSubmit = async event => {
     event.preventDefault();
-    if (this.state.groupName && this.state.groupName.length > 20) {
-      this.setState({
-        tooLong: true
-      });
-    } else if (this.state.groupName && this.state.groupName.length <= 3) {
-      this.setState({
-        tooShort: true
-      });
-    } else {
-      this.setState({
-        tooShort: false,
-        tooLong: false,
-        groupName: ""
-      });
-    }
+    await this.setState({
+      groupName: ""
+    });
   };
 
   onChange = event => {
@@ -93,16 +79,11 @@ export default class CreateGroupContainer extends React.Component {
                   className="form__group"
                   name="groupName"
                   value={this.state.groupName}
-                  maxLength="20"
+                  title="Name should be at least 4 characters and maximum 20"
                   pattern={[
-                    "^.{3,}$" // min 3 chars
+                    "^.{4,20}$" // min 3 chars, max 20
                   ]}
                 ></input>
-                {this.state.tooLong ? (
-                  <p className="warning">Group name is too long</p>
-                ) : this.state.tooShort ? (
-                  <p className="warning">Group name is too short</p>
-                ) : null}
                 <button className="create-group" onClick={mut}>
                   Create Group
                 </button>
