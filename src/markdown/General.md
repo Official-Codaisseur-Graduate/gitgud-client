@@ -1,7 +1,11 @@
-# TEST
+## TO BE DONE
 
-## Super test
+![image git](img/github.jpg)
 
-yaaay
+# Repository description
 
-### Testy teest
+# Readme
+
+# Gitignore
+
+https://guides.github.com/features/wikis/

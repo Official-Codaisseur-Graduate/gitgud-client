@@ -6,6 +6,9 @@ import ProfileStatsContainer from "./components/ProfileStats/ProfileStatsContain
 import LandingPage from "./components/LandingPage";
 import SingleRepoStatsContainer from "./components/SingleRepoStats/SingleRepoStatsContainer";
 import Wiki from "./components/Wiki";
+import GroupFormContainer from "./components/GroupForm/GroupFormContainer";
+import GroupStatsContainer from "./components/Group/GroupStatsContainer";
+import CreateGroupContainer from "./components/Group/CreateGroupContainer";
 
 class App extends Component {
   render() {
@@ -20,6 +23,13 @@ class App extends Component {
           component={SingleRepoStatsContainer}
         />
         <Route path="/wiki/:section" component={Wiki} />
+        <Route exact path="/group/" component={GroupFormContainer} />
+        <Route
+          path="/create-group/:groupMembers"
+          component={CreateGroupContainer}
+        />
+        <Route path="/group/:groupName" component={GroupStatsContainer} />
+
         <FeedbackButton />
       </div>
     );

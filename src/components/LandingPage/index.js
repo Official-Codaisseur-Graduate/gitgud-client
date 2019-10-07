@@ -1,11 +1,12 @@
 import * as React from "react";
 import "./LandingPage.css";
+import { Link } from "react-router-dom";
 
 export default function LandingPage(props) {
   return (
     <section className="landing-page">
       <div className="landing-page__header">
-        <p className='logo'>GitGud</p>
+        <p className="logo">GitGud</p>
         <p>A validator of your GitHub profile and Git use </p>
         <p>
           designed to provide feedback for job seekers and graduated students
@@ -17,8 +18,8 @@ export default function LandingPage(props) {
           <b>First it checks your public profile</b> - A good GitHub profile can
           impress an interviewer.
         </p>
-        <b>Secondly it validates your pinned repositories on how you use Git</b>-
-        Proper use of version control with Git can show that you are a
+        <b>Secondly it validates your pinned repositories on how you use Git</b>
+        - Proper use of version control with Git can show that you are a
         structured worker and is able to work in development teams. We chose to
         focus on your pinned repos because you can present certain project as
         you portfolio for potential employers
@@ -29,16 +30,16 @@ export default function LandingPage(props) {
           You can use GitHub as your resume for job hunting. For developers it
           is important to code regularly, be able to work in teams, communicate
           properly and continue with a learning curve. Obviously this is
-          something you can say you are the best in and write it on your resume, but with
-          GitHub you are able to show that you can do this. Which will give you
-          headsup on your next interview.
+          something you can say you are the best in and write it on your resume,
+          but with GitHub you are able to show that you can do this. Which will
+          give you headsup on your next interview.
         </p>
         <p>
           Unfortunately many recent graduates or job seekers lack a proper
           GitHub profile. And as Codaisseur teachers can acknowledge, the
-          feedback they get is repetitive. Therefore we developed this tool and provide
-          constructive feedback which is based on various resources accross the internet
-          and uses live data from the GitHub API.
+          feedback they get is repetitive. Therefore we developed this tool and
+          provide constructive feedback which is based on various resources
+          accross the internet and uses live data from the GitHub API.
         </p>
       </div>
 
@@ -53,7 +54,7 @@ export default function LandingPage(props) {
         <div className=" profiles">
           <div className="profile">
             <img
-            src="https://avatars3.githubusercontent.com/u/47144624?s=460&v=4"
+              src="https://avatars3.githubusercontent.com/u/47144624?s=460&v=4"
               alt="Oleksandra"
             />
             <h3>Oleksandra Akulshyna</h3>
@@ -145,7 +146,7 @@ export default function LandingPage(props) {
               src="https://media.licdn.com/dms/image/C5603AQHMWTWOkUpAMA/profile-displayphoto-shrink_200_200/0?e=1573084800&v=beta&t=-D1eWKMrK3ePh17Az-j25R5nz7BIoqf3E3Js9Rj4BIY"
               alt="Mario"
             />
-            <h3>Mario <br/> Nezmah</h3>
+            <h3>Mario Nezmah</h3>
             <a
               href="https://www.linkedin.com/in/mario-nezmah/"
               target="_blank"
@@ -161,54 +162,123 @@ export default function LandingPage(props) {
               GitHub
             </a>
           </div>
-
+          <div className="profile">
+            <img
+              src="https://media.licdn.com/dms/image/C5603AQH7j-yAoyBkZw/profile-displayphoto-shrink_800_800/0?e=1576108800&v=beta&t=6-5x-slLnPqMpDqau0MxwZdWfo9MryeOEleYoi_XmLg"
+              alt="Olga"
+            />
+            <h3>Olga Lokoshchenko</h3>
+            <a
+              href="https://www.linkedin.com/in/olga-lokoshchenko-9a14b5159/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="https://github.com/loklock"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              GitHub
+            </a>
+          </div>
+          <div className="profile">
+            <img
+              src="https://media.licdn.com/dms/image/C4D03AQGH5EDAs2uWMQ/profile-displayphoto-shrink_200_200/0?e=1576108800&v=beta&t=jUErTMt_evxZ_FVh9KwYe7mPL3F__oc-1pcF-KoBO70"
+              alt="Olga"
+            />
+            <h3>Andreea Cucos</h3>
+            <a
+              href="https://www.linkedin.com/in/andreeacucos/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="https://github.com/AndreeaCcss"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              GitHub
+            </a>
+          </div>
         </div>
       </div>
-      <div className="landing-page__description" id='wiki' >
+      <div className="landing-page__description" id="wiki">
         <h2>WIKI</h2>
         <b>Repository Description</b>
         <p>
-          <a href="https://stackoverflow.com/questions/6866838/what-should-be-in-the-git-description-file"
-          rel="noopener noreferrer"
-          target="_blank"
-          >What should be in a git descripton file</a>
-          
+          <a
+            href="https://stackoverflow.com/questions/6866838/what-should-be-in-the-git-description-file"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            What should be in a git descripton file
+          </a>
         </p>
         <b>.gitignore</b>
         <p>
-          <a href="https://help.github.com/en/articles/ignoring-files"
-          rel="noopener noreferrer"
-          target="_blank"
-          >Ignoring files</a>
-          
+          <a
+            href="https://help.github.com/en/articles/ignoring-files"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Ignoring files
+          </a>
         </p>
         <b>ReadMe</b>
         <p>
-          <a href="https://stories.devacademy.la/how-to-use-github-like-a-proper-human-being-1a9c895c4e13"
-          rel="noopener noreferrer"
-          target="_blank"
-          >How to use GitHub like a proper human being</a>
-          <br/>
-          <a href="https://gist.github.com/PurpleBooth/109311bb0361f32d87a2"
-          rel="noopener noreferrer"
-          target="_blank"
-          >Template</a>
+          <a
+            href="https://stories.devacademy.la/how-to-use-github-like-a-proper-human-being-1a9c895c4e13"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            How to use GitHub like a proper human being
+          </a>
+          <br />
+          <a
+            href="https://gist.github.com/PurpleBooth/109311bb0361f32d87a2"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Template
+          </a>
         </p>
         <b>Branching</b>
         <p>
-          <a href="https://nvie.com/posts/a-successful-git-branching-model/"
-          rel="noopener noreferrer"
-          target="_blank"
-          >A successful Git branching model</a>
-          
+          <a
+            href="https://nvie.com/posts/a-successful-git-branching-model/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            A successful Git branching model
+          </a>
         </p>
         <b>Commit messages</b>
         <p>
-          <a href="https://chris.beams.io/posts/git-commit/"
-          rel="noopener noreferrer"
-          target="_blank"
-          >Elaborate explanation of good commit messages</a>
-          
+          <a
+            href="https://chris.beams.io/posts/git-commit/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Elaborate explanation of good commit messages
+          </a>
+        </p>
+        <b>A few tips from Rein Op't Land</b>
+        <p>
+          <Link to="/wiki/profile">Profile</Link>
+        </p>
+        <p>
+          <Link to="/wiki/general">Description, readme and gitignore</Link>
+        </p>
+
+        <p>
+          <Link to="/wiki/commits">Commits</Link>
+        </p>
+        <p>
+          <Link to="/wiki/branches">Branches</Link>
         </p>
       </div>
     </section>
