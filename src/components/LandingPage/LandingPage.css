@@ -3,11 +3,17 @@
   text-transform: uppercase;
   display: inline-block;
   font-weight: 800;
-    background-image: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
-    -webkit-background-clip: text;
-    color: transparent;
-    letter-spacing: .2rem;
-    margin: 1rem .3rem 0 .3rem;
+  background-image: linear-gradient(
+    to right,
+    #667db6,
+    #0082c8,
+    #0082c8,
+    #667db6
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: 0.2rem;
+  margin: 1rem 0.3rem 0 0.3rem;
 }
 
 .logo-small {
@@ -16,9 +22,8 @@
 }
 
 .landing-page__header {
-
   text-transform: uppercase;
-  letter-spacing: .1rem;
+  letter-spacing: 0.1rem;
   margin-bottom: 4rem;
 }
 
@@ -27,9 +32,9 @@
 }
 
 .landing-page {
-    width: 60%;
-    margin: 20px auto 0;
-    text-align: left;
+  width: 60%;
+  margin: 20px auto 0;
+  text-align: left;
 }
 
 .landing-page__description {
@@ -41,34 +46,30 @@
 }
 
 .profiles {
-  display: flex;
-  justify-content: space-evenly;
-  flex-flow: column wrap;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .profile {
   text-align: center;
   padding: 10px;
-  flex-basis: 100%;
 }
 
 .profile a,
 .profile a:visited,
 .landing-page__description a,
-.landing-page__description a:visited  {
+.landing-page__description a:visited {
   display: inline-block;
   color: #0082c8;
   text-decoration: none;
   cursor: pointer;
-  padding: .3rem;
-  transition: all .2s;
+  padding: 0.3rem;
+  transition: all 0.2s;
 }
 
 .profile a:hover,
-.landing-page__description a:hover
-{
-  color: #00937B;
+.landing-page__description a:hover {
+  color: #00937b;
   text-decoration: underline;
 }
 

@@ -1,10 +1,13 @@
+## TO BE DONE
+
 # Profile
 
-![image grumpy](img/grumpy.jpg)
-# Readme
+![image git](img/github.jpg)
 
 ```js
 function greet(name) {
   console.log("Hello " + name);
 }
 ```
+
+https://hackernoon.com/how-to-optimize-your-github-profile-9540f338b2c9
