@@ -18,7 +18,7 @@ A validator of your GitHub profile and usage, designed to provide feedback for j
 1. It checks your public profile - A good GitHub profile can impress an interviewer.
 2. It validates your pinned repositories on how you use Git - Proper use of version control with Git can show that you are a structured worker and are able to work in development teams. We chose to focus on your pinned repos because you can present certain project as your portfolio for potential employers
 3. It is possible to go to individual repositories and look at their ratings, this can be done by typing githubname/reponame in the form.
-4. It is also possible to search for multiple public profiles and create a group with the users and their scores.
+4. It is also possible to search for multiple public profiles by typing the usernames separated by a space and clicking Go! When the results are in you can create a group with the users and their scores.
 5. It supports searching for previously created groups.
 6. It supports markdown files which include guidelines on how to build and polish your GitHub profile and repositories.
 
