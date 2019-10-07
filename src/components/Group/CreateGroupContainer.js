@@ -79,6 +79,12 @@ export default class CreateGroupContainer extends React.Component {
                   className="form__group"
                   name="groupName"
                   value={this.state.groupName}
+                  maxLength="20"
+                  title="nanana"
+                  pattern={[
+                    '^.{3,}$', // min 3 chars
+                  ]}
+                  
                 ></input>
                 <button className="create-group" onClick={mut}>
                   Create Group
