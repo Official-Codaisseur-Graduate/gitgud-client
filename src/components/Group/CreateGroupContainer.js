@@ -79,6 +79,10 @@ export default class CreateGroupContainer extends React.Component {
                   className="form__group"
                   name="groupName"
                   value={this.state.groupName}
+                  title="Name should be at least 4 characters and maximum 20"
+                  pattern={[
+                    "^.{4,20}$" // min 3 chars, max 20
+                  ]}
                 ></input>
                 <button className="create-group" onClick={mut}>
                   Create Group
