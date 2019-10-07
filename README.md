@@ -20,6 +20,7 @@ A validator of your GitHub profile and usage, designed to provide feedback for j
 3. It is possible to go to individual repositories and look at their ratings, this can be done by typing githubname/reponame in the form.
 4. It is also possible to search for multiple public profiles and create a group with the users and their scores.
 5. It supports searching for previously created groups.
+6. It supports markdown files which include guidelines on how to build and polish your GitHub profile and repositories.
 
 ## Why
 
@@ -52,6 +53,7 @@ A validator of your GitHub profile and usage, designed to provide feedback for j
 - Extra feature: Feedback on the commit usage of individuals when there is multiple contributors on the project.
 - Improve feedback when creating a group
 - Provide matching information in the markdown files
+- Adjust scores for repositories depending on proper use of .gitignore file and README
 
 ## How to setup
 
