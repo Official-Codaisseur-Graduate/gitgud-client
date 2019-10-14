@@ -2,6 +2,7 @@
 
 [CHECK THE APP](https://gitgud.netlify.com/) <br>
 A validator of your GitHub profile and usage, designed to provide feedback for job seekers. <br>
+You can find the repository for the server side [here](https://github.com/Official-Codaisseur-Graduate/gitgud-server).
 
 ![](gitgud.gif)
 
@@ -51,9 +52,9 @@ A validator of your GitHub profile and usage, designed to provide feedback for j
 - Make app responsive (adjust for other displays).
 - We encourage to display the returned languages data with a pie chart in the Git Use block.
 - Extra feature: Feedback on the commit usage of individuals when there is multiple contributors on the project.
-- Improve feedback when creating a group
-- Provide matching information in the markdown files
-- Adjust scores for repositories depending on proper use of .gitignore file and README
+- Improve feedback when creating a group.
+- Provide matching information in the markdown files.
+- Adjust scores for repositories depending on proper use of .gitignore file and README.
 
 ## How to setup
 
